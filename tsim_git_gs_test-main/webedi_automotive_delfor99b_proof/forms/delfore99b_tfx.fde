@@ -1,0 +1,1332 @@
+# $Header: /home/businesscontent/actis/bom/global/forms_tfx/delfore99b_tfx.fde,v 1.1 2009-08-21 07:36:13 jte Exp $
+#
+#------------------------------------------------------------------------------#
+# EDIFACT - M_DELFOR_D99B                                                      #
+#------------------------------------------------------------------------------#
+#!TFX
+
+M_DELFOR_D99B 	[?((KEY_EXISTS(0,"UNA") | KEY_EXISTS(0,"UNB")) = 1)].
+
+M_DELFOR_D99B:
+	S_UNA[0:"UNA"] *1 	# Service String advice
+	S_UNB[0:"UNB"] +1 	# Interchange Header
+	S_UNG[0:"UNG"] * 	# Functional Group Header
+	G_SG0[0:"UNH"] + 	# Segmentgruppe 0
+	S_UNE[0:"UNE"] *1 	# Functional Group Trailer
+	S_UNZ[0:"UNZ"] +1 	# Interchange Trailer
+	S_DELIMITER[0:"delimiter"] *1; 	# Dummy Segment for DELIMITER definitions
+
+G_SG0:
+	S_UNH[0:"UNH"] +1  	# Message header
+	S_BGM[0:"BGM"] +1  	# Beginning of message
+	S_DTM[0:"DTM"] +10  	# Date/time/period
+	S_FTX[0:"FTX"] *5  	# Free text
+	G_SG1[0:"RFF"] *10  	# Segmentgruppe 1
+	G_SG2[0:"NAD"] *99  	# Segmentgruppe 2
+	G_SG5[0:"TDT"] *10  	# Segmentgruppe 5
+	G_SG6[0:"GIS"] *9999  	# Segmentgruppe 6
+	S_UNT[0:"UNT"] +1; 	# Message trailer
+
+G_SG1:
+	S_RFF[0:"RFF"] +1  	# Reference
+	S_DTM[0:"DTM"] *1; 	# Date/time/period
+
+G_SG2:
+	S_NAD[0:"NAD"] +1  	# Name and address
+	G_SG3[0:"RFF"] *10  	# Segmentgruppe 3
+	G_SG4[0:"CTA"] *5; 	# Segmentgruppe 4
+
+G_SG3:
+	S_RFF[0:"RFF"] +1  	# Reference
+	S_DTM[0:"DTM"] *1; 	# Date/time/period
+
+G_SG4:
+	S_CTA[0:"CTA"] +1  	# Contact information
+	S_COM[0:"COM"] *5; 	# Communication contact
+
+G_SG5:
+	S_TDT[0:"TDT"] +1  	# Details of transport
+	S_DTM[0:"DTM"] *5; 	# Date/time/period
+
+G_SG6:
+	S_GIS[0:"GIS"] +1  	# General indicator
+	G_SG7[0:"NAD"] *1  	# Segmentgruppe 7
+	G_SG12[0:"LIN"] *9999; 	# Segmentgruppe 12
+
+G_SG7:
+	S_NAD[0:"NAD"] +1  	# Name and address
+	S_LOC[0:"LOC"] *10  	# Place/location identification
+	S_FTX[0:"FTX"] *5  	# Free text
+	G_SG8[0:"RFF"] *10  	# Segmentgruppe 8
+	G_SG9[0:"DOC"] *10  	# Segmentgruppe 9
+	G_SG10[0:"CTA"] *5  	# Segmentgruppe 10
+	G_SG11[0:"TDT"] *10; 	# Segmentgruppe 11
+
+G_SG8:
+	S_RFF[0:"RFF"] +1  	# Reference
+	S_DTM[0:"DTM"] *1; 	# Date/time/period
+
+G_SG9:
+	S_DOC[0:"DOC"] +1  	# Document/message details
+	S_DTM[0:"DTM"] *10; 	# Date/time/period
+
+G_SG10:
+	S_CTA[0:"CTA"] +1  	# Contact information
+	S_COM[0:"COM"] *5; 	# Communication contact
+
+G_SG11:
+	S_TDT[0:"TDT"] +1  	# Details of transport
+	S_DTM[0:"DTM"] *5; 	# Date/time/period
+
+G_SG12:
+	S_LIN[0:"LIN"] +1  	# Line item
+	S_PIA[0:"PIA"] *10  	# Additional product id
+	S_IMD[0:"IMD"] *10  	# Item description
+	S_MEA[0:"MEA"] *5  	# Measurements
+	S_ALI[0:"ALI"] *5  	# Additional information
+	S_GIN[0:"GIN"] *999  	# Goods identity number
+	S_GIR[0:"GIR"] *999  	# Related identification numbers
+	S_LOC[0:"LOC"] *999  	# Place/location identification
+	S_DTM[0:"DTM"] *5  	# Date/time/period
+	S_FTX[0:"FTX"] *5  	# Free text
+	G_SG13[0:"RFF"] *10  	# Segmentgruppe 13
+	G_SG14[0:"TDT"] *10  	# Segmentgruppe 14
+	G_SG15[0:"QTY"] *99  	# Segmentgruppe 15
+	G_SG17[0:"SCC"] *999  	# Segmentgruppe 17
+	G_SG20[0:"PAC"] *99  	# Segmentgruppe 20
+	G_SG22[0:"NAD"] *999; 	# Segmentgruppe 22
+
+G_SG13:
+	S_RFF[0:"RFF"] +1  	# Reference
+	S_DTM[0:"DTM"] *1; 	# Date/time/period
+
+G_SG14:
+	S_TDT[0:"TDT"] +1  	# Details of transport
+	S_TMD[0:"TMD"] *1  	# Transport movement details
+	S_DTM[0:"DTM"] *5; 	# Date/time/period
+
+G_SG15:
+	S_QTY[0:"QTY"] +1  	# Quantity
+	S_DTM[0:"DTM"] *2  	# Date/time/period
+	G_SG16[0:"RFF"] *10; 	# Segmentgruppe 16
+
+G_SG16:
+	S_RFF[0:"RFF"] +1  	# Reference
+	S_DTM[0:"DTM"] *1; 	# Date/time/period
+
+G_SG17:
+	S_SCC[0:"SCC"] +1  	# Scheduling conditions
+	G_SG18[0:"QTY"] *999; 	# Segmentgruppe 18
+
+G_SG18:
+	S_QTY[0:"QTY"] +1  	# Quantity
+	S_DTM[0:"DTM"] *2  	# Date/time/period
+	G_SG19[0:"RFF"] *10; 	# Segmentgruppe 19
+
+G_SG19:
+	S_RFF[0:"RFF"] +1  	# Reference
+	S_DTM[0:"DTM"] *1; 	# Date/time/period
+
+G_SG20:
+	S_PAC[0:"PAC"] +1  	# Package
+	S_MEA[0:"MEA"] *10  	# Measurements
+	S_QTY[0:"QTY"] *5  	# Quantity
+	S_DTM[0:"DTM"] *5  	# Date/time/period
+	G_SG21[0:"PCI"] *10; 	# Segmentgruppe 21
+
+G_SG21:
+	S_PCI[0:"PCI"] +1  	# Package identification
+	S_GIN[0:"GIN"] *10; 	# Goods identity number
+
+G_SG22:
+	S_NAD[0:"NAD"] +1  	# Name and address
+	S_LOC[0:"LOC"] *10  	# Place/location identification
+	S_FTX[0:"FTX"] *5  	# Free text
+	G_SG23[0:"DOC"] *10  	# Segmentgruppe 23
+	G_SG24[0:"CTA"] *5  	# Segmentgruppe 24
+	G_SG25[0:"QTY"] *10  	# Segmentgruppe 25
+	G_SG27[0:"SCC"] +999  	# Segmentgruppe 27
+	G_SG30[0:"TDT"] *10; 	# Segmentgruppe 30
+
+G_SG23:
+	S_DOC[0:"DOC"] +1  	# Document/message details
+	S_DTM[0:"DTM"] *1; 	# Date/time/period
+
+G_SG24:
+	S_CTA[0:"CTA"] +1  	# Contact information
+	S_COM[0:"COM"] *5; 	# Communication contact
+
+G_SG25:
+	S_QTY[0:"QTY"] +1  	# Quantity
+	S_DTM[0:"DTM"] *2  	# Date/time/period
+	G_SG26[0:"RFF"] *10; 	# Segmentgruppe 26
+
+G_SG26:
+	S_RFF[0:"RFF"] +1  	# Reference
+	S_DTM[0:"DTM"] *1; 	# Date/time/period
+
+G_SG27:
+	S_SCC[0:"SCC"] +1  	# Scheduling conditions
+	G_SG28[0:"QTY"] +999; 	# Segmentgruppe 28
+
+G_SG28:
+	S_QTY[0:"QTY"] +1  	# Quantity
+	S_DTM[0:"DTM"] *2  	# Date/time/period
+	G_SG29[0:"RFF"] *10; 	# Segmentgruppe 29
+
+G_SG29:
+	S_RFF[0:"RFF"] +1  	# Reference
+	S_DTM[0:"DTM"] *1; 	# Date/time/period
+
+G_SG30:
+	S_TDT[0:"TDT"] +1  	# Details of transport
+	S_DTM[0:"DTM"] *5; 	# Date/time/period
+
+
+
+
+#------------------------------------------------------------------------------#
+# Segmente                                                                     #
+#------------------------------------------------------------------------------#
+
+#------------------------------------------------------------------------------#
+# UNA Service String advice                                                    #
+#------------------------------------------------------------------------------#
+
+S_UNA :
+	idUNA +1 	# KEY
+	Comp_Sep +1 	# COMPONENT DATA ELEMENT SEPARATOR
+	Data_Sep +1 	# DATA ELEMENT SEPARATOR
+	Decimal_Notation +1 	# DECIMAL NOTATION
+	Release_Ind +1 	# RELEASE INDICATOR
+	Filler +1 	# Reserved for future use
+	Seg_Terminator +1;	# SEGMENT TERMINATOR
+
+
+
+#------------------------------------------------------------------------------#
+# UNB Interchange Header                                                       #
+#------------------------------------------------------------------------------#
+
+S_UNB {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idUNB +1 	# KEY
+	C_S001 +1 	# SYNTAX IDENTIFIER
+	C_S002 +1 	# INTERCHANGE SENDER
+	C_S003 +1 	# INTERCHANGE RECIPIENT
+	C_S004 +1 	# DATE/TIME OF PREPARATION
+	D_0020 +1 	# INTERCHANGE CONTROL REFERENCE
+	C_S005 *1 	# RECIPIENTS REFERENCE, PASSWORD
+	D_0026 *1 	# APPLICATION REFERENCE
+	D_0029 *1 	# PROCESSING PRIORITY CODE
+	D_0031 *1 	# ACKNOWLEDGEMENT REQUEST
+	D_0032 *1 	# COMMUNICATIONS AGREEMENT ID
+	D_0035 *1;	# TEST INDICATOR
+
+# SYNTAX IDENTIFIER
+C_S001 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_0001 +1 	# Syntax identifier
+	D_0002 +1;	# Syntax version number
+
+# INTERCHANGE SENDER
+C_S002 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_0004 +1 	# Sender identification
+	D_0007 *1 	# Partner identification code qualifier
+	D_0008 *1;	# Address for reverse routing
+
+# INTERCHANGE RECIPIENT
+C_S003 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_0010 +1 	# Recipient Identification
+	D_0007 *1 	# Partner identification code qualifier
+	D_0014 *1;	# Routing address
+
+# DATE/TIME OF PREPARATION
+C_S004 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_0017 +1 	# Date
+	D_0019 +1;	# Time
+
+# RECIPIENTS REFERENCE, PASSWORD
+C_S005 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_0022 +1 	# Recipient's reference/password 
+	D_0025 *1;	# Recipient's reference/password qualifier
+
+
+
+#------------------------------------------------------------------------------#
+# UNG Functional Group Header                                                  #
+#------------------------------------------------------------------------------#
+
+S_UNG {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep,DEL_0051=Data_Sep}:
+	idUNG +1 	# KEY
+	D_0038 +1 	# FUNCTIONAL GROUP IDENTIFICATION
+	C_S006 +1 	# APPLICATION SENDER'S IDENTIFICATION
+	C_S007 +1 	# APPLICATION RECIPIENTS IDENTIFICATION
+	C_S004 +1 	# DATE/TIME OF PREPARATION
+	D_0048 +1 	# FUNCTIONAL GROUP REFERENCE NUMBER
+	D_0051 +1 	# CONTROLLING AGENCY
+	C_S008 +1 	# MESSAGE VERSION
+	D_0058 +1;	# APPLICATION PASSWORD
+
+# APPLICATION SENDER'S IDENTIFICATION
+C_S006 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_0040 +1 	# Application sender's identification
+	D_0007 *1;	# Partner identification code qualifier
+
+# APPLICATION RECIPIENTS IDENTIFICATION
+C_S007 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_0044 +1 	# Recipient's identification
+	D_0007 *1;	# Partner identification code qualifier
+
+# MESSAGE VERSION
+C_S008 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_0052 +1 	# Message version number
+	D_0054 +1 	# Message release number
+	D_0057 *1;	# Association assigned Code
+
+
+
+#------------------------------------------------------------------------------#
+# UNH Message header                                                           #
+#------------------------------------------------------------------------------#
+
+S_UNH {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idUNH +1 	# KEY
+	D_0062 +1 	# MESSAGE REFERENCE NUMBER
+	C_S009 +1 	# MESSAGE IDENTIFIER
+	D_0068 *1 	# COMMON ACCESS REFERENCE
+	C_S010 *1;	# STATUS OF THE TRANSFER
+
+# MESSAGE IDENTIFIER
+C_S009 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep,DEL_0051=Comp_Sep}:
+	D_0065 +1 	# Message type
+	D_0052 +1 	# Message version number
+	D_0054 +1 	# Message release number
+	D_0051 +1 	# CONTROLLING AGENCY
+	D_0057 *1;	# Association assigned Code
+
+# STATUS OF THE TRANSFER
+C_S010 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_0070 +1 	# Sequence of transfers
+	D_0073 *1;	# First and last transfer
+
+
+
+#------------------------------------------------------------------------------#
+# BGM Beginning of message                                                     #
+#------------------------------------------------------------------------------#
+
+S_BGM {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idBGM +1 	# KEY
+	C_C002 *1 	# DOCUMENT/MESSAGE NAME
+	C_C106 *1 	# DOCUMENT/MESSAGE IDENTIFICATION
+	D_1225 *1 	# MESSAGE FUNCTION CODE
+	D_4343 *1;	# RESPONSE TYPE CODE
+
+# DOCUMENT/MESSAGE NAME
+C_C002 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_1001 *1 	# Document name code
+	D_1131 *1 	# Code list identification code
+	D_3055 *1 	# Code list responsible agency code
+	D_1000 *1;	# Document name
+
+# DOCUMENT/MESSAGE IDENTIFICATION
+C_C106 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_1004 *1 	# Document/message number
+	D_1056 *1 	# Version
+	D_1060 *1;	# Revision number
+
+
+
+#------------------------------------------------------------------------------#
+# DTM Date/time/period                                                         #
+#------------------------------------------------------------------------------#
+
+S_DTM {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idDTM +1 	# KEY
+	C_C507 +1;	# DATE/TIME/PERIOD
+
+# DATE/TIME/PERIOD
+C_C507 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_2005 +1 	# Date/time/period function code qualifier
+	D_2380 *1 	# Date/time/period value
+	D_2379 *1;	# Date/time/period format code
+
+
+
+#------------------------------------------------------------------------------#
+# FTX Free text                                                                #
+#------------------------------------------------------------------------------#
+
+S_FTX {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep,DEL_3453=Data_Sep}:
+	idFTX +1 	# KEY
+	D_4451 +1 	# TEXT SUBJECT CODE QUALIFIER
+	D_4453 *1 	# TEXT FUNCTION, CODED
+	C_C107 *1 	# TEXT REFERENCE
+	C_C108 *1 	# TEXT LITERAL
+	D_3453 *1 	# LANGUAGE NAME CODE
+	D_4447 *1;	# TEXT FORMATTING, CODED
+
+# TEXT REFERENCE
+C_C107 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_4441 +1 	# Free text value code
+	D_1131 *1 	# Code list identification code
+	D_3055 *1;	# Code list responsible agency code
+
+# TEXT LITERAL
+C_C108 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_4440 +1 	# Free text value
+	D_4440 *1 	# Free text value
+	D_4440 *1 	# Free text value
+	D_4440 *1 	# Free text value
+	D_4440 *1;	# Free text value
+
+
+
+#------------------------------------------------------------------------------#
+# RFF Reference                                                                #
+#------------------------------------------------------------------------------#
+
+S_RFF {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idRFF +1 	# KEY
+	C_C506 +1;	# REFERENCE
+
+# REFERENCE
+C_C506 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_1153 +1 	# Reference function code qualifier
+	D_1154 *1 	# Reference identifier
+	D_1156 *1 	# Line number
+	D_4000 *1 	# Reference version identifier
+	D_1060 *1;	# Revision number
+
+
+
+#------------------------------------------------------------------------------#
+# NAD Name and address                                                         #
+#------------------------------------------------------------------------------#
+
+S_NAD {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idNAD +1 	# KEY
+	D_3035 +1 	# PARTY FUNCTION CODE QUALIFIER
+	C_C082 *1 	# PARTY IDENTIFICATION DETAILS
+	C_C058 *1 	# NAME AND ADDRESS
+	C_C080 *1 	# PARTY NAME
+	C_C059 *1 	# STREET
+	D_3164 *1 	# CITY NAME
+	C_C819 *1 	# COUNTRY SUB-ENTITY DETAILS
+	D_3251 *1 	# POSTAL IDENTIFICATION CODE
+	D_3207 *1;	# COUNTRY NAME CODE
+
+# PARTY IDENTIFICATION DETAILS
+C_C082 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3039 +1 	# Party identifier
+	D_1131 *1 	# Code list identification code
+	D_3055 *1;	# Code list responsible agency code
+
+# NAME AND ADDRESS
+C_C058 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3124 +1 	# Name and address line
+	D_3124 *1 	# Name and address line
+	D_3124 *1 	# Name and address line
+	D_3124 *1 	# Name and address line
+	D_3124 *1;	# Name and address line
+
+# PARTY NAME
+C_C080 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3036 +1 	# Party name
+	D_3036 *1 	# Party name
+	D_3036 *1 	# Party name
+	D_3036 *1 	# Party name
+	D_3036 *1 	# Party name
+	D_3045 *1;	# Party name format code
+
+# STREET
+C_C059 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3042 +1 	# Street and number/p.o. box
+	D_3042 *1 	# Street and number/p.o. box
+	D_3042 *1 	# Street and number/p.o. box
+	D_3042 *1;	# Street and number/p.o. box
+
+# COUNTRY SUB-ENTITY DETAILS
+C_C819 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3229 *1 	# Country sub-entity name code
+	D_1131 *1 	# Code list identification code
+	D_3055 *1 	# Code list responsible agency code
+	D_3228 *1;	# Country sub-entity name
+
+
+
+#------------------------------------------------------------------------------#
+# CTA Contact information                                                      #
+#------------------------------------------------------------------------------#
+
+S_CTA {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idCTA +1 	# KEY
+	D_3139 *1 	# CONTACT FUNCTION CODE
+	C_C056 *1;	# DEPARTMENT OR EMPLOYEE DETAILS
+
+# DEPARTMENT OR EMPLOYEE DETAILS
+C_C056 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3413 *1 	# Department or employee identification
+	D_3412 *1;	# Department or employee
+
+
+
+#------------------------------------------------------------------------------#
+# COM Communication contact                                                    #
+#------------------------------------------------------------------------------#
+
+S_COM {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idCOM +1 	# KEY
+	C_C076 +3;	# COMMUNICATION CONTACT
+
+# COMMUNICATION CONTACT
+C_C076 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3148 +1 	# Communication number
+	D_3155 +1;	# Communication number code qualifier
+
+
+
+#------------------------------------------------------------------------------#
+# TDT Details of transport                                                     #
+#------------------------------------------------------------------------------#
+
+S_TDT {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idTDT +1 	# KEY
+	D_8051 +1 	# TRANSPORT STAGE CODE QUALIFIER
+	D_8028 *1 	# CONVEYANCE REFERENCE NUMBER
+	C_C220 *1 	# MODE OF TRANSPORT
+	C_C228 *1 	# TRANSPORT MEANS
+	C_C040 *1 	# CARRIER
+	D_8101 *1 	# TRANSIT DIRECTION INDICATOR CODE
+	C_C401 *1 	# EXCESS TRANSPORTATION INFORMATION
+	C_C222 *1 	# TRANSPORT IDENTIFICATION
+	D_8281 *1;	# TRANSPORT OWNERSHIP, CODED
+
+# MODE OF TRANSPORT
+C_C220 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_8067 *1 	# Transport mode name code
+	D_8066 *1;	# Transport mode name
+
+# TRANSPORT MEANS
+C_C228 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_8179 *1 	# Transport means description code
+	D_8178 *1;	# Transport means description
+
+# CARRIER
+C_C040 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3127 *1 	# Carrier identification
+	D_1131 *1 	# Code list identification code
+	D_3055 *1 	# Code list responsible agency code
+	D_3128 *1;	# Carrier name
+
+# EXCESS TRANSPORTATION INFORMATION
+C_C401 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_8457 +1 	# Excess transportation reason, coded
+	D_8459 +1 	# Excess transportation responsibility, coded
+	D_7130 *1;	# Customer authorization number
+
+# TRANSPORT IDENTIFICATION
+C_C222 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_8213 *1 	# Transport means identification name identifier
+	D_1131 *1 	# Code list identification code
+	D_3055 *1 	# Code list responsible agency code
+	D_8212 *1 	# Transport means identification name
+	D_8453 *1;	# Nationality of means of transport, coded
+
+
+
+#------------------------------------------------------------------------------#
+# GIS General indicator                                                        #
+#------------------------------------------------------------------------------#
+
+S_GIS {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idGIS +1 	# KEY
+	C_C529 +1;	# PROCESSING INDICATOR
+
+# PROCESSING INDICATOR
+C_C529 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_7365 +1 	# Processing indicator description code
+	D_1131 *1 	# Code list identification code
+	D_3055 *1 	# Code list responsible agency code
+	D_7187 *1;	# Process type description code
+
+
+
+#------------------------------------------------------------------------------#
+# LOC Place/location identification                                            #
+#------------------------------------------------------------------------------#
+
+S_LOC {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idLOC +1 	# KEY
+	D_3227 +1 	# LOCATION FUNCTION CODE QUALIFIER
+	C_C517 *1 	# LOCATION IDENTIFICATION
+	C_C519 *1 	# RELATED LOCATION ONE IDENTIFICATION
+	C_C553 *1 	# RELATED LOCATION TWO IDENTIFICATION
+	D_5479 *1;	# RELATION, CODED
+
+# LOCATION IDENTIFICATION
+C_C517 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3225 *1 	# Location name code
+	D_1131 *1 	# Code list identification code
+	D_3055 *1 	# Code list responsible agency code
+	D_3224 *1;	# Location name
+
+# RELATED LOCATION ONE IDENTIFICATION
+C_C519 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3223 *1 	# Related place/location one identification
+	D_1131 *1 	# Code list identification code
+	D_3055 *1 	# Code list responsible agency code
+	D_3222 *1;	# Related place/location one
+
+# RELATED LOCATION TWO IDENTIFICATION
+C_C553 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_3233 *1 	# Related place/location two identification
+	D_1131 *1 	# Code list identification code
+	D_3055 *1 	# Code list responsible agency code
+	D_3232 *1;	# Related place/location two
+
+
+
+#------------------------------------------------------------------------------#
+# DOC Document/message details                                                 #
+#------------------------------------------------------------------------------#
+
+S_DOC {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idDOC +1 	# KEY
+	C_C002 +1 	# DOCUMENT/MESSAGE NAME
+	C_C503 *1 	# DOCUMENT/MESSAGE DETAILS
+	D_3153 *1 	# COMMUNICATION MEDIUM TYPE CODE
+	D_1220 *1 	# NUMBER OF COPIES OF DOCUMENT REQUIRED
+	D_1218 *1;	# NUMBER OF ORIGINALS OF DOCUMENT REQUIRED
+
+# DOCUMENT/MESSAGE DETAILS
+C_C503 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep,DEL_3453=Comp_Sep}:
+	D_1004 *1 	# Document/message number
+	D_1373 *1 	# Document status code
+	D_1366 *1 	# Document/message source
+	D_3453 *1 	# LANGUAGE NAME CODE
+	D_1056 *1 	# Version
+	D_1060 *1;	# Revision number
+
+
+
+#------------------------------------------------------------------------------#
+# LIN Line item                                                                #
+#------------------------------------------------------------------------------#
+
+S_LIN {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep,DEL_1082=Data_Sep}:
+	idLIN +1 	# KEY
+	D_1082 *1 	# LINE ITEM NUMBER
+	D_1229 *1 	# ACTION REQUEST/NOTIFICATION DESCRIPTION CODE
+	C_C212 *1 	# ITEM NUMBER IDENTIFICATION
+	C_C829 *1 	# SUB-LINE INFORMATION
+	D_1222 *1 	# CONFIGURATION LEVEL
+	D_7083 *1;	# CONFIGURATION, CODED
+
+# ITEM NUMBER IDENTIFICATION
+C_C212 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_7140 *1 	# Item number
+	D_7143 *1 	# Item type identification code
+	D_1131 *1 	# Code list identification code
+	D_3055 *1;	# Code list responsible agency code
+
+# SUB-LINE INFORMATION
+C_C829 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep,DEL_1082=Comp_Sep}:
+	D_5495 *1 	# Sub-line indicator, coded
+	D_1082 *1;	# LINE ITEM NUMBER
+
+
+
+#------------------------------------------------------------------------------#
+# PIA Additional product id                                                    #
+#------------------------------------------------------------------------------#
+
+S_PIA {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idPIA +1 	# KEY
+	D_4347 +1 	# PRODUCT ID. FUNCTION QUALIFIER
+	C_C212 +1 	# ITEM NUMBER IDENTIFICATION
+	C_C212 *1 	# ITEM NUMBER IDENTIFICATION
+	C_C212 *1 	# ITEM NUMBER IDENTIFICATION
+	C_C212 *1 	# ITEM NUMBER IDENTIFICATION
+	C_C212 *1;	# ITEM NUMBER IDENTIFICATION
+
+
+
+#------------------------------------------------------------------------------#
+# IMD Item description                                                         #
+#------------------------------------------------------------------------------#
+
+S_IMD {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep,DEL_7077=Data_Sep}:
+	idIMD +1 	# KEY
+	D_7077 *1 	# ITEM DESCRIPTION TYPE, CODED
+	C_C272 *1 	# ITEM CHARACTERISTIC
+	C_C273 *1 	# ITEM DESCRIPTION
+	D_7383 *1;	# SURFACE/LAYER CODE
+
+# ITEM CHARACTERISTIC
+C_C272 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_7081 *1 	# Item characteristic code
+	D_1131 *1 	# Code list identification code
+	D_3055 *1;	# Code list responsible agency code
+
+# ITEM DESCRIPTION
+C_C273 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep,DEL_3453=Comp_Sep}:
+	D_7009 *1 	# Item description identification
+	D_1131 *1 	# Code list identification code
+	D_3055 *1 	# Code list responsible agency code
+	D_7008 *1 	# Item description
+	D_7008 *1 	# Item description
+	D_3453 *1;	# LANGUAGE NAME CODE
+
+
+
+#------------------------------------------------------------------------------#
+# MEA Measurements                                                             #
+#------------------------------------------------------------------------------#
+
+S_MEA {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idMEA +1 	# KEY
+	D_6311 +1 	# MEASUREMENT ATTRIBUTE CODE
+	C_C502 *1 	# MEASUREMENT DETAILS
+	C_C174 *1 	# VALUE/RANGE
+	D_7383 *1;	# SURFACE/LAYER CODE
+
+# MEASUREMENT DETAILS
+C_C502 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_6313 *1 	# Measured attribute code
+	D_6321 *1 	# Measurement significance, coded
+	D_6155 *1 	# Non-discrete measurement name code
+	D_6154 *1;	# Non-discrete measurement name
+
+# VALUE/RANGE
+C_C174 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_6411 +1 	# Measurement unit code
+	D_6314 *1 	# Measurement value
+	D_6162 *1 	# Range minimum
+	D_6152 *1 	# Range maximum
+	D_6432 *1;	# Significant digits
+
+
+
+#------------------------------------------------------------------------------#
+# ALI Additional information                                                   #
+#------------------------------------------------------------------------------#
+
+S_ALI {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idALI +1 	# KEY
+	D_3239 *1 	# COUNTRY OF ORIGIN, CODED
+	D_9213 *1 	# TYPE OF DUTY REGIME, CODED
+	D_4183 *1 	# SPECIAL CONDITION CODE
+	D_4183 *1 	# SPECIAL CONDITION CODE
+	D_4183 *1 	# SPECIAL CONDITION CODE
+	D_4183 *1 	# SPECIAL CONDITION CODE
+	D_4183 *1;	# SPECIAL CONDITION CODE
+
+
+
+#------------------------------------------------------------------------------#
+# GIN Goods identity number                                                    #
+#------------------------------------------------------------------------------#
+
+S_GIN {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep,DEL_7405=Data_Sep}:
+	idGIN +1 	# KEY
+	D_7405 +1 	# OBJECT IDENTIFICATION CODE QUALIFIER
+	C_C208 +1 	# IDENTITY NUMBER RANGE
+	C_C208 *1 	# IDENTITY NUMBER RANGE
+	C_C208 *1 	# IDENTITY NUMBER RANGE
+	C_C208 *1 	# IDENTITY NUMBER RANGE
+	C_C208 *1;	# IDENTITY NUMBER RANGE
+
+# IDENTITY NUMBER RANGE
+C_C208 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_7402 +1 	# Object identifier
+	D_7402 *1;	# Object identifier
+
+
+
+#------------------------------------------------------------------------------#
+# GIR Related identification numbers                                           #
+#------------------------------------------------------------------------------#
+
+S_GIR {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idGIR +1 	# KEY
+	D_7297 +1 	# SET IDENTIFICATION QUALIFIER
+	C_C206 +1 	# IDENTIFICATION NUMBER
+	C_C206 *1 	# IDENTIFICATION NUMBER
+	C_C206 *1 	# IDENTIFICATION NUMBER
+	C_C206 *1 	# IDENTIFICATION NUMBER
+	C_C206 *1;	# IDENTIFICATION NUMBER
+
+# IDENTIFICATION NUMBER
+C_C206 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep,DEL_7405=Comp_Sep}:
+	D_7402 +1 	# Object identifier
+	D_7405 *1 	# OBJECT IDENTIFICATION CODE QUALIFIER
+	D_4405 *1;	# Status description code
+
+
+
+#------------------------------------------------------------------------------#
+# TMD Transport movement details                                               #
+#------------------------------------------------------------------------------#
+
+S_TMD {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idTMD +1 	# KEY
+	C_C219 *1 	# MOVEMENT TYPE
+	D_8332 *1 	# EQUIPMENT PLAN
+	D_8341 *1;	# HAULAGE ARRANGEMENTS, CODED
+
+# MOVEMENT TYPE
+C_C219 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_8335 *1 	# Movement type description code
+	D_8334 *1;	# Movement type description
+
+
+
+#------------------------------------------------------------------------------#
+# QTY Quantity                                                                 #
+#------------------------------------------------------------------------------#
+
+S_QTY {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idQTY +1 	# KEY
+	C_C186 +1;	# QUANTITY DETAILS
+
+# QUANTITY DETAILS
+C_C186 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_6063 +1 	# Quantity type code qualifier
+	D_6060 +1 	# Quantity
+	D_6411 *1;	# Measurement unit code
+
+
+
+#------------------------------------------------------------------------------#
+# SCC Scheduling conditions                                                    #
+#------------------------------------------------------------------------------#
+
+S_SCC {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idSCC +1 	# KEY
+	D_4017 +1 	# DELIVERY PLAN COMMITMENT LEVEL CODE
+	D_4493 *1 	# DELIVERY INSTRUCTION, CODED
+	C_C329 *1;	# PATTERN DESCRIPTION
+
+# PATTERN DESCRIPTION
+C_C329 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_2013 *1 	# Frequency code
+	D_2015 *1 	# Despatch pattern, coded
+	D_2017 *1;	# Despatch pattern timing, coded
+
+
+
+#------------------------------------------------------------------------------#
+# PAC Package                                                                  #
+#------------------------------------------------------------------------------#
+
+S_PAC {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idPAC +1 	# KEY
+	D_7224 *1 	# NUMBER OF PACKAGES
+	C_C531 *1 	# PACKAGING DETAILS
+	C_C202 *1 	# PACKAGE TYPE
+	C_C402 *1 	# PACKAGE TYPE IDENTIFICATION
+	C_C532 *1;	# RETURNABLE PACKAGE DETAILS
+
+# PACKAGING DETAILS
+C_C531 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_7075 *1 	# Packaging level, coded
+	D_7233 *1 	# Packaging related description code
+	D_7073 *1;	# Packaging terms and conditions, coded
+
+# PACKAGE TYPE
+C_C202 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_7065 *1 	# Package type description code
+	D_1131 *1 	# Code list identification code
+	D_3055 *1 	# Code list responsible agency code
+	D_7064 *1;	# Type of packages
+
+# PACKAGE TYPE IDENTIFICATION
+C_C402 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep,DEL_7077=Comp_Sep}:
+	D_7077 +1 	# ITEM DESCRIPTION TYPE, CODED
+	D_7064 +1 	# Type of packages
+	D_7143 *1 	# Item type identification code
+	D_7064 *1 	# Type of packages
+	D_7143 *1;	# Item type identification code
+
+# RETURNABLE PACKAGE DETAILS
+C_C532 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_8395 *1 	# Returnable package freight payment responsibility, coded
+	D_8393 *1;	# Returnable package load contents, coded
+
+
+
+#------------------------------------------------------------------------------#
+# PCI Package identification                                                   #
+#------------------------------------------------------------------------------#
+
+S_PCI {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idPCI +1 	# KEY
+	D_4233 *1 	# MARKING INSTRUCTIONS, CODED
+	C_C210 *1 	# MARKS & LABELS
+	D_8275 *1 	# CONTAINER OR PACKAGE STATE, CODED
+	C_C827 *1;	# TYPE OF MARKING
+
+# MARKS & LABELS
+C_C210 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_7102 +1 	# Shipping marks
+	D_7102 *1 	# Shipping marks
+	D_7102 *1 	# Shipping marks
+	D_7102 *1 	# Shipping marks
+	D_7102 *1 	# Shipping marks
+	D_7102 *1 	# Shipping marks
+	D_7102 *1 	# Shipping marks
+	D_7102 *1 	# Shipping marks
+	D_7102 *1 	# Shipping marks
+	D_7102 *1;	# Shipping marks
+
+# TYPE OF MARKING
+C_C827 {DELIMITER=Data_Sep,SHORTEN=Comp_Sep}:
+	D_7511 +1 	# Type of marking, coded
+	D_1131 *1 	# Code list identification code
+	D_3055 *1;	# Code list responsible agency code
+
+
+
+#------------------------------------------------------------------------------#
+# UNT Message trailer                                                          #
+#------------------------------------------------------------------------------#
+
+S_UNT {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idUNT +1 	# KEY
+	D_0074 +1 	# NUMBER OF SEGMENTS IN THE MESSAGE
+	D_0062 +1;	# MESSAGE REFERENCE NUMBER
+
+
+
+#------------------------------------------------------------------------------#
+# UNE Functional Group Trailer                                                 #
+#------------------------------------------------------------------------------#
+
+S_UNE {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idUNE +1 	# KEY
+	D_0060 +1 	# NUMBER OF MESSAGES
+	D_0048 +1;	# FUNCTIONAL GROUP REFERENCE NUMBER
+
+
+
+#------------------------------------------------------------------------------#
+# UNZ Interchange Trailer                                                      #
+#------------------------------------------------------------------------------#
+
+S_UNZ {DELIMITER=Seg_Terminator,ESCAPE=Release_Ind,SHORTEN=Data_Sep}:
+	idUNZ +1 	# KEY
+	D_0036 +1 	# INTERCHANGE CONTROL COUNT
+	D_0020 +1;	# INTERCHANGE CONTROL REFERENCE
+
+
+
+
+
+
+#------------------------------------------------------------------------------#
+# DELIMITER                                                                    #
+#------------------------------------------------------------------------------#
+
+S_DELIMITER:
+	DEL_0051 	# Dynamic DELIMITER for element 0051
+	DEL_1082 	# Dynamic DELIMITER for element 1082
+	DEL_3453 	# Dynamic DELIMITER for element 3453
+	DEL_7405 	# Dynamic DELIMITER for element 7405
+	DEL_7077;	# Dynamic DELIMITER for element 7077
+
+DEL_0051: STRINGA {LENGTH=1};
+DEL_1082: STRINGA {LENGTH=1};
+DEL_3453: STRINGA {LENGTH=1};
+DEL_7405: STRINGA {LENGTH=1};
+DEL_7077: STRINGA {LENGTH=1};
+
+
+
+#------------------------------------------------------------------------------#
+# Terminalobjekte                                                              #
+#------------------------------------------------------------------------------#
+
+idUNA	: STRINGA  {LENGTH=3   ,DEFAULT="UNA"};
+
+Comp_Sep	: STRINGA  {LENGTH=1   ,DEFAULT=":"};
+
+Data_Sep	: STRINGA  {LENGTH=1   ,DEFAULT="+"};
+
+Decimal_Notation	: STRINGA  {LENGTH=1   ,DEFAULT="."};
+
+Release_Ind	: STRINGA  {LENGTH=1   ,DEFAULT="?"};
+
+Filler	: STRINGA  {LENGTH=1   ,DEFAULT=" "};
+
+Seg_Terminator	: STRINGA  {LENGTH=1   ,DEFAULT="'"};
+
+idUNB	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="UNB"};
+
+D_0001	: STRINGA  {LENGTH=4   ,DELIMITER=Comp_Sep};
+
+D_0002	: NSTRINGA {LENGTH=1   ,DELIMITER=Comp_Sep};
+
+D_0004	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_0007	: NSTRINGA {MAXLENGTH=4   ,DELIMITER=Comp_Sep};
+
+D_0008	: NSTRINGA {MAXLENGTH=14  ,DELIMITER=Comp_Sep};
+
+D_0010	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_0014	: STRINGA  {MAXLENGTH=14  ,DELIMITER=Comp_Sep};
+
+D_0017	: NSTRINGA {LENGTH=6   ,DELIMITER=Comp_Sep};
+
+D_0019	: NSTRINGA {LENGTH=4   ,DELIMITER=Comp_Sep};
+
+D_0020	: STRINGA  {MAXLENGTH=14  ,DELIMITER=Data_Sep};
+
+D_0022	: STRINGA  {MAXLENGTH=14  ,DELIMITER=Comp_Sep};
+
+D_0025	: STRINGA  {LENGTH=2   ,DELIMITER=Comp_Sep};
+
+D_0026	: STRINGA  {MAXLENGTH=14  ,DELIMITER=Data_Sep};
+
+D_0029	: STRINGA  {LENGTH=1   ,DELIMITER=Data_Sep};
+
+D_0031	: STRINGA  {LENGTH=1   ,DELIMITER=Data_Sep};
+
+D_0032	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Data_Sep};
+
+D_0035	: NSTRINGA {LENGTH=1   ,DELIMITER=Data_Sep};
+
+idUNG	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="UNG"};
+
+D_0038	: STRINGA  {MAXLENGTH=6   ,DELIMITER=Data_Sep};
+
+D_0040	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_0044	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_0048	: STRINGA  {MAXLENGTH=14  ,DELIMITER=Data_Sep};
+
+D_0051	: STRINGA  {MAXLENGTH=2   ,DELIMITER=DEL_0051};
+
+D_0052	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_0054	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_0057	: STRINGA  {MAXLENGTH=6   ,DELIMITER=Comp_Sep};
+
+D_0058	: STRINGA  {MAXLENGTH=14  ,DELIMITER=Data_Sep};
+
+idUNH	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="UNH"};
+
+D_0062	: STRINGA  {MAXLENGTH=14  ,DELIMITER=Data_Sep};
+
+D_0065	: STRINGA  {MAXLENGTH=6   ,DELIMITER=Comp_Sep};
+
+D_0068	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Data_Sep};
+
+D_0070	: NSTRINGA {MAXLENGTH=2   ,DELIMITER=Comp_Sep};
+
+D_0073	: STRINGA  {LENGTH=1   ,DELIMITER=Comp_Sep};
+
+idBGM	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="BGM"};
+
+D_1001	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_1131	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_3055	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_1000	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_1004	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_1056	: STRINGA  {MAXLENGTH=9   ,DELIMITER=Comp_Sep};
+
+D_1060	: STRINGA  {MAXLENGTH=6   ,DELIMITER=Comp_Sep};
+
+D_1225	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_4343	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+idDTM	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="DTM"};
+
+D_2005	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_2380	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_2379	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+idFTX	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="FTX"};
+
+D_4451	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_4453	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_4441	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Comp_Sep};
+
+D_4440	: STRINGA  {MAXLENGTH=512 ,DELIMITER=Comp_Sep};
+
+D_3453	: STRINGA  {MAXLENGTH=3   ,DELIMITER=DEL_3453};
+
+D_4447	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+idRFF	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="RFF"};
+
+D_1153	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_1154	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_1156	: STRINGA  {MAXLENGTH=6   ,DELIMITER=Comp_Sep};
+
+D_4000	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+idNAD	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="NAD"};
+
+D_3035	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_3039	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_3124	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_3036	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_3045	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_3042	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_3164	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Data_Sep};
+
+D_3229	: STRINGA  {MAXLENGTH=9   ,DELIMITER=Comp_Sep};
+
+D_3228	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_3251	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Data_Sep};
+
+D_3207	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+idCTA	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="CTA"};
+
+D_3139	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_3413	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Comp_Sep};
+
+D_3412	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+idCOM	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="COM"};
+
+D_3148	: STRINGA  {MAXLENGTH=512 ,DELIMITER=Comp_Sep};
+
+D_3155	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+idTDT	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="TDT"};
+
+D_8051	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_8028	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Data_Sep};
+
+D_8067	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_8066	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Comp_Sep};
+
+D_8179	: STRINGA  {MAXLENGTH=8   ,DELIMITER=Comp_Sep};
+
+D_8178	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Comp_Sep};
+
+D_3127	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Comp_Sep};
+
+D_3128	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_8101	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_8457	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_8459	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_7130	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Comp_Sep};
+
+D_8213	: STRINGA  {MAXLENGTH=9   ,DELIMITER=Comp_Sep};
+
+D_8212	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_8453	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_8281	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+idGIS	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="GIS"};
+
+D_7365	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_7187	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Comp_Sep};
+
+idLOC	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="LOC"};
+
+D_3227	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_3225	: STRINGA  {MAXLENGTH=25  ,DELIMITER=Comp_Sep};
+
+D_3224	: STRINGA  {MAXLENGTH=256 ,DELIMITER=Comp_Sep};
+
+D_3223	: STRINGA  {MAXLENGTH=25  ,DELIMITER=Comp_Sep};
+
+D_3222	: STRINGA  {MAXLENGTH=70  ,DELIMITER=Comp_Sep};
+
+D_3233	: STRINGA  {MAXLENGTH=25  ,DELIMITER=Comp_Sep};
+
+D_3232	: STRINGA  {MAXLENGTH=70  ,DELIMITER=Comp_Sep};
+
+D_5479	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+idDOC	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="DOC"};
+
+D_1373	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_1366	: STRINGA  {MAXLENGTH=70  ,DELIMITER=Comp_Sep};
+
+D_3153	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_1220	: NSTRINGA {MAXLENGTH=2   ,DELIMITER=Data_Sep};
+
+D_1218	: NSTRINGA {MAXLENGTH=2   ,DELIMITER=Data_Sep};
+
+idLIN	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="LIN"};
+
+D_1082	: STRINGA  {MAXLENGTH=6   ,DELIMITER=DEL_1082};
+
+D_1229	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_7140	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_7143	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_5495	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_1222	: NSTRINGA {MAXLENGTH=2   ,DELIMITER=Data_Sep};
+
+D_7083	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+idPIA	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="PIA"};
+
+D_4347	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+idIMD	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="IMD"};
+
+D_7077	: STRINGA  {MAXLENGTH=3   ,DELIMITER=DEL_7077};
+
+D_7081	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_7009	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Comp_Sep};
+
+D_7008	: STRINGA  {MAXLENGTH=256 ,DELIMITER=Comp_Sep};
+
+D_7383	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+idMEA	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="MEA"};
+
+D_6311	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_6313	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_6321	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_6155	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Comp_Sep};
+
+D_6154	: STRINGA  {MAXLENGTH=70  ,DELIMITER=Comp_Sep};
+
+D_6411	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_6314	: STRINGA  {MAXLENGTH=18  ,DELIMITER=Comp_Sep};
+
+D_6162	: NSTRINGA {MAXLENGTH=18  ,DELIMITER=Comp_Sep};
+
+D_6152	: NSTRINGA {MAXLENGTH=18  ,DELIMITER=Comp_Sep};
+
+D_6432	: NSTRINGA {MAXLENGTH=2   ,DELIMITER=Comp_Sep};
+
+idALI	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="ALI"};
+
+D_3239	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_9213	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_4183	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+idGIN	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="GIN"};
+
+D_7405	: STRINGA  {MAXLENGTH=3   ,DELIMITER=DEL_7405};
+
+D_7402	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+idGIR	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="GIR"};
+
+D_7297	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_4405	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+idTMD	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="TMD"};
+
+D_8335	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_8334	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_8332	: STRINGA  {MAXLENGTH=26  ,DELIMITER=Data_Sep};
+
+D_8341	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+idQTY	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="QTY"};
+
+D_6063	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_6060	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+idSCC	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="SCC"};
+
+D_4017	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_4493	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_2013	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_2015	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_2017	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+idPAC	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="PAC"};
+
+D_7224	: NSTRINGA {MAXLENGTH=8   ,DELIMITER=Data_Sep};
+
+D_7075	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_7233	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_7073	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_7065	: STRINGA  {MAXLENGTH=17  ,DELIMITER=Comp_Sep};
+
+D_7064	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_8395	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+D_8393	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+idPCI	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="PCI"};
+
+D_4233	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_7102	: STRINGA  {MAXLENGTH=35  ,DELIMITER=Comp_Sep};
+
+D_8275	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Data_Sep};
+
+D_7511	: STRINGA  {MAXLENGTH=3   ,DELIMITER=Comp_Sep};
+
+idUNT	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="UNT"};
+
+D_0074	: NSTRINGA {MAXLENGTH=6   ,DELIMITER=Data_Sep};
+
+idUNE	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="UNE"};
+
+D_0060	: NSTRINGA {MAXLENGTH=6   ,DELIMITER=Data_Sep};
+
+idUNZ	: STRINGA  {LENGTH=3   ,DELIMITER=Data_Sep,DEFAULT="UNZ"};
+
+D_0036	: STRINGA  {MAXLENGTH=6   ,DELIMITER=Data_Sep};
+

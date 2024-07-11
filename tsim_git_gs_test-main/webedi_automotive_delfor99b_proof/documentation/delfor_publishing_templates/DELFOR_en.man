@@ -1,0 +1,207 @@
+[BASE]
+Version=3
+Type=Folder
+Name=EDIFIX_MANUAL
+Nodes=1
+
+[BASE\1]
+Type=Folder
+Name="Publishing Projekt"
+OutputDevices=Screen,RTF,HTML
+OutputDirectory_HTML=c:\workspace\bom\webedi_automotive_delfor99b_proof\documentation\englisch\html
+EnableLocalHTMLDir=true
+OutputDirectory_RTF=c:\workspace\bom\webedi_automotive_delfor99b_proof\documentation\englisch\html
+EnableLocalRTFDir=true
+EnableLocalDocDir=true
+DocumentDirectory=c:\workspace\bom\webedi_automotive_delfor99b_proof\documentation\englisch\html
+Nodes=2
+
+[BASE\1\1]
+Type=Report
+Reporttype=Document
+Name="index.html"
+OutputDevices=All
+EnableLocalHTMLDir=false
+EnableLocalRTFDir=false
+Documenttype=OTHER
+EnableLocalDocDir=false
+DocumentFileName=index_en.html
+Charset=OEM
+
+[BASE\1\2]
+Type=Object
+Objecttype=Guide
+Name="DELFOR-D.99B; 004; Atos"
+OutputDevices=Screen,RTF,HTML
+EnableLocalHTMLDir=false
+EnableLocalRTFDir=false
+Tag="DELFOR"
+Version="1.8"
+Variant="WebEDI"
+EnableLocalDocDir=false
+Nodes=10
+
+[BASE\1\2\1]
+Type=Report
+Reporttype=Report
+Name="Atos 01-EdifactSapQuell-Nachrichtenstruktur-RTF"
+OutputDevices=Screen,Printer,HTML
+EnableLocalHTMLDir=false
+OutputFile_RTF=1_nachrichtenstruktur.rtf
+EnableLocalRTFDir=false
+Filename=en-htm_aesqinhrtf.rep
+RT=15
+ShowStruct=1
+Prefix=d1
+Links=4
+
+[BASE\1\2\1\Links]
+1="SegTag";"QUALIFIER_SegmentGroup";"Atos 02-EdifactSapQuell-Branching-Diagram-RTF";"OtherNode";"1"
+2="index";"QUALIFIER_None";"\index.html";"OtherNode";"1"
+3="top";"QUALIFIER_MessageType";"";"PageTop";"1"
+4="SeTag";"QUALIFIER_Segment";"Atos 03-EdifactSapQuell-Segment-Details-RTF";"OtherNode";"1"
+
+[BASE\1\2\2]
+Type=Report
+Reporttype=Report
+Name="Atos 01-EdifactSapQuell-Nachrichtenstruktur-RTF (2)"
+OutputDevices=Printer,RTF
+EnableLocalHTMLDir=false
+OutputFile_RTF=1_Message_structure.rtf
+EnableLocalRTFDir=false
+Filename=en-rtf_aesqinhrtf.rep
+RT=15
+ShowStruct=1
+
+[BASE\1\2\3]
+Type=Report
+Reporttype=Report
+Name="Atos 02-EdifactSapQuell-Branching-Diagram-RTF"
+OutputDevices=Screen,Printer,HTML
+EnableLocalHTMLDir=false
+OutputFile_RTF=2_nachrichtenaufbaudiagramm.rtf
+EnableLocalRTFDir=false
+Filename=en-htm_aeszbrartf.rep
+RT=12
+ShowStruct=1
+Prefix=d2
+Links=3
+
+[BASE\1\2\3\Links]
+1="SegTag";"QUALIFIER_SegmentGroup";"Atos 01-EdifactSapQuell-Nachrichtenstruktur-RTF";"OtherNode";"1"
+2="index";"QUALIFIER_None";"\index.html";"OtherNode";"1"
+3="SeTag";"QUALIFIER_Segment";"Atos 03-EdifactSapQuell-Segment-Details-RTF";"OtherNode";"1"
+
+[BASE\1\2\4]
+Type=Report
+Reporttype=Report
+Name="Atos 02-EdifactSapQuell-Branching-Diagram-RTF (2)"
+OutputDevices=Printer,RTF
+EnableLocalHTMLDir=false
+OutputFile_RTF=2_Branching_diagram.rtf
+EnableLocalRTFDir=false
+Filename=en-rtf_aeszbrartf.rep
+RT=12
+ShowStruct=1
+
+[BASE\1\2\5]
+Type=Report
+Reporttype=Report
+Name="Atos 03-EdifactSapQuell-Segment-Details-RTF"
+OutputDevices=Screen,Printer,HTML
+EnableLocalHTMLDir=false
+OutputFile_RTF=3_segmentbeschreibung.rtf
+EnableLocalRTFDir=false
+Filename=en-htm_aesqsegrtf.rep
+RT=10
+ShowStruct=0
+Prefix=d3
+Links=8
+
+[BASE\1\2\5\Links]
+1="segTag";"QUALIFIER_SegmentGroup";"Atos 02-EdifactSapQuell-Branching-Diagram-RTF";"OtherNode";"1"
+2="Bsp";"QUALIFIER_Segment";"Atos 04-EdifactSapQuell-Musternachricht-RTF";"OtherNode";"1"
+3="back";"QUALIFIER_None";"";"PagePrev";"1"
+4="next";"QUALIFIER_None";"";"PageNext";"1"
+5="index";"QUALIFIER_None";"\index.html";"OtherNode";"1"
+6="code";"QUALIFIER_None";"Atos 07-EdifactSapQuell-CodeErsetzung-RTF";"OtherNode";"1"
+7="SeName";"QUALIFIER_Segment";"Atos 01-EdifactSapQuell-Nachrichtenstruktur-RTF";"OtherNode";"1"
+8="seAlias";"QUALIFIER_Segment";"Atos 01-EdifactSapQuell-Nachrichtenstruktur-RTF";"OtherNode";"1"
+
+[BASE\1\2\6]
+Type=Report
+Reporttype=Report
+Name="Atos 03-EdifactSapQuell-Segment-Details-RTF (2)"
+OutputDevices=Printer,RTF
+EnableLocalHTMLDir=false
+OutputFile_RTF=3_Formal_description_of_segments.rtf
+EnableLocalRTFDir=false
+Filename=en-rtf_aesqsegrtf.rep
+RT=10
+ShowStruct=0
+
+[BASE\1\2\7]
+Type=Report
+Reporttype=Report
+Name="Atos 04-EdifactSapQuell-Musternachricht-RTF"
+OutputDevices=Screen,Printer,HTML
+EnableLocalHTMLDir=false
+OutputFile_RTF=4_musternachricht.rtf
+EnableLocalRTFDir=false
+Filename=en_htm_aesqmusrtf.rep
+RT=15
+ShowStruct=1
+Prefix=d4
+Links=4
+
+[BASE\1\2\7\Links]
+1="segTag";"QUALIFIER_SegmentGroup";"Atos 02-EdifactSapQuell-Branching-Diagram-RTF";"OtherNode";"1"
+2="index";"QUALIFIER_None";"\index.html";"OtherNode";"1"
+3="top";"QUALIFIER_None";"";"PageTop";"1"
+4="SeTag";"QUALIFIER_Segment";"Atos 03-EdifactSapQuell-Segment-Details-RTF";"OtherNode";"1"
+
+[BASE\1\2\8]
+Type=Report
+Reporttype=Report
+Name="Atos 04-EdifactSapQuell-Musternachricht-RTF (2)"
+OutputDevices=Printer,RTF
+EnableLocalHTMLDir=false
+OutputFile_RTF=4_Example_message.rtf
+EnableLocalRTFDir=false
+Filename=en-rtf_aesqmusrtf.rep
+RT=15
+ShowStruct=1
+
+[BASE\1\2\9]
+Type=Report
+Reporttype=Report
+Name="Atos 07-EdifactSapQuell-CodeErsetzung-RTF"
+OutputDevices=Screen,Printer,HTML
+EnableLocalHTMLDir=false
+OutputFile_RTF=5_code-verwendung.rtf
+EnableLocalRTFDir=false
+Filename=en_htm_aesqcodmaprtf_rw1.rep
+RT=11
+ShowStruct=0
+Prefix=d5
+Links=3
+
+[BASE\1\2\9\Links]
+1="index";"QUALIFIER_None";"\index.html";"OtherNode";"1"
+2="top";"QUALIFIER_None";"";"PageTop";"1"
+3="SeTag";"QUALIFIER_Segment";"Atos 03-EdifactSapQuell-Segment-Details-RTF";"OtherNode";"1"
+
+[BASE\1\2\10]
+Type=Report
+Reporttype=Report
+Name="Atos 07-EdifactSapQuell-CodeErsetzung-RTF (2)"
+OutputDevices=Printer,RTF
+EnableLocalHTMLDir=false
+OutputFile_RTF=5_Code_usage.rtf
+EnableLocalRTFDir=false
+Filename=en_rtf_aesqcodmaprtf_rw1.rep
+RT=11
+ShowStruct=0
+
+
+

@@ -1,0 +1,61 @@
+File contains 12 error(s)
+REPORT: DELFOR OBP
+--------------------------------------------------------------
+
+0001 UNA:+.? '
+0002 UNB+UNOC:3++264+230412:1856+0002500026
+          Error at UNB_0004: Object is missing
+0003 UNH+1+DELFOR:D:99B:UN
+0004 BGM+241:::VDA4905+00026
+0005 DTM+137:20230409:102
+0006 NAD+BY+IACEUROPE::92++IAC Group+.+.++.+.
+0007 NAD+SU+264::92
+          Error at NAD_3036: Object is missing
+          Error at NAD_3042: Object is missing
+          Error at NAD_3164: Object is missing
+          Error at NAD_3251: Object is missing
+0008 GIS+37
+0009 NAD+CN+TEX::92+IAC:IAC Group+IAC Group s.r.o.+U Kyjovky 4000/9+Hodonin++696 65+CZ
+0010 LOC+11+001
+0011 CTA+PD+KP
+0012 LIN+1+3+RZ100566R0000:IN
+0013 IMD+F++:::N/A
+0014 ALI+++S
+0015 FTX+AAI+++COWL GAITER JACKET RHD:L0387885
+0016 RFF+AAN:00006
+0017 DTM+137:20230409:102
+0018 RFF+AIF:00005
+0019 DTM+137:20230319:102
+0020 RFF+ON:0024745
+0021 QTY+48:0:EA
+0022 QTY+70:0:EA
+0023 SCC+4
+0024 QTY+113:30:EA
+          Error at DTM_76: Object is missing
+0025 DTM+64:20230417:102
+0026 SCC+4
+0027 QTY+113:60:EA
+          Error at DTM_76: Object is missing
+0028 DTM+64:20230621:102
+0029 SCC+4
+0030 QTY+113:50:EA
+          Error at DTM_76: Object is missing
+0031 DTM+64:20230807:102
+0032 SCC+4
+0033 QTY+113:170:EA
+          Error at DTM_76: Object is missing
+0034 DTM+64:20230821:102
+0035 SCC+4
+0036 QTY+113:150:EA
+          Error at DTM_76: Object is missing
+0037 DTM+64:20230925:102
+0038 SCC+4
+0039 QTY+113:250:EA
+          Error at DTM_76: Object is missing
+0040 DTM+64:20231023:102
+0041 SCC+4
+0042 QTY+113:100:EA
+          Error at DTM_76: Object is missing
+0043 DTM+64:20231229:102
+0044 UNT+42+1
+0045 UNZ+1+0002500026

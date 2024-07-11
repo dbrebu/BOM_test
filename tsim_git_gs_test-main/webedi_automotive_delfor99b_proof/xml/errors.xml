@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+#
+# $Header: /home/businesscontent/actis/bom/global/xsl/schematron/errors.xml,v 1.6 2011-11-01 08:01:15 jte Exp $
+#
+-->
+<errors>
+	<Error ErrorClass="0">
+		<message lang="DE">Fehler bei</message>
+		<message lang="EN">Error at</message>
+		<message lang="FR">Erreur à</message>
+	</Error>
+	<Error ErrorClass="ONC">
+		<message lang="DE">Das Objekt hat einen falschen Wert</message>
+		<message lang="EN">Object has wrong value</message>
+		<message lang="FR">Valeur de l'objet erronée</message>
+	</Error>
+	<Error ErrorClass="ONA">
+		<message lang="DE">Das Objekt fehlt</message>
+		<message lang="EN">Object is missing</message>
+		<message lang="FR">Absence de l'objet</message>
+	</Error>
+	<Error ErrorClass="OL">
+		<message lang="DE">Das Objekt hat eine falsche Länge</message>
+		<message lang="EN">Object length is not correct</message>
+		<message lang="FR">Longueur de l'objet n'est pas correcte</message>
+	</Error>
+	<Error ErrorClass="REPless">
+		<message lang="DE">Zu wenige Wiederholungen</message>
+		<message lang="EN">Not enough repetitions</message>
+		<message lang="FR">Pas assez de répétition</message>
+	</Error>
+	<Error ErrorClass="REPmore">
+		<message lang="DE">Zu viele Wiederholungen</message>
+		<message lang="EN">Too many repetitions</message>
+		<message lang="FR">Trop de répétition</message>
+	</Error>
+	<Error ErrorClass="STR">
+		<message lang="DE">Fehler: Strukturfehler in der Nachricht</message>
+		<message lang="EN">Error: Structure of the message is not correct</message>
+		<message lang="FR">Erreur: Structure de message erronée</message>
+	</Error>
+	<Error ErrorClass="Undef">
+		<message lang="DE">Undefinierter Fehler</message>
+		<message lang="EN">Undefined error</message>
+		<message lang="FR">Erreur indéfinie</message>
+	</Error>
+	<Message ErrorClass="Language">
+		<message lang="DE">Keine Unterstützung für die gewählte Sprache</message>
+		<message lang="EN">No support for selected language</message>
+		<message lang="FR">Pas de support pour la langue sélectionnée</message>
+	</Message>
+	<Message ErrorClass="UsedLanguage">
+		<message lang="DE">Die gewählte Sprache ist</message>
+		<message lang="EN">Selected language</message>
+		<message lang="FR">Langue sélectionnée</message>
+	</Message>
+</errors>

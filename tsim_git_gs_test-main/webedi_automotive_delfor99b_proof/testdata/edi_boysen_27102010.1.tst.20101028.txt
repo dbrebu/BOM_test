@@ -1,0 +1,114 @@
+File contains errors
+REPORT
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+LengthError
+- D_3036 = Thyssen KruppStahl-Service-Center Gmb. Das Objekt hat eine falsche Länge.
+	/M_DELFOR_D99B[1]/G_SG0[1]/G_SG2[2]/S_NAD[1]/C_C080[1]/D_3036[1]
+NameAndAddressContent
+- D_3148 Das Objekt fehlt.
+	/M_DELFOR_D99B[1]/G_SG0[1]/G_SG2[1]/G_SG4[1]/S_COM[1]
+- D_3148 Das Objekt fehlt.
+	/M_DELFOR_D99B[1]/G_SG0[1]/G_SG2[1]/G_SG4[1]/S_COM[2]
+- D_3148 Das Objekt fehlt.
+	/M_DELFOR_D99B[1]/G_SG0[1]/G_SG2[1]/G_SG4[1]/S_COM[3]
+- D_3148 Das Objekt fehlt.
+	/M_DELFOR_D99B[1]/G_SG0[1]/G_SG2[3]/G_SG4[1]/S_COM[1]
+- D_3148 Das Objekt fehlt.
+	/M_DELFOR_D99B[1]/G_SG0[1]/G_SG2[3]/G_SG4[1]/S_COM[2]
+- D_3148 Das Objekt fehlt.
+	/M_DELFOR_D99B[1]/G_SG0[1]/G_SG2[3]/G_SG4[1]/S_COM[3]
+S_PIA
+- PIA_7140_EC Das Objekt fehlt.
+	/M_DELFOR_D99B[1]/G_SG0[1]/G_SG6[1]/G_SG12[1]/S_PIA[1]
+--------------------------------------------------------------
+
+0001 UNA:+.? '
+0002 UNB+UNOC:3+7461000+Empfaengernummer+271010:1057+0
+0003 UNH+1+DELFOR:D:99B:UN
+0004 BGM+241:::DELFOR+4711
+0005 DTM+137:20101027:102
+0006 NAD+BY+47114711::91++Friedrich Boysen GmbH & CO KG+Friedrich-Boysen-Str. 14-17+Altensteig++72213+DE
+0007 RFF+VA:DE144424365
+0008 CTA+DL
+0009 COM+:TE
+       D_3148 Das Objekt fehlt.
+0010 COM+:FX
+       D_3148 Das Objekt fehlt.
+0011 COM+:EM
+       D_3148 Das Objekt fehlt.
+0012 CTA+PD+TM:Einkauf
+0013 NAD+SU+7461000::92++Thyssen KruppStahl-Service-Center Gmb+x+Langenfeld++40244+D
+       D_3036 = Thyssen KruppStahl-Service-Center Gmb. Das Objekt hat eine falsche Länge.
+0014 NAD+IV+47114711::92++Friedrich Boysen GmbH & CO KG+Friedrich-Boysen-Str. 14-17+Altensteig++72213+DE
+0015 RFF+VA:DE144424365
+0016 CTA+DL
+0017 COM+:TE
+       D_3148 Das Objekt fehlt.
+0018 COM+:FX
+       D_3148 Das Objekt fehlt.
+0019 COM+:EM
+       D_3148 Das Objekt fehlt.
+0020 CTA+PD
+0021 GIS+37
+0022 NAD+CN+00870100::92+BAK:BAK+BAK Werk BAK 1+Albblickstr. 3+D-72226 Simmersfeld++72226
+0023 LOC+11+70
+0024 LOC+18+701
+0025 LOC+159+Wareneingang
+0026 RFF+VA:Steuernummer vom Emfpaengerwerk
+0027 CTA+DL+4711:Kontaktperson Emfaengerwerk
+0028 COM+telefon:TE
+0029 COM+fax:FX
+0030 COM+mail:EM
+0031 CTA+PD+kuerzel:Kontaktperson im Einkauf 
+0032 LIN+1+3+30.1-05120.08:IN
+0033 PIA+1+:EC+30.1-05120.08:SA
+       PIA_7140_EC Das Objekt fehlt.
+0034 IMD+F++:::Spaltband ST 14 0.88 x 120
+0035 MEA+AAX+AAF+KGM:0
+0036 ALI+++U
+0037 RFF+AAN:5
+0038 DTM+137:20101027:102
+0039 RFF+AIF:4
+0040 DTM+137:20060119:102
+0041 RFF+ON:4547:1
+0042 QTY+48:1010:EA
+0043 RFF+AAU:321
+0044 DTM+137:20060120:102
+0045 QTY+70:1010:EA
+0046 DTM+51:20000101:102
+0047 QTY+23:0:EA
+0048 SCC+1
+0049 QTY+113:15:EA
+0050 DTM+64:20101025:102
+0051 SCC+1
+0052 QTY+113:8:EA
+0053 DTM+64:20101026:102
+0054 SCC+1
+0055 QTY+113:11:EA
+0056 DTM+64:20101027:102
+0057 SCC+2
+0058 QTY+66:0:EA
+0059 DTM+161:20101126:102
+0060 SCC+3
+0061 QTY+66:0:EA
+0062 DTM+161:20101226:102
+0063 SCC+4
+0064 QTY+113:70:EA
+0065 DTM+76:1045:715
+0066 SCC+4
+0067 QTY+113:88:EA
+0068 DTM+76:1046:715
+0069 SCC+4
+0070 QTY+113:99:EA
+0071 DTM+76:1047:715
+0072 SCC+10
+0073 QTY+113:0:EA
+0074 PAC+1+1+BX:::3100419
+0075 MEA+AAY+AAD+KGM:85
+0076 QTY+52:1:EA
+0077 QTY+189:9999
+0078 UNT+76+1
+0079 UNZ+1+0

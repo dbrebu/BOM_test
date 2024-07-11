@@ -1,0 +1,17 @@
+<launchConfiguration type="bom.XSLTransformationLaunchConfigurationType">
+<stringAttribute key="de.actis.bom.ui.ATTR_EXT_XSLT_PROC" value=""></stringAttribute>
+<stringAttribute key="de.actis.bom.ui.ATTR_IN_GRAMMER" value=""></stringAttribute>
+<booleanAttribute key="de.actis.bom.ui.ATTR_IN_VALIDATION" value="false"></booleanAttribute>
+<booleanAttribute key="de.actis.bom.ui.ATTR_OPEN_OUTPUT" value="true"></booleanAttribute>
+<stringAttribute key="de.actis.bom.ui.ATTR_OUT_GRAMMER" value=""></stringAttribute>
+<booleanAttribute key="de.actis.bom.ui.ATTR_OUT_VALIDATION" value="false"></booleanAttribute>
+<mapAttribute key="de.actis.bom.ui.ATTR_PARAMETERS_ENABLED"></mapAttribute>
+<stringAttribute key="de.actis.bom.ui.ATTR_SOURCE_INPUT" value="testdata/delfor_en_front_lights_0910280425.tst.xml"></stringAttribute>
+<stringAttribute key="de.actis.bom.ui.ATTR_SOURCE_OUTPUT" value="testdata/out.xml"></stringAttribute>
+<stringAttribute key="de.actis.bom.ui.ATTR_SOURCE_PROJECT" value="webedi_automotive_delfor99b_proof"></stringAttribute>
+<stringAttribute key="de.actis.bom.ui.ATTR_SOURCE_TRANSLET" value="xsl/laeproof.xsl"></stringAttribute>
+<booleanAttribute key="de.actis.bom.ui.ATTR_XSLT_MODE" value="false"></booleanAttribute>
+<intAttribute key="de.actis.bom.ui.ATTR_XSLT_PROC" value="0"></intAttribute>
+<booleanAttribute key="de.actis.bom.ui.ATTR_XSLT_TRACE" value="true"></booleanAttribute>
+<mapAttribute key="org.eclipse.debug.core.environmentVariables"></mapAttribute>
+</launchConfiguration>

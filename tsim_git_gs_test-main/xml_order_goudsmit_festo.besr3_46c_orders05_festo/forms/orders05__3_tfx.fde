@@ -1,0 +1,2657 @@
+#------------ Axway --------------#
+#!FGFLAGS=1
+#!FileInfo=Ident=$Header: $
+#!FileInfo=FileType=forms
+#!TFX
+#-----------------------------------------------#
+ORDERS05[0:"EDI_DC40"] =1
+.
+
+ORDERS05:
+	IDOC[0:"EDI_DC40"] +
+;
+
+IDOC:
+	EDI_DC40[0:"EDI_DC40"] =1
+	E2EDK01[0:"E2EDK01"] +1
+	E2EDK14[0:"E2EDK14"] *12
+	E2EDK03[0:"E2EDK03"] *10
+	E2EDK04[0:"E2EDK04"] *10
+	E2EDK05[0:"E2EDK05"] *16
+	E2EDKA1[0:"E2EDKA1"] *99
+	E2EDK02[0:"E2EDK02"] *10
+	E2EDK17[0:"E2EDK17"] *4
+	E2EDK18[0:"E2EDK18"] *3
+	E2EDK35[0:"E2EDK35"] *
+	E2EDK36[0:"E2EDK36"] *99
+	E2EDKT1[0:"E2EDKT1"] *99
+	E2EDP01[0:"E2EDP01"] *
+	E2CUCFG[0:"E2CUCFG"] *
+	E2EDL37[0:"E2EDL37"] *
+	E2EDS01[0:"E2EDS01"] *5
+;
+
+gr_rest { DELIMITER="\x0a" }:
+		rest *
+;
+#-----------------------------------------------#
+#-------------------------------#
+# Kontrollsatz-Felder           #
+#-------------------------------#
+EDI_DC40:
+	EDI_DC40_TABNAM			# Name der Tabellenstruktur pos=[0]
+	EDI_DC40_MANDT			# Mandant pos=[10]
+	EDI_DC40_DOCNUM			# Nummer des IDocs pos=[13]
+	EDI_DC40_DOCREL			# SAP-Release des IDocs pos=[29]
+	EDI_DC40_STATUS			# Status des IDocs pos=[33]
+	EDI_DC40_DIRECT			# Richtung pos=[35]
+	EDI_DC40_OUTMOD			# Ausgabemodus pos=[36]
+	EDI_DC40_EXPRSS			# Übersteuerung im Eingang pos=[37]
+	EDI_DC40_TEST			# Testkennzeichen pos=[38]
+	EDI_DC40_IDOCTYP			# Name des Basistyps pos=[39]
+	EDI_DC40_CIMTYP			# Erweiterung (vom Kunden definiert) pos=[69]
+	EDI_DC40_MESTYP			# Nachrichtentyp pos=[99]
+	EDI_DC40_MESCOD			# Nachrichtenvariante pos=[129]
+	EDI_DC40_MESFCT			# Nachrichtenfunktion pos=[132]
+	EDI_DC40_STD			# EDI-Standard, Kennzeichen pos=[135]
+	EDI_DC40_STDVRS			# EDI-Standard, Version und Release pos=[136]
+	EDI_DC40_STDMES			# EDI-Nachrichtentyp pos=[142]
+	EDI_DC40_SNDPOR			# Absenderport (SAP-System, externes Subsystem) pos=[148]
+	EDI_DC40_SNDPRT			# Partnerart des Absenders pos=[158]
+	EDI_DC40_SNDPFC			# Partnerrolle des Absenders pos=[160]
+	EDI_DC40_SNDPRN			# Partnernummer des Absenders pos=[162]
+	EDI_DC40_SNDSAD			# Absenderadresse (SADR) pos=[172]
+	EDI_DC40_SNDLAD			# Logische Adresse des Absenders pos=[193]
+	EDI_DC40_RCVPOR			# Empfängerport pos=[263]
+	EDI_DC40_RCVPRT			# Partnerart des Empfängers pos=[273]
+	EDI_DC40_RCVPFC			# Partnerrolle des Empfängers pos=[275]
+	EDI_DC40_RCVPRN			# Partnernummer des Empfängers pos=[277]
+	EDI_DC40_RCVSAD			# Empfängeradresse (SADR) pos=[287]
+	EDI_DC40_RCVLAD			# Logische Adresse des Empfängers pos=[308]
+	EDI_DC40_CREDAT			# Erstellungsdatum pos=[378]
+	EDI_DC40_CRETIM			# Erstellungsuhrzeit pos=[386]
+	EDI_DC40_REFINT			# Übertragungsdatei (EDI Interchange) pos=[392]
+	EDI_DC40_REFGRP			# Nachrichtengruppe (EDI Message Group) pos=[406]
+	EDI_DC40_REFMES			# Nachricht (EDI Message) pos=[420]
+	EDI_DC40_ARCKEY			# Schlüssel des externen Nachrichtenarchivs pos=[434]
+	EDI_DC40_SERIAL			# Serialisierung pos=[504]
+	gr_rest
+;
+
+#---------------------------------------#
+#            IDoc Segmente              #
+#---------------------------------------#
+
+#---------------------------------------#
+#	Segment E2EDK01
+#---------------------------------------#
+E2EDK01 {XML_NAME="E1EDK01"}:
+	E2EDK01_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDK01_MANDT			# Mandant pos[=30]
+	E2EDK01_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDK01_SEGNUM			# Segmentnummer pos[=49]
+	E2EDK01_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDK01_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDK01_ACTION			# Aktionscode, der die gesamte EDI-Nachricht betrifft. pos[=63]
+	E2EDK01_KZABS			# Kennzeichen für Auftragsbestätigungspflicht pos[=66]
+	E2EDK01_CURCY			# Währung pos[=67]
+	E2EDK01_HWAER			# EDI-Hauswährung pos[=70]
+	E2EDK01_WKURS			# Währungskurs pos[=73]
+	E2EDK01_ZTERM			# Zahlungsbedingungsschlüssel pos[=85]
+	E2EDK01_KUNDEUINR			# Umsatzsteuer-Identifikationsnummer pos[=102]
+	E2EDK01_EIGENUINR			# Umsatzsteuer-Identifikationsnummer pos[=122]
+	E2EDK01_BSART			# Belegart pos[=142]
+	E2EDK01_BELNR			# IDOC Belegnummer pos[=146]
+	E2EDK01_NTGEW			# Nettogewicht pos[=181]
+	E2EDK01_BRGEW			# Nettogewicht pos[=199]
+	E2EDK01_GEWEI			# Gewichtseinheit pos[=217]
+	E2EDK01_FKART_RL			# Rechnungslistenart pos[=220]
+	E2EDK01_ABLAD			# Abladestelle pos[=224]
+	E2EDK01_BSTZD			# Bestell-Nummer-Zusatz des Kunden pos[=249]
+	E2EDK01_VSART			# Versandbedingung pos[=253]
+	E2EDK01_VSART_BEZ			# Bezeichnung der Versandart pos[=255]
+	E2EDK01_RECIPNT_NO			# Nummer des Empfängers (für Steuerung über ALE-Modell) pos[=275]
+	E2EDK01_KZAZU			# Kennzeichen Auftragszusammenführung pos[=285]
+	E2EDK01_AUTLF			# Vollieferung pro Auftrag vorgeschrieben ? pos[=286]
+	E2EDK01_AUGRU			# Auftragsgrund (Grund des Vorgangs) pos[=287]
+	E2EDK01_AUGRU_BEZ			# Bezeichnung pos[=290]
+	E2EDK01_ABRVW			# Verwendungskennzeichen pos[=330]
+	E2EDK01_ABRVW_BEZ			# Bezeichnung pos[=333]
+	E2EDK01_FKTYP			# Fakturatyp pos[=353]
+	E2EDK01_LIFSK			# Lieferscheinsperre Belegkopf pos[=354]
+	E2EDK01_LIFSK_BEZ			# Bezeichnung pos[=356]
+	E2EDK01_EMPST			# Empfangsstelle pos[=376]
+	E2EDK01_ABTNR			# Abteilungsnummer pos[=401]
+	E2EDK01_DELCO			# vereinbarte Lieferzeit pos[=405]
+	E2EDK01_WKURS_M			# Mengennotierter Kurs in einem IDoc-Segment pos[=408]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDK14
+#---------------------------------------#
+E2EDK14 {XML_NAME="E1EDK14"}:
+	E2EDK14_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDK14_MANDT			# Mandant pos[=30]
+	E2EDK14_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDK14_SEGNUM			# Segmentnummer pos[=49]
+	E2EDK14_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDK14_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDK14_QUALF			# IDOC Qualifier Organisation pos[=63]
+	E2EDK14_ORGID			# IDOC Organisation pos[=66]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDK03
+#---------------------------------------#
+E2EDK03 {XML_NAME="E1EDK03"}:
+	E2EDK03_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDK03_MANDT			# Mandant pos[=30]
+	E2EDK03_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDK03_SEGNUM			# Segmentnummer pos[=49]
+	E2EDK03_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDK03_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDK03_IDDAT			# Qualifier Datumssegment IDOC pos[=63]
+	E2EDK03_DATUM			# IDOC: Datum pos[=66]
+	E2EDK03_UZEIT			# IDOC: Uhrzeit pos[=74]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDK04
+#---------------------------------------#
+E2EDK04 {XML_NAME="E1EDK04"}:
+	E2EDK04_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDK04_MANDT			# Mandant pos[=30]
+	E2EDK04_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDK04_SEGNUM			# Segmentnummer pos[=49]
+	E2EDK04_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDK04_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDK04_MWSKZ			# Mehrwertsteuerkennzeichen pos[=63]
+	E2EDK04_MSATZ			# Mehrwertsteuersatz pos[=70]
+	E2EDK04_MWSBT			# MwSt.-Betrag pos[=87]
+	E2EDK04_TXJCD			# Steuerstandort pos[=105]
+	E2EDK04_KTEXT			# Textfeld pos[=120]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDK05
+#---------------------------------------#
+E2EDK05 {XML_NAME="E1EDK05"}:
+	E2EDK05_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDK05_MANDT			# Mandant pos[=30]
+	E2EDK05_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDK05_SEGNUM			# Segmentnummer pos[=49]
+	E2EDK05_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDK05_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDK05_ALCKZ			# Kennzeichen Zu- oder Abschlag pos[=63]
+	E2EDK05_KSCHL			# Konditionsart (codiert) pos[=66]
+	E2EDK05_KOTXT			# Konditionsbeschreibung pos[=70]
+	E2EDK05_BETRG			# Fester Zu-/Abschlag auf Position Gesamtbrutto pos[=150]
+	E2EDK05_KPERC			# Konditionsprozentsatz pos[=168]
+	E2EDK05_KRATE			# Konditionssatz pro Einheit pos[=176]
+	E2EDK05_UPRBS			# Preiseinheit pos[=191]
+	E2EDK05_MEAUN			# Maßeinheit pos[=200]
+	E2EDK05_KOBTR			# IDOC Konditionsendbetrag pos[=203]
+	E2EDK05_MWSKZ			# Mehrwertsteuerkennzeichen pos[=221]
+	E2EDK05_MSATZ			# Mehrwertsteuersatz pos[=228]
+	E2EDK05_KOEIN			# Währung pos[=245]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDKA1
+#---------------------------------------#
+E2EDKA1 {XML_NAME="E1EDKA1"}:
+	E2EDKA1_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDKA1_MANDT			# Mandant pos[=30]
+	E2EDKA1_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDKA1_SEGNUM			# Segmentnummer pos[=49]
+	E2EDKA1_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDKA1_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDKA1_PARVW			# Partnerrolle (z.B. Auftraggeber, Warenempfänger, ...) pos[=63]
+	E2EDKA1_PARTN			# Partnernummer pos[=66]
+	E2EDKA1_LIFNR			# Lieferantennummer beim Kunden pos[=83]
+	E2EDKA1_NAME1			# Name 1 pos[=100]
+	E2EDKA1_NAME2			# Name 2 pos[=135]
+	E2EDKA1_NAME3			# Name 3 pos[=170]
+	E2EDKA1_NAME4			# Name 4 pos[=205]
+	E2EDKA1_STRAS			# Straße und Hausnummer 1 pos[=240]
+	E2EDKA1_STRS2			# Straße und Hausnummer 2 pos[=275]
+	E2EDKA1_PFACH			# Postfach pos[=310]
+	E2EDKA1_ORT01			# Ort pos[=345]
+	E2EDKA1_COUNC			# County code pos[=380]
+	E2EDKA1_PSTLZ			# Postleitzahl pos[=389]
+	E2EDKA1_PSTL2			# Postleitzahl des Postfachs pos[=398]
+	E2EDKA1_LAND1			# Länderschlüssel pos[=407]
+	E2EDKA1_ABLAD			# Abladestelle pos[=410]
+	E2EDKA1_PERNR			# Personalnummer des Ansprechpartners pos[=445]
+	E2EDKA1_PARNR			# Ansprechpartnernummer (nicht Personalnummer) pos[=475]
+	E2EDKA1_TELF1			# Telefonnummer 1 des Ansprechpartners pos[=505]
+	E2EDKA1_TELF2			# Telefonnummer 2 des Ansprechpartners pos[=530]
+	E2EDKA1_TELBX			# Teleboxnummer pos[=555]
+	E2EDKA1_TELFX			# Telefaxnummer pos[=580]
+	E2EDKA1_TELTX			# Teletexnummer pos[=605]
+	E2EDKA1_TELX1			# Telexnummer pos[=630]
+	E2EDKA1_SPRAS			# Sprachenschlüssel pos[=655]
+	E2EDKA1_ANRED			# Anrede pos[=656]
+	E2EDKA1_ORT02			# Ortsteil pos[=671]
+	E2EDKA1_HAUSN			# Hausnummer pos[=706]
+	E2EDKA1_STOCK			# Stockwerk pos[=712]
+	E2EDKA1_REGIO			# Region pos[=718]
+	E2EDKA1_PARGE			# Geschlecht des Partners pos[=721]
+	E2EDKA1_ISOAL			# ISO-Code des Landes pos[=722]
+	E2EDKA1_ISONU			# ISO-Code des Landes pos[=724]
+	E2EDKA1_FCODE			# Firmencode Frankreich pos[=726]
+	E2EDKA1_IHREZ			# Ihr Zeichen (vom Partner) pos[=746]
+	E2EDKA1_BNAME			# IDOC Benutzername pos[=776]
+	E2EDKA1_PAORG			# IDOC Organisationscode pos[=811]
+	E2EDKA1_ORGTX			# IDOC Organisationscode pos[=841]
+	E2EDKA1_PAGRU			# IDOC Gruppencode pos[=876]
+	E2EDKA1_KNREF			# Kundenindividuelle Bez. des Geschäftspartners (Werk, Lager) pos[=906]
+	E2EDKA1_ILNNR			# Characterfeld der Länge 70 pos[=936]
+	E2EDKA1_PFORT			# Ort des Postfachs pos[=1006]
+	E2EDKA1_SPRAS_ISO			# Sprache nach ISO 639 pos[=1041]
+	E2EDKA1_TITLE			# Anrede pos[=1043]
+	gr_rest
+	E2EDKA3[0:"E2EDKA3"] *99
+;
+
+#---------------------------------------#
+#	Segment E2EDKA3
+#---------------------------------------#
+E2EDKA3 {XML_NAME="E1EDKA3"}:
+	E2EDKA3_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDKA3_MANDT			# Mandant pos[=30]
+	E2EDKA3_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDKA3_SEGNUM			# Segmentnummer pos[=49]
+	E2EDKA3_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDKA3_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDKA3_QUALP			# IDOC Partneridentifikation (z.B. Dun&Bradstreet Nummer) pos[=63]
+	E2EDKA3_STDPN			# Characterfeld der Länge 70 pos[=66]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDK02
+#---------------------------------------#
+E2EDK02 {XML_NAME="E1EDK02"}:
+	E2EDK02_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDK02_MANDT			# Mandant pos[=30]
+	E2EDK02_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDK02_SEGNUM			# Segmentnummer pos[=49]
+	E2EDK02_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDK02_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDK02_QUALF			# IDOC Qualifier Referenzbeleg pos[=63]
+	E2EDK02_BELNR			# IDOC Belegnummer pos[=66]
+	E2EDK02_POSNR			# Positionsnummer pos[=101]
+	E2EDK02_DATUM			# IDOC: Datum pos[=107]
+	E2EDK02_UZEIT			# IDOC: Uhrzeit pos[=115]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDK17
+#---------------------------------------#
+E2EDK17 {XML_NAME="E1EDK17"}:
+	E2EDK17_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDK17_MANDT			# Mandant pos[=30]
+	E2EDK17_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDK17_SEGNUM			# Segmentnummer pos[=49]
+	E2EDK17_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDK17_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDK17_QUALF			# IDOC Qualifier Lieferbedingungen pos[=63]
+	E2EDK17_LKOND			# IDOC Lieferkondition Code pos[=66]
+	E2EDK17_LKTEXT			# IDOC Lieferkondition Text pos[=69]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDK18
+#---------------------------------------#
+E2EDK18 {XML_NAME="E1EDK18"}:
+	E2EDK18_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDK18_MANDT			# Mandant pos[=30]
+	E2EDK18_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDK18_SEGNUM			# Segmentnummer pos[=49]
+	E2EDK18_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDK18_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDK18_QUALF			# IDOC Qualifier Zahlungsbedingungen pos[=63]
+	E2EDK18_TAGE			# IDOC Anzahl von Tagen pos[=66]
+	E2EDK18_PRZNT			# IDOC Prozentsatz für Zahlungsbedingungen pos[=74]
+	E2EDK18_ZTERM_TXT			# Textzeile pos[=82]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDK35
+#---------------------------------------#
+E2EDK35 {XML_NAME="E1EDK35"}:
+	E2EDK35_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDK35_MANDT			# Mandant pos[=30]
+	E2EDK35_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDK35_SEGNUM			# Segmentnummer pos[=49]
+	E2EDK35_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDK35_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDK35_QUALZ			# Qualifier für Zusatzdaten IDOC pos[=63]
+	E2EDK35_CUSADD			# Datenelement Typ CHAR Länge 35 pos[=66]
+	E2EDK35_CUSADD_BEZ			# Character 40-Stellen pos[=101]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDK36
+#---------------------------------------#
+E2EDK36 {XML_NAME="E1EDK36"}:
+	E2EDK36_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDK36_MANDT			# Mandant pos[=30]
+	E2EDK36_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDK36_SEGNUM			# Segmentnummer pos[=49]
+	E2EDK36_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDK36_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDK36_CCINS			# Zahlungskarten: Kartenart pos[=63]
+	E2EDK36_CCINS_BEZEI			# Bezeichnung pos[=67]
+	E2EDK36_CCNUM			# Zahlungskarten: Kartennummer pos[=87]
+	E2EDK36_EXDATBI			# IDOC: Datum pos[=112]
+	E2EDK36_CCNAME			# Zahlungskarten: Name des Karteninhabers pos[=120]
+	E2EDK36_FAKWR			# Maximalbetrag pos[=160]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDKT1
+#---------------------------------------#
+E2EDKT1 {XML_NAME="E1EDKT1"}:
+	E2EDKT1_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDKT1_MANDT			# Mandant pos[=30]
+	E2EDKT1_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDKT1_SEGNUM			# Segmentnummer pos[=49]
+	E2EDKT1_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDKT1_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDKT1_TDID			# Text-ID pos[=63]
+	E2EDKT1_TSSPRAS			# Sprachenschluessel pos[=67]
+	E2EDKT1_TSSPRAS_ISO			# Sprache nach ISO 639 pos[=70]
+	E2EDKT1_TDOBJECT			# Texte: Anwendungsobjekt pos[=72]
+	E2EDKT1_TDOBNAME			# Name pos[=82]
+	gr_rest
+	E2EDKT2[0:"E2EDKT2"] *
+;
+
+#---------------------------------------#
+#	Segment E2EDKT2
+#---------------------------------------#
+E2EDKT2 {XML_NAME="E1EDKT2"}:
+	E2EDKT2_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDKT2_MANDT			# Mandant pos[=30]
+	E2EDKT2_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDKT2_SEGNUM			# Segmentnummer pos[=49]
+	E2EDKT2_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDKT2_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDKT2_TDLINE			# Textzeile pos[=63]
+	E2EDKT2_TDFORMAT			# Formatspalte pos[=133]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDP01
+#---------------------------------------#
+E2EDP01 {XML_NAME="E1EDP01"}:
+	E2EDP01_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDP01_MANDT			# Mandant pos[=30]
+	E2EDP01_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDP01_SEGNUM			# Segmentnummer pos[=49]
+	E2EDP01_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDP01_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDP01_POSEX			# Positionsnummer pos[=63]
+	E2EDP01_ACTION			# Aktionscode, der die Position betrifft. pos[=69]
+	E2EDP01_PSTYP			# Positionstyp pos[=72]
+	E2EDP01_KZABS			# Kennzeichen für Auftragsbestätigungspflicht pos[=73]
+	E2EDP01_MENGE			# Menge pos[=74]
+	E2EDP01_MENEE			# Mengeneinheit pos[=89]
+	E2EDP01_BMNG2			# Menge in Preismengeneinheit pos[=92]
+	E2EDP01_PMENE			# Preismengeneinheit pos[=107]
+	E2EDP01_ABFTZ			# Abstimmfortschrittszahl pos[=110]
+	E2EDP01_VPREI			# Preis (Netto) pos[=117]
+	E2EDP01_PEINH			# Preiseinheit pos[=132]
+	E2EDP01_NETWR			# Wert der Position (Netto) pos[=141]
+	E2EDP01_ANETW			# Absoluter Nettowert der Position pos[=159]
+	E2EDP01_SKFBP			# Skontofähiger Betrag pos[=177]
+	E2EDP01_NTGEW			# Nettogewicht pos[=195]
+	E2EDP01_GEWEI			# Gewichtseinheit pos[=213]
+	E2EDP01_EINKZ			# Kennzeichen: Mehr als eine Einteilung zur Position pos[=216]
+	E2EDP01_CURCY			# Währung pos[=217]
+	E2EDP01_PREIS			# Bruttopreis pos[=220]
+	E2EDP01_MATKL			# IDOC Materialklasse pos[=238]
+	E2EDP01_UEPOS			# Übergeordnete Position bei Stücklistenstrukturen pos[=247]
+	E2EDP01_GRKOR			# Liefergruppe (Pos. werden zusammen geliefert) pos[=253]
+	E2EDP01_EVERS			# Versandvorschrift pos[=256]
+	E2EDP01_BPUMN			# Nenner für die Umrechnung BPRME in BME pos[=263]
+	E2EDP01_BPUMZ			# Zähler für die Umrechnung BPRME in BME pos[=269]
+	E2EDP01_ABGRU			# Absagegrund für Angebote und Aufträge pos[=275]
+	E2EDP01_ABGRT			# Bezeichnung pos[=277]
+	E2EDP01_ANTLF			# Maximale Anzahl erlaubter Teillieferungen pro Position pos[=317]
+	E2EDP01_FIXMG			# Liefertermin und Menge ist fixiert pos[=318]
+	E2EDP01_KZAZU			# Kennzeichen Auftragszusammenführung pos[=319]
+	E2EDP01_BRGEW			# Gesamtgewicht pos[=320]
+	E2EDP01_PSTYV			# Positionstyp Vertriebsbeleg pos[=338]
+	E2EDP01_EMPST			# Empfangsstelle pos[=342]
+	E2EDP01_ABTNR			# Abteilungsnummer pos[=367]
+	E2EDP01_ABRVW			# Verwendungskennzeichen pos[=371]
+	E2EDP01_WERKS			# Werk pos[=374]
+	E2EDP01_LPRIO			# Lieferpriorität pos[=378]
+	E2EDP01_LPRIO_BEZ			# Bezeichnung pos[=380]
+	E2EDP01_ROUTE			# Route pos[=400]
+	E2EDP01_ROUTE_BEZ			# Bezeichnung pos[=406]
+	E2EDP01_LGORT			# Lagerort pos[=446]
+	E2EDP01_VSTEL			# Versandstelle/Warenannahmestelle pos[=450]
+	E2EDP01_DELCO			# vereinbarte Lieferzeit pos[=454]
+	E2EDP01_MATNR			# IDOC Materialidentifikation pos[=457]
+	E2EDP01_VALTG			# Zusätzliche Valutatage pos[=492]
+	E2EDP01_HIPOS			# Übergeordnete Position in einer Positionshierarchie pos[=494]
+	E2EDP01_HIEVW			# Verwendung der Hierarchieposition pos[=500]
+	E2EDP01_POSGUID			# ATP: Verschlüsselung von DELNR und DELPS pos[=501]
+	E2EDP01_MATNR_EXTERNAL			# Materialnummer pos[=523]
+	E2EDP01_MATNR_VERSION			# Versionsnummer zum Feld MATNR pos[=563]
+	E2EDP01_MATNR_GUID			# Externe GUID zum Feld MATNR pos[=573]
+	gr_rest
+	E2EDP02[0:"E2EDP02"] *10
+	E2CUREF[0:"E2CUREF"] *1
+	E2ADDI1[0:"E2ADDI1"] *
+	E2EDP03[0:"E2EDP03"] *10
+	E2EDP04[0:"E2EDP04"] *10
+	E2EDP05[0:"E2EDP05"] *16
+	E2EDP20[0:"E2EDP20"] *
+	E2EDPA1[0:"E2EDPA1"] *8
+	E2EDP19[0:"E2EDP19"] *5
+	E2EDPAD[0:"E2EDPAD"] *1
+	E2EDP17[0:"E2EDP17"] *5
+	E2EDP18[0:"E2EDP18"] *3
+	E2EDP35[0:"E2EDP35"] *
+	E2EDPT1[0:"E2EDPT1"] *
+	E2EDC01[0:"E2EDC01"] *
+;
+
+#---------------------------------------#
+#	Segment E2EDP02
+#---------------------------------------#
+E2EDP02 {XML_NAME="E1EDP02"}:
+	E2EDP02_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDP02_MANDT			# Mandant pos[=30]
+	E2EDP02_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDP02_SEGNUM			# Segmentnummer pos[=49]
+	E2EDP02_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDP02_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDP02_QUALF			# IDOC Qualifier Referenzbeleg pos[=63]
+	E2EDP02_BELNR			# IDOC Belegnummer pos[=66]
+	E2EDP02_ZEILE			# Positionsnummer pos[=101]
+	E2EDP02_DATUM			# IDOC: Datum pos[=107]
+	E2EDP02_UZEIT			# IDOC: Uhrzeit pos[=115]
+	E2EDP02_BSARK			# IDOC Organisation pos[=121]
+	E2EDP02_IHREZ			# Ihr Zeichen (vom Partner) pos[=156]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2CUREF
+#---------------------------------------#
+E2CUREF {XML_NAME="E1CUREF"}:
+	E2CUREF_SEGNAM			# Segment (externer Name) pos[=0]
+	E2CUREF_MANDT			# Mandant pos[=30]
+	E2CUREF_DOCNUM			# Nummer des IDocs pos[=33]
+	E2CUREF_SEGNUM			# Segmentnummer pos[=49]
+	E2CUREF_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2CUREF_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2CUREF_POSEX			# Characterfeld der Länge 6 pos[=63]
+	E2CUREF_CONFIG_ID			# Characterfeld der Länge 6 pos[=69]
+	E2CUREF_INST_ID			# Character Feld der Länge 8 pos[=75]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2ADDI1
+#---------------------------------------#
+E2ADDI1 {XML_NAME="E1ADDI1"}:
+	E2ADDI1_SEGNAM			# Segment (externer Name) pos[=0]
+	E2ADDI1_MANDT			# Mandant pos[=30]
+	E2ADDI1_DOCNUM			# Nummer des IDocs pos[=33]
+	E2ADDI1_SEGNUM			# Segmentnummer pos[=49]
+	E2ADDI1_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2ADDI1_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2ADDI1_ADDIMATNR			# Verkaufshilfsmittel-Materialnummer pos[=63]
+	E2ADDI1_ADDINUMBER			# Anzahl Verkaufshilfsmittel pos[=81]
+	E2ADDI1_ADDIVKME			# Verkaufsmengeneinheit des Materials pos[=98]
+	E2ADDI1_ADDIFM			# Anbringungsmethode für Verkaufshilfsmittel pos[=101]
+	E2ADDI1_ADDIFM_TXT			# Verkaufshilfsmittel: Beschreibung der Anbringungsmethode pos[=105]
+	E2ADDI1_ADDIKLART			# Klassenart zur Anzeige beim Editieren von Verkaufshilfsm. pos[=145]
+	E2ADDI1_ADDIKLART_TXT			# Bezeichnung der Klassenart pos[=148]
+	E2ADDI1_ADDICLASS			# Klasse, deren Elementen Verkaufshilfsmittel zugeordnet sind pos[=188]
+	E2ADDI1_ADDICLASS_TXT			# Schlagwörter pos[=206]
+	E2ADDI1_ADDIIDOC			# Hinweiskennzeichen auf separates Verkaufshilfsmittel-IDoc pos[=246]
+	E2ADDI1_ADDIMATNR_EXTERNAL			# Lange Materialnummer zum Feld ADDIMATNR pos[=247]
+	E2ADDI1_ADDIMATNR_VERSION			# Versionsnummer zum Feld ADDIMATNR pos[=287]
+	E2ADDI1_ADDIMATNR_GUID			# Externe GUID zum Feld ADDIMATNR pos[=297]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDP03
+#---------------------------------------#
+E2EDP03 {XML_NAME="E1EDP03"}:
+	E2EDP03_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDP03_MANDT			# Mandant pos[=30]
+	E2EDP03_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDP03_SEGNUM			# Segmentnummer pos[=49]
+	E2EDP03_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDP03_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDP03_IDDAT			# Qualifier Datumssegment IDOC pos[=63]
+	E2EDP03_DATUM			# Datum pos[=66]
+	E2EDP03_UZEIT			# Uhrzeit pos[=74]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDP04
+#---------------------------------------#
+E2EDP04 {XML_NAME="E1EDP04"}:
+	E2EDP04_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDP04_MANDT			# Mandant pos[=30]
+	E2EDP04_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDP04_SEGNUM			# Segmentnummer pos[=49]
+	E2EDP04_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDP04_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDP04_MWSKZ			# Mehrwertsteuerkennzeichen pos[=63]
+	E2EDP04_MSATZ			# Mehrwertsteuersatz pos[=70]
+	E2EDP04_MWSBT			# MwSt.-Betrag pos[=87]
+	E2EDP04_TXJCD			# Steuerstandort pos[=105]
+	E2EDP04_KTEXT			# Textfeld pos[=120]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDP05
+#---------------------------------------#
+E2EDP05 {XML_NAME="E1EDP05"}:
+	E2EDP05_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDP05_MANDT			# Mandant pos[=30]
+	E2EDP05_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDP05_SEGNUM			# Segmentnummer pos[=49]
+	E2EDP05_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDP05_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDP05_ALCKZ			# Kennzeichen Zu- oder Abschlag pos[=63]
+	E2EDP05_KSCHL			# Konditionsart (codiert) pos[=66]
+	E2EDP05_KOTXT			# Konditionsbeschreibung pos[=70]
+	E2EDP05_BETRG			# Fester Zu-/Abschlag auf Position Gesamtbrutto pos[=150]
+	E2EDP05_KPERC			# Konditionsprozentsatz pos[=168]
+	E2EDP05_KRATE			# Konditionssatz pro Einheit pos[=176]
+	E2EDP05_UPRBS			# Preiseinheit pos[=191]
+	E2EDP05_MEAUN			# Maßeinheit pos[=200]
+	E2EDP05_KOBTR			# IDOC Konditionsendbetrag pos[=203]
+	E2EDP05_MENGE			# Menge der Preisstaffel (SPEC2000) pos[=221]
+	E2EDP05_PREIS			# Preis pro Mengeneinheit (SPEC2000) pos[=236]
+	E2EDP05_MWSKZ			# Mehrwertsteuerkennzeichen pos[=251]
+	E2EDP05_MSATZ			# Mehrwertsteuersatz pos[=258]
+	E2EDP05_KOEIN			# Währung pos[=275]
+	E2EDP05_CURTP			# Währungstyp und Bewertungssicht pos[=278]
+	E2EDP05_KOBAS			# Basiswert auf den sich die Kondition bezieht pos[=280]
+	gr_rest
+	E2EDPS5[0:"E2EDPS5"] *99
+;
+
+#---------------------------------------#
+#	Segment E2EDPS5
+#---------------------------------------#
+E2EDPS5 {XML_NAME="E1EDPS5"}:
+	E2EDPS5_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDPS5_MANDT			# Mandant pos[=30]
+	E2EDPS5_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDPS5_SEGNUM			# Segmentnummer pos[=49]
+	E2EDPS5_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDPS5_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDPS5_KSTBM			# Kondition-Staffelbasis Menge pos[=63]
+	E2EDPS5_KBETR			# Konditionsbetrag oder -prozentsatz pos[=80]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDP20
+#---------------------------------------#
+E2EDP20 {XML_NAME="E1EDP20"}:
+	E2EDP20_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDP20_MANDT			# Mandant pos[=30]
+	E2EDP20_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDP20_SEGNUM			# Segmentnummer pos[=49]
+	E2EDP20_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDP20_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDP20_WMENG			# Einteilungsmenge pos[=63]
+	E2EDP20_AMENG			# Vorherige Einteilungsmenge pos[=78]
+	E2EDP20_EDATU			# IDOC: Datum pos[=93]
+	E2EDP20_EZEIT			# IDOC: Uhrzeit pos[=101]
+	E2EDP20_EDATU_OLD			# IDOC: Datum pos[=107]
+	E2EDP20_EZEIT_OLD			# IDOC: Uhrzeit pos[=115]
+	E2EDP20_ACTION			# Aktionscode, der die Position betrifft. pos[=121]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDPA1
+#---------------------------------------#
+E2EDPA1 {XML_NAME="E1EDPA1"}:
+	E2EDPA1_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDPA1_MANDT			# Mandant pos[=30]
+	E2EDPA1_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDPA1_SEGNUM			# Segmentnummer pos[=49]
+	E2EDPA1_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDPA1_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDPA1_PARVW			# Partnerrolle (z.B. Auftraggeber, Warenempfänger, ...) pos[=63]
+	E2EDPA1_PARTN			# Partnernummer pos[=66]
+	E2EDPA1_LIFNR			# Lieferantennummer beim Kunden pos[=83]
+	E2EDPA1_NAME1			# Name 1 pos[=100]
+	E2EDPA1_NAME2			# Name 2 pos[=135]
+	E2EDPA1_NAME3			# Name 3 pos[=170]
+	E2EDPA1_NAME4			# Name 4 pos[=205]
+	E2EDPA1_STRAS			# Straße und Hausnummer 1 pos[=240]
+	E2EDPA1_STRS2			# Straße und Hausnummer 2 pos[=275]
+	E2EDPA1_PFACH			# Postfach pos[=310]
+	E2EDPA1_ORT01			# Ort pos[=345]
+	E2EDPA1_COUNC			# County code pos[=380]
+	E2EDPA1_PSTLZ			# Postleitzahl pos[=389]
+	E2EDPA1_PSTL2			# Postleitzahl des Postfachs pos[=398]
+	E2EDPA1_LAND1			# Länderschlüssel pos[=407]
+	E2EDPA1_ABLAD			# Abladestelle pos[=410]
+	E2EDPA1_PERNR			# Personalnummer des Ansprechpartners pos[=445]
+	E2EDPA1_PARNR			# Ansprechpartnernummer (nicht Personalnummer) pos[=475]
+	E2EDPA1_TELF1			# Telefonnummer 1 des Ansprechpartners pos[=505]
+	E2EDPA1_TELF2			# Telefonnummer 2 des Ansprechpartners pos[=530]
+	E2EDPA1_TELBX			# Teleboxnummer pos[=555]
+	E2EDPA1_TELFX			# Telefaxnummer pos[=580]
+	E2EDPA1_TELTX			# Teletexnummer pos[=605]
+	E2EDPA1_TELX1			# Telexnummer pos[=630]
+	E2EDPA1_SPRAS			# Sprachenschlüssel pos[=655]
+	E2EDPA1_ANRED			# Anrede pos[=656]
+	E2EDPA1_ORT02			# Ortsteil pos[=671]
+	E2EDPA1_HAUSN			# Hausnummer pos[=706]
+	E2EDPA1_STOCK			# Stockwerk pos[=712]
+	E2EDPA1_REGIO			# Region pos[=718]
+	E2EDPA1_PARGE			# Geschlecht des Partners pos[=721]
+	E2EDPA1_ISOAL			# ISO-Code des Landes pos[=722]
+	E2EDPA1_ISONU			# ISO-Code des Landes pos[=724]
+	E2EDPA1_FCODE			# Firmencode Frankreich pos[=726]
+	E2EDPA1_IHREZ			# Ihr Zeichen (vom Partner) pos[=746]
+	E2EDPA1_BNAME			# IDOC Benutzername pos[=776]
+	E2EDPA1_PAORG			# IDOC Organisationscode pos[=811]
+	E2EDPA1_ORGTX			# IDOC Organisationscode pos[=841]
+	E2EDPA1_PAGRU			# IDOC Gruppencode pos[=876]
+	E2EDPA1_KNREF			# Kundenindividuelle Bez. des Geschäftspartners (Werk, Lager) pos[=906]
+	E2EDPA1_ILNNR			# Characterfeld der Länge 70 pos[=936]
+	E2EDPA1_PFORT			# Ort des Postfachs pos[=1006]
+	E2EDPA1_SPRAS_ISO			# Sprache nach ISO 639 pos[=1041]
+	E2EDPA1_TITLE			# Anrede pos[=1043]
+	gr_rest
+	E2EDPA3[0:"E2EDPA3"] *99
+;
+
+#---------------------------------------#
+#	Segment E2EDPA3
+#---------------------------------------#
+E2EDPA3 {XML_NAME="E1EDPA3"}:
+	E2EDPA3_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDPA3_MANDT			# Mandant pos[=30]
+	E2EDPA3_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDPA3_SEGNUM			# Segmentnummer pos[=49]
+	E2EDPA3_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDPA3_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDPA3_QUALP			# IDOC Partneridentifikation (z.B. Dun&Bradstreet Nummer) pos[=63]
+	E2EDPA3_STDPN			# Characterfeld der Länge 70 pos[=66]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDP19
+#---------------------------------------#
+E2EDP19 {XML_NAME="E1EDP19"}:
+	E2EDP19_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDP19_MANDT			# Mandant pos[=30]
+	E2EDP19_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDP19_SEGNUM			# Segmentnummer pos[=49]
+	E2EDP19_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDP19_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDP19_QUALF			# IDOC Objektidentifikation (z.B. Materialnummer Kunde,etc.) pos[=63]
+	E2EDP19_IDTNR			# IDOC Materialidentifikation pos[=66]
+	E2EDP19_KTEXT			# IDOC Kurztext pos[=101]
+	E2EDP19_MFRPN			# Herstellerteilenummer pos[=171]
+	E2EDP19_MFRNR			# Nummer eines Herstellers pos[=213]
+	E2EDP19_IDTNR_EXTERNAL			# Lange Materialnummer (Zukünftige Entwicklung) zum Feld IDTNR pos[=223]
+	E2EDP19_IDTNR_VERSION			# Versionsnummer (Zukünftige Entwicklung) zum Feld IDTNR pos[=263]
+	E2EDP19_IDTNR_GUID			# Externe GUID (Zukünftige Entwicklung) zum Feld IDTNR pos[=273]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDPAD
+#---------------------------------------#
+E2EDPAD {XML_NAME="E1EDPAD"}:
+	E2EDPAD_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDPAD_MANDT			# Mandant pos[=30]
+	E2EDPAD_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDPAD_SEGNUM			# Segmentnummer pos[=49]
+	E2EDPAD_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDPAD_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDPAD_QUALF			# IDoc Objectidetifikation(A&D) pos[=63]
+	E2EDPAD_ICC			# Austauschbarkeitskennzeichen pos[=66]
+	E2EDPAD_MOI			# Typkennzeichen pos[=68]
+	E2EDPAD_PRI			# Priorität des Auftrags pos[=72]
+	E2EDPAD_ACN			# Flugzeugregistrierungsnummer (Aircraft Registration Number) pos[=75]
+	gr_rest
+	E2TXTH1[0:"E2TXTH1"] *1
+;
+
+#---------------------------------------#
+#	Segment E2TXTH1
+#---------------------------------------#
+E2TXTH1 {XML_NAME="E1TXTH1"}:
+	E2TXTH1_SEGNAM			# Segment (externer Name) pos[=0]
+	E2TXTH1_MANDT			# Mandant pos[=30]
+	E2TXTH1_DOCNUM			# Nummer des IDocs pos[=33]
+	E2TXTH1_SEGNUM			# Segmentnummer pos[=49]
+	E2TXTH1_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2TXTH1_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2TXTH1_FUNCTION			# Funktion (für übertragenen Text) pos[=63]
+	E2TXTH1_TDOBJECT			# Texte: Anwendungsobjekt pos[=66]
+	E2TXTH1_TDOBNAME			# Name pos[=76]
+	E2TXTH1_TDID			# Text-ID pos[=146]
+	E2TXTH1_TDSPRAS			# Sprache pos[=150]
+	E2TXTH1_TDTEXTTYPE			# SAPscript: Format eines Textes pos[=151]
+	E2TXTH1_LANGUA_ISO			# Sprachkennzeichen pos[=157]
+	gr_rest
+	E2TXTP1[0:"E2TXTP1"] *
+;
+
+#---------------------------------------#
+#	Segment E2TXTP1
+#---------------------------------------#
+E2TXTP1 {XML_NAME="E1TXTP1"}:
+	E2TXTP1_SEGNAM			# Segment (externer Name) pos[=0]
+	E2TXTP1_MANDT			# Mandant pos[=30]
+	E2TXTP1_DOCNUM			# Nummer des IDocs pos[=33]
+	E2TXTP1_SEGNUM			# Segmentnummer pos[=49]
+	E2TXTP1_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2TXTP1_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2TXTP1_TDFORMAT			# Formatspalte pos[=63]
+	E2TXTP1_TDLINE			# Textzeile pos[=65]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDP17
+#---------------------------------------#
+E2EDP17 {XML_NAME="E1EDP17"}:
+	E2EDP17_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDP17_MANDT			# Mandant pos[=30]
+	E2EDP17_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDP17_SEGNUM			# Segmentnummer pos[=49]
+	E2EDP17_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDP17_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDP17_QUALF			# IDOC Qualifier Lieferbedingungen pos[=63]
+	E2EDP17_LKOND			# IDOC Lieferkondition Code pos[=66]
+	E2EDP17_LKTEXT			# IDOC Lieferkondition Text pos[=69]
+	E2EDP17_LPRIO			# Lieferpriorität pos[=139]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDP18
+#---------------------------------------#
+E2EDP18 {XML_NAME="E1EDP18"}:
+	E2EDP18_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDP18_MANDT			# Mandant pos[=30]
+	E2EDP18_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDP18_SEGNUM			# Segmentnummer pos[=49]
+	E2EDP18_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDP18_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDP18_QUALF			# IDOC Qualifier Zahlungsbedingungen pos[=63]
+	E2EDP18_TAGE			# IDOC Anzahl von Tagen pos[=66]
+	E2EDP18_PRZNT			# IDOC Prozentsatz für Zahlungsbedingungen pos[=74]
+	E2EDP18_ZTERM_TXT			# Textzeile pos[=82]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDP35
+#---------------------------------------#
+E2EDP35 {XML_NAME="E1EDP35"}:
+	E2EDP35_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDP35_MANDT			# Mandant pos[=30]
+	E2EDP35_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDP35_SEGNUM			# Segmentnummer pos[=49]
+	E2EDP35_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDP35_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDP35_QUALZ			# Qualifier für Zusatzdaten IDOC pos[=63]
+	E2EDP35_CUSADD			# Datenelement Typ CHAR Länge 35 pos[=66]
+	E2EDP35_CUSADD_BEZ			# Character 40-Stellen pos[=101]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDPT1
+#---------------------------------------#
+E2EDPT1 {XML_NAME="E1EDPT1"}:
+	E2EDPT1_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDPT1_MANDT			# Mandant pos[=30]
+	E2EDPT1_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDPT1_SEGNUM			# Segmentnummer pos[=49]
+	E2EDPT1_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDPT1_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDPT1_TDID			# Text-ID pos[=63]
+	E2EDPT1_TSSPRAS			# Sprachenschluessel pos[=67]
+	E2EDPT1_TSSPRAS_ISO			# Sprache nach ISO 639 pos[=70]
+	gr_rest
+	E2EDPT2[0:"E2EDPT2"] *
+;
+
+#---------------------------------------#
+#	Segment E2EDPT2
+#---------------------------------------#
+E2EDPT2 {XML_NAME="E1EDPT2"}:
+	E2EDPT2_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDPT2_MANDT			# Mandant pos[=30]
+	E2EDPT2_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDPT2_SEGNUM			# Segmentnummer pos[=49]
+	E2EDPT2_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDPT2_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDPT2_TDLINE			# Textzeile pos[=63]
+	E2EDPT2_TDFORMAT			# Formatspalte pos[=133]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDC01
+#---------------------------------------#
+E2EDC01 {XML_NAME="E1EDC01"}:
+	E2EDC01_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDC01_MANDT			# Mandant pos[=30]
+	E2EDC01_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDC01_SEGNUM			# Segmentnummer pos[=49]
+	E2EDC01_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDC01_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDC01_SGTYP			# IDOC Leistungsverzeichnis Segmenttyp pos[=63]
+	E2EDC01_ZLTYP			# IDOC Leistungsverzeichnis Zeilentyp pos[=66]
+	E2EDC01_LVALT			# IDOC Leistungsverzeichnis Alternativen pos[=69]
+	E2EDC01_ALTNO			# IDOC Alternativnummer für Leistungsverzeichnis pos[=72]
+	E2EDC01_ALREF			# IDOC Zuordnungsnummer für Leistungsverzeichnis pos[=74]
+	E2EDC01_ZLART			# IDOC Leistungsverzeichnis Zeilenart pos[=79]
+	E2EDC01_POSEX			# Zeilennummer pos[=82]
+	E2EDC01_RANG			# Hierarchiestufe der Gruppe pos[=92]
+	E2EDC01_EXGRP			# Gliederungsstufe pos[=94]
+	E2EDC01_UEPOS			# Übergeordnete Position bei Stücklistenstrukturen pos[=102]
+	E2EDC01_MATKL			# IDOC Materialklasse pos[=108]
+	E2EDC01_MENGE			# Menge pos[=117]
+	E2EDC01_MENEE			# Mengeneinheit pos[=132]
+	E2EDC01_BMNG2			# Menge in Preismengeneinheit pos[=135]
+	E2EDC01_PMENE			# Preismengeneinheit pos[=150]
+	E2EDC01_BPUMN			# Nenner für die Umrechnung BPRME in BME pos[=153]
+	E2EDC01_BPUMZ			# Zähler für die Umrechnung BPRME in BME pos[=159]
+	E2EDC01_VPREI			# Preis (Netto) pos[=165]
+	E2EDC01_PEINH			# Preiseinheit pos[=180]
+	E2EDC01_NETWR			# Wert der Position (Netto) pos[=189]
+	E2EDC01_ANETW			# Absoluter Nettowert der Position pos[=207]
+	E2EDC01_SKFBP			# Skontofähiger Betrag pos[=225]
+	E2EDC01_CURCY			# Währung pos[=243]
+	E2EDC01_PREIS			# Bruttopreis pos[=246]
+	E2EDC01_ACTION			# Aktionscode, der die Position betrifft. pos[=264]
+	E2EDC01_KZABS			# Kennzeichen für Auftragsbestätigungspflicht pos[=267]
+	E2EDC01_UEBTO			# Übererfüllungstoleranz pos[=268]
+	E2EDC01_UEBTK			# Unbegrenzte Übererfüllung pos[=272]
+	E2EDC01_LBNUM			# Bezeichnung des Leistungsbereichs pos[=273]
+	E2EDC01_AUSGB			# Ausgabe des Leistungsbereichs pos[=276]
+	E2EDC01_FRPOS			# Untergrenze pos[=280]
+	E2EDC01_TOPOS			# Obergrenze pos[=286]
+	E2EDC01_KTXT1			# Kurztext pos[=292]
+	E2EDC01_KTXT2			# Kurztext pos[=332]
+	E2EDC01_PERNR			# Personalnummer pos[=372]
+	E2EDC01_LGART			# Lohnart pos[=380]
+	E2EDC01_STELL			# Stelle pos[=384]
+	E2EDC01_ZWERT			# Gesamtwert Summensegment pos[=392]
+	gr_rest
+	E2EDC02[0:"E2EDC02"] *10
+	E2EDC03[0:"E2EDC03"] *10
+	E2EDC04[0:"E2EDC04"] *10
+	E2EDC05[0:"E2EDC05"] *16
+	E2EDC06[0:"E2EDC06"] *1
+	E2EDC07[0:"E2EDC07"] *1
+	E2EDCA1[0:"E2EDCA1"] *8
+	E2EDC19[0:"E2EDC19"] *5
+	E2EDC17[0:"E2EDC17"] *5
+	E2EDC18[0:"E2EDC18"] *3
+	E2EDCT1[0:"E2EDCT1"] *
+;
+
+#---------------------------------------#
+#	Segment E2EDC02
+#---------------------------------------#
+E2EDC02 {XML_NAME="E1EDC02"}:
+	E2EDC02_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDC02_MANDT			# Mandant pos[=30]
+	E2EDC02_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDC02_SEGNUM			# Segmentnummer pos[=49]
+	E2EDC02_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDC02_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDC02_QUALF			# IDOC Qualifier Referenzbeleg für Leistungsverzeichnis pos[=63]
+	E2EDC02_BELNR			# IDOC Belegnummer pos[=66]
+	E2EDC02_XLINE			# Zeilennummer pos[=101]
+	E2EDC02_DATUM			# IDOC: Datum pos[=111]
+	E2EDC02_UZEIT			# IDOC: Uhrzeit pos[=119]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDC03
+#---------------------------------------#
+E2EDC03 {XML_NAME="E1EDC03"}:
+	E2EDC03_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDC03_MANDT			# Mandant pos[=30]
+	E2EDC03_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDC03_SEGNUM			# Segmentnummer pos[=49]
+	E2EDC03_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDC03_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDC03_IDDAT			# Qualifier Datumssegment IDOC pos[=63]
+	E2EDC03_DATUM			# Datum pos[=66]
+	E2EDC03_UZEIT			# Uhrzeit pos[=74]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDC04
+#---------------------------------------#
+E2EDC04 {XML_NAME="E1EDC04"}:
+	E2EDC04_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDC04_MANDT			# Mandant pos[=30]
+	E2EDC04_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDC04_SEGNUM			# Segmentnummer pos[=49]
+	E2EDC04_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDC04_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDC04_MWSKZ			# Mehrwertsteuerkennzeichen pos[=63]
+	E2EDC04_MSATZ			# Mehrwertsteuersatz pos[=70]
+	E2EDC04_MWSBT			# MwSt.-Betrag pos[=87]
+	E2EDC04_TXJCD			# Steuerstandort pos[=105]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDC05
+#---------------------------------------#
+E2EDC05 {XML_NAME="E1EDC05"}:
+	E2EDC05_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDC05_MANDT			# Mandant pos[=30]
+	E2EDC05_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDC05_SEGNUM			# Segmentnummer pos[=49]
+	E2EDC05_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDC05_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDC05_ALCKZ			# Kennzeichen Zu- oder Abschlag pos[=63]
+	E2EDC05_KSCHL			# Konditionsart (codiert) pos[=66]
+	E2EDC05_KOTXT			# Konditionsbeschreibung pos[=70]
+	E2EDC05_BETRG			# Fester Zu-/Abschlag auf Position Gesamtbrutto pos[=150]
+	E2EDC05_KPERC			# Konditionsprozentsatz pos[=168]
+	E2EDC05_KRATE			# Konditionssatz pro Einheit pos[=176]
+	E2EDC05_UPRBS			# Preiseinheit pos[=191]
+	E2EDC05_MEAUN			# Maßeinheit pos[=200]
+	E2EDC05_KOBTR			# IDOC Konditionsendbetrag pos[=203]
+	E2EDC05_MENGE			# Menge der Preisstaffel (SPEC2000) pos[=221]
+	E2EDC05_PREIS			# Preis pro Mengeneinheit (SPEC2000) pos[=236]
+	E2EDC05_MWSKZ			# Mehrwertsteuerkennzeichen pos[=251]
+	E2EDC05_MSATZ			# Mehrwertsteuersatz pos[=258]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDC06
+#---------------------------------------#
+E2EDC06 {XML_NAME="E1EDC06"}:
+	E2EDC06_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDC06_MANDT			# Mandant pos[=30]
+	E2EDC06_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDC06_SEGNUM			# Segmentnummer pos[=49]
+	E2EDC06_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDC06_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDC06_FORMELNR			# Formelnummer pos[=63]
+	E2EDC06_FRMVAL1			# Formelwert pos[=73]
+	E2EDC06_FRMVAL2			# Formelwert pos[=88]
+	E2EDC06_FRMVAL3			# Formelwert pos[=103]
+	E2EDC06_FRMVAL4			# Formelwert pos[=118]
+	E2EDC06_FRMVAL5			# Formelwert pos[=133]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDC07
+#---------------------------------------#
+E2EDC07 {XML_NAME="E1EDC07"}:
+	E2EDC07_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDC07_MANDT			# Mandant pos[=30]
+	E2EDC07_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDC07_SEGNUM			# Segmentnummer pos[=49]
+	E2EDC07_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDC07_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDC07_USERF1_NUM			# Benutzerdefiniertes Feld pos[=63]
+	E2EDC07_USERF2_NUM			# Benutzerdefiniertes Feld pos[=73]
+	E2EDC07_USERF1_TXT			# Benutzerdefiniertes Feld pos[=88]
+	E2EDC07_USERF2_TXT			# Benutzerdefiniertes Feld pos[=128]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDCA1
+#---------------------------------------#
+E2EDCA1 {XML_NAME="E1EDCA1"}:
+	E2EDCA1_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDCA1_MANDT			# Mandant pos[=30]
+	E2EDCA1_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDCA1_SEGNUM			# Segmentnummer pos[=49]
+	E2EDCA1_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDCA1_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDCA1_PARVW			# Partnerrolle (z.B. Auftraggeber, Warenempfänger, ...) pos[=63]
+	E2EDCA1_PARTN			# Partnernummer pos[=66]
+	E2EDCA1_LIFNR			# Lieferantennummer beim Kunden pos[=83]
+	E2EDCA1_NAME1			# Name 1 pos[=100]
+	E2EDCA1_NAME2			# Name 2 pos[=135]
+	E2EDCA1_NAME3			# Name 3 pos[=170]
+	E2EDCA1_NAME4			# Name 4 pos[=205]
+	E2EDCA1_STRAS			# Straße und Hausnummer 1 pos[=240]
+	E2EDCA1_STRS2			# Straße und Hausnummer 2 pos[=275]
+	E2EDCA1_PFACH			# Postfach pos[=310]
+	E2EDCA1_ORT01			# Ort pos[=345]
+	E2EDCA1_COUNC			# County code pos[=380]
+	E2EDCA1_PSTLZ			# Postleitzahl pos[=389]
+	E2EDCA1_PSTL2			# Postleitzahl des Postfachs pos[=398]
+	E2EDCA1_LAND1			# Länderschlüssel pos[=407]
+	E2EDCA1_ABLAD			# Abladestelle pos[=410]
+	E2EDCA1_PERNR			# Personalnummer des Ansprechpartners pos[=445]
+	E2EDCA1_PARNR			# Ansprechpartnernummer (nicht Personalnummer) pos[=475]
+	E2EDCA1_TELF1			# Telefonnummer 1 des Ansprechpartners pos[=505]
+	E2EDCA1_TELF2			# Telefonnummer 2 des Ansprechpartners pos[=530]
+	E2EDCA1_TELBX			# Teleboxnummer pos[=555]
+	E2EDCA1_TELFX			# Telefaxnummer pos[=580]
+	E2EDCA1_TELTX			# Teletexnummer pos[=605]
+	E2EDCA1_TELX1			# Telexnummer pos[=630]
+	E2EDCA1_SPRAS			# Sprachenschlüssel pos[=655]
+	E2EDCA1_ANRED			# Anrede pos[=656]
+	E2EDCA1_ORT02			# Ortsteil pos[=671]
+	E2EDCA1_HAUSN			# Hausnummer pos[=706]
+	E2EDCA1_STOCK			# Stockwerk pos[=712]
+	E2EDCA1_REGIO			# Region pos[=718]
+	E2EDCA1_PARGE			# Geschlecht des Partners pos[=721]
+	E2EDCA1_ISOAL			# ISO-Code des Landes pos[=722]
+	E2EDCA1_ISONU			# ISO-Code des Landes pos[=724]
+	E2EDCA1_FCODE			# Firmencode Frankreich pos[=726]
+	E2EDCA1_IHREZ			# Ihr Zeichen (vom Partner) pos[=746]
+	E2EDCA1_BNAME			# IDOC Benutzername pos[=776]
+	E2EDCA1_PAORG			# IDOC Organisationscode pos[=811]
+	E2EDCA1_ORGTX			# IDOC Organisationscode pos[=841]
+	E2EDCA1_PAGRU			# IDOC Gruppencode pos[=876]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDC19
+#---------------------------------------#
+E2EDC19 {XML_NAME="E1EDC19"}:
+	E2EDC19_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDC19_MANDT			# Mandant pos[=30]
+	E2EDC19_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDC19_SEGNUM			# Segmentnummer pos[=49]
+	E2EDC19_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDC19_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDC19_QUALF			# IDOC Objektidentifikation für Leistungsverzeichnisobjekte pos[=63]
+	E2EDC19_IDTNR			# IDOC Materialidentifikation pos[=66]
+	E2EDC19_KTEXT			# IDOC Kurztext pos[=101]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDC17
+#---------------------------------------#
+E2EDC17 {XML_NAME="E1EDC17"}:
+	E2EDC17_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDC17_MANDT			# Mandant pos[=30]
+	E2EDC17_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDC17_SEGNUM			# Segmentnummer pos[=49]
+	E2EDC17_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDC17_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDC17_QUALF			# IDOC Qualifier Lieferbedingungen pos[=63]
+	E2EDC17_LKOND			# IDOC Lieferkondition Code pos[=66]
+	E2EDC17_LKTEXT			# IDOC Lieferkondition Text pos[=69]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDC18
+#---------------------------------------#
+E2EDC18 {XML_NAME="E1EDC18"}:
+	E2EDC18_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDC18_MANDT			# Mandant pos[=30]
+	E2EDC18_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDC18_SEGNUM			# Segmentnummer pos[=49]
+	E2EDC18_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDC18_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDC18_QUALF			# IDOC Qualifier Zahlungsbedingungen pos[=63]
+	E2EDC18_TAGE			# IDOC Anzahl von Tagen pos[=66]
+	E2EDC18_PRZNT			# IDOC Prozentsatz für Zahlungsbedingungen pos[=74]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDCT1
+#---------------------------------------#
+E2EDCT1 {XML_NAME="E1EDCT1"}:
+	E2EDCT1_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDCT1_MANDT			# Mandant pos[=30]
+	E2EDCT1_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDCT1_SEGNUM			# Segmentnummer pos[=49]
+	E2EDCT1_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDCT1_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDCT1_TDID			# Text-ID pos[=63]
+	E2EDCT1_TSSPRAS			# Sprachenschluessel pos[=67]
+	gr_rest
+	E2EDCT2[0:"E2EDCT2"] *
+;
+
+#---------------------------------------#
+#	Segment E2EDCT2
+#---------------------------------------#
+E2EDCT2 {XML_NAME="E1EDCT2"}:
+	E2EDCT2_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDCT2_MANDT			# Mandant pos[=30]
+	E2EDCT2_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDCT2_SEGNUM			# Segmentnummer pos[=49]
+	E2EDCT2_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDCT2_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDCT2_TDLINE			# Textzeile pos[=63]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2CUCFG
+#---------------------------------------#
+E2CUCFG {XML_NAME="E1CUCFG"}:
+	E2CUCFG_SEGNAM			# Segment (externer Name) pos[=0]
+	E2CUCFG_MANDT			# Mandant pos[=30]
+	E2CUCFG_DOCNUM			# Nummer des IDocs pos[=33]
+	E2CUCFG_SEGNUM			# Segmentnummer pos[=49]
+	E2CUCFG_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2CUCFG_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2CUCFG_POSEX			# Characterfeld der Länge 6 pos[=63]
+	E2CUCFG_CONFIG_ID			# Characterfeld der Länge 6 pos[=69]
+	E2CUCFG_ROOT_ID			# Character Feld der Länge 8 pos[=75]
+	E2CUCFG_SCE			# CU: Nur vom SCE uebergebene Information zur Konfiguration pos[=83]
+	E2CUCFG_KBNAME			# Wissensbasisobjekt pos[=84]
+	E2CUCFG_KBVERSION			# Laufzeit-Version einer SCE Wissensbasis pos[=114]
+	E2CUCFG_COMPLETE			# Allgemeines Kennzeichen pos[=144]
+	E2CUCFG_CONSISTENT			# Allgemeines Kennzeichen pos[=145]
+	E2CUCFG_CFGINFO			# CU: BLOB einer Konfiguration (SCE) pos[=146]
+	E2CUCFG_KBPROFILE			# Wissensbasis Profil pos[=396]
+	E2CUCFG_KBLANGUAGE			# Sprache einer Konfiguration pos[=426]
+	E2CUCFG_CBASE_ID			# Instanznummer (persistent) pos[=427]
+	E2CUCFG_CBASE_ID_TYPE			# Typ der Instanznummer (persistent) pos[=459]
+	gr_rest
+	E2CUINS[0:"E2CUINS"] *
+	E2CUPRT[0:"E2CUPRT"] *
+	E2CUVAL[0:"E2CUVAL"] *
+	E2CUBLB[0:"E2CUBLB"] *
+;
+
+#---------------------------------------#
+#	Segment E2CUINS
+#---------------------------------------#
+E2CUINS {XML_NAME="E1CUINS"}:
+	E2CUINS_SEGNAM			# Segment (externer Name) pos[=0]
+	E2CUINS_MANDT			# Mandant pos[=30]
+	E2CUINS_DOCNUM			# Nummer des IDocs pos[=33]
+	E2CUINS_SEGNUM			# Segmentnummer pos[=49]
+	E2CUINS_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2CUINS_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2CUINS_INST_ID			# Character Feld der Länge 8 pos[=63]
+	E2CUINS_OBJ_TYPE			# Characterfeld der Länge 10 pos[=71]
+	E2CUINS_CLASS_TYPE			# Feld der Laenge 3 Bytes pos[=81]
+	E2CUINS_OBJ_KEY			# Kommentar pos[=84]
+	E2CUINS_OBJ_TXT			# Characterfeld der Länge 70 pos[=134]
+	E2CUINS_QUANTITY			# Char 15 pos[=204]
+	E2CUINS_AUTHOR			# Aussage wurde hergeleitet pos[=219]
+	E2CUINS_QUANTITY_UNIT			# Mengeneinheit pos[=220]
+	E2CUINS_COMPLETE			# Allgemeines Kennzeichen pos[=223]
+	E2CUINS_CONSISTENT			# Allgemeines Kennzeichen pos[=224]
+	E2CUINS_OBJECT_GUID			# GUID für TYPE_OF-Aussage der Instanz pos[=225]
+	E2CUINS_PERSIST_ID			# Instanznummer (persistent) pos[=257]
+	E2CUINS_PERSIST_ID_TYPE			# Typ der Instanznummer (persistent) pos[=289]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2CUPRT
+#---------------------------------------#
+E2CUPRT {XML_NAME="E1CUPRT"}:
+	E2CUPRT_SEGNAM			# Segment (externer Name) pos[=0]
+	E2CUPRT_MANDT			# Mandant pos[=30]
+	E2CUPRT_DOCNUM			# Nummer des IDocs pos[=33]
+	E2CUPRT_SEGNUM			# Segmentnummer pos[=49]
+	E2CUPRT_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2CUPRT_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2CUPRT_PARENT_ID			# Character Feld der Länge 8 pos[=63]
+	E2CUPRT_INST_ID			# Character Feld der Länge 8 pos[=71]
+	E2CUPRT_PART_OF_NO			# Nicht näher def. Bereich, evtl. für Patchlevels verwendbar pos[=79]
+	E2CUPRT_OBJ_TYPE			# Characterfeld der Länge 10 pos[=83]
+	E2CUPRT_CLASS_TYPE			# Feld der Laenge 3 Bytes pos[=93]
+	E2CUPRT_OBJ_KEY			# Kommentar pos[=96]
+	E2CUPRT_AUTHOR			# Aussage wurde hergeleitet pos[=146]
+	E2CUPRT_SALES_RELEVANT			# Part ist vertriebsrelevant pos[=147]
+	E2CUPRT_PART_OF_GUID			# GUID für PART_OF-Aussage der Instanz pos[=148]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2CUVAL
+#---------------------------------------#
+E2CUVAL {XML_NAME="E1CUVAL"}:
+	E2CUVAL_SEGNAM			# Segment (externer Name) pos[=0]
+	E2CUVAL_MANDT			# Mandant pos[=30]
+	E2CUVAL_DOCNUM			# Nummer des IDocs pos[=33]
+	E2CUVAL_SEGNUM			# Segmentnummer pos[=49]
+	E2CUVAL_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2CUVAL_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2CUVAL_INST_ID			# Character Feld der Länge 8 pos[=63]
+	E2CUVAL_CHARC			# Character 40-Stellen pos[=71]
+	E2CUVAL_CHARC_TXT			# Characterfeld der Länge 70 pos[=111]
+	E2CUVAL_VALUE			# Character 40-Stellen pos[=181]
+	E2CUVAL_VALUE_TXT			# Characterfeld der Länge 70 pos[=221]
+	E2CUVAL_AUTHOR			# Aussage wurde hergeleitet pos[=291]
+	E2CUVAL_VALUE_TO			# Wert eines Merkmals pos[=292]
+	E2CUVAL_VALCODE			# Werttyp: Intervallgrenzen - Einzelwert pos[=332]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2CUBLB
+#---------------------------------------#
+E2CUBLB {XML_NAME="E1CUBLB"}:
+	E2CUBLB_SEGNAM			# Segment (externer Name) pos[=0]
+	E2CUBLB_MANDT			# Mandant pos[=30]
+	E2CUBLB_DOCNUM			# Nummer des IDocs pos[=33]
+	E2CUBLB_SEGNUM			# Segmentnummer pos[=49]
+	E2CUBLB_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2CUBLB_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2CUBLB_CONTENT			# CU: BLOB einer Konfiguration (SCE) pos[=63]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDL37
+#---------------------------------------#
+E2EDL37 {XML_NAME="E1EDL37"}:
+	E2EDL37_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDL37_MANDT			# Mandant pos[=30]
+	E2EDL37_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDL37_SEGNUM			# Segmentnummer pos[=49]
+	E2EDL37_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDL37_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDL37_EXIDV			# Externe Handling Unit Identifikation pos[=63]
+	E2EDL37_TARAG			# Eigengewicht der Handling Unit pos[=83]
+	E2EDL37_GWEIT			# Gewichtseinheit Tara pos[=100]
+	E2EDL37_BRGEW			# Gesamtgewicht der Handling Unit pos[=103]
+	E2EDL37_NTGEW			# Ladungsgewicht der Handling Unit pos[=120]
+	E2EDL37_MAGEW			# maximal zulässiges Ladungsgewicht der Handling Unit pos[=137]
+	E2EDL37_GWEIM			# Gewichtseinheit pos[=154]
+	E2EDL37_BTVOL			# Gesamtvolumen der Handling Unit pos[=157]
+	E2EDL37_NTVOL			# Ladungsvolumen der Handling Unit pos[=174]
+	E2EDL37_MAVOL			# zulässiges Ladungsvolumen der Handling Unit pos[=191]
+	E2EDL37_VOLEM			# Volumeneinheit pos[=208]
+	E2EDL37_TAVOL			# Eigenvolumen der Handling Unit pos[=211]
+	E2EDL37_VOLET			# Volumeneinheit Tara pos[=228]
+	E2EDL37_VEGR2			# Handling Units Grupp 2 (frei definierbar) pos[=231]
+	E2EDL37_VEGR1			# Handling Unit Gruppe 1 (frei definierbar) pos[=236]
+	E2EDL37_VEGR3			# Handling Unit Gruppe 3 (frei definierbar) pos[=241]
+	E2EDL37_VHILM			# Packmittel pos[=246]
+	E2EDL37_VEGR4			# Handling Unit Gruppe 4 (frei definierbar) pos[=264]
+	E2EDL37_LAENG			# Länge pos[=269]
+	E2EDL37_VEGR5			# Handling Unit Gruppe 5 (frei definierbar) pos[=284]
+	E2EDL37_BREIT			# Breite pos[=289]
+	E2EDL37_HOEHE			# Höhe pos[=304]
+	E2EDL37_MEABM			# Einheit für Länge/Breite/Höhe pos[=319]
+	E2EDL37_INHALT			# Beschreibung des Handling Unit Inhalts pos[=322]
+	E2EDL37_VHART			# Packmittelart pos[=362]
+	E2EDL37_MAGRV			# Materialgruppe Packmittel pos[=366]
+	E2EDL37_LADLG			# Ladelänge in Ladelängeneinheit pos[=370]
+	E2EDL37_LADEH			# Ladelängeneinheit pos[=378]
+	E2EDL37_FARZT			# Fahrzeit pos[=381]
+	E2EDL37_FAREH			# Fahrzeiteinheit pos[=385]
+	E2EDL37_ENTFE			# Gefahrene Entfernung pos[=388]
+	E2EDL37_EHENT			# Entfernungseinheit pos[=396]
+	E2EDL37_VELTP			# Packmitteltyp pos[=399]
+	E2EDL37_EXIDV2			# 2. externe Identifikation der Handling Units pos[=400]
+	E2EDL37_LANDT			# Land des Transportmittels pos[=420]
+	E2EDL37_LANDF			# Staatsangehörigkeit des Fahrers pos[=423]
+	E2EDL37_NAMEF			# Name des Fahrers pos[=426]
+	E2EDL37_NAMBE			# Name des Beifahrers pos[=461]
+	E2EDL37_VHILM_KU			# Material des Kunden pos[=496]
+	E2EDL37_VEBEZ			# Packmittelbezeichung pos[=518]
+	E2EDL37_SMGKN			# SMG-Kennung für Warenanhänger pos[=558]
+	E2EDL37_KDMAT35			# Packmittel des Partners (Kunde / Lieferant) pos[=559]
+	E2EDL37_SORTL			# Sortierfeld pos[=594]
+	E2EDL37_ERNAM			# Name des Sachbearbeiters, der das Objekt hinzugefügt hat pos[=604]
+	E2EDL37_GEWFX			# Gewichte und Volumina fix pos[=616]
+	E2EDL37_ERLKZ			# Status (zur Zeit ohne Funktionalität) pos[=617]
+	E2EDL37_EXIDA			# Art der externen Handling Unit Identifiaktion pos[=618]
+	E2EDL37_MOVE_STATUS			# Status der Handling Unit pos[=619]
+	E2EDL37_PACKVORSCHR			# Textstring 22 Zeichen pos[=623]
+	E2EDL37_PACKVORSCHR_ST			# Einstelliges Kennzeichen pos[=645]
+	E2EDL37_LABELTYP			# Kennzeichen: Kein externes Versandlabel drucken pos[=646]
+	E2EDL37_ZUL_AUFL			# Feld der Laenge 17 pos[=647]
+	E2EDL37_VHILM_EXTERNAL			# Versandhilfsmittel pos[=664]
+	E2EDL37_VHILM_VERSION			# Versionsnummer zum Feld VHILM pos[=704]
+	E2EDL37_VHILM_GUID			# Externe GUID zum Feld VHILM pos[=714]
+	E2EDL37_KDMAT35_EXTERNAL			# Lange Materialnummer (Zukünftige Entwicklung) zum Feld KDMAT pos[=746]
+	E2EDL37_KDMAT35_VERSION			# Versionsnummer (Zukünftige Entwicklung) zum Feld KDMAT35 pos[=786]
+	E2EDL37_KDMAT35_GUID			# Externe GUID (Zukünftige Entwicklung) zum Feld KDMAT35 pos[=796]
+	E2EDL37_VHILM_KU_EXTERNAL			# Lange Materialnummer (Zukünftige Entwicklung) zum Feld VHILM pos[=828]
+	E2EDL37_VHILM_KU_VERSION			# Versionsnummer (Zukünftige Entwicklung) zum Feld VHILM_KU pos[=868]
+	E2EDL37_VHILM_KU_GUID			# Externe GUID (Zukünftige Entwicklung) zum Feld VHILM_KU pos[=878]
+	gr_rest
+	E2EDL39[0:"E2EDL39"] *9
+	E2EDL38[0:"E2EDL38"] *1
+	E2EDL44[0:"E2EDL44"] *
+;
+
+#---------------------------------------#
+#	Segment E2EDL39
+#---------------------------------------#
+E2EDL39 {XML_NAME="E1EDL39"}:
+	E2EDL39_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDL39_MANDT			# Mandant pos[=30]
+	E2EDL39_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDL39_SEGNUM			# Segmentnummer pos[=49]
+	E2EDL39_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDL39_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDL39_QUALF			# Qualifier: Steuerung (Versandelement) pos[=63]
+	E2EDL39_PARAM			# IDOC: Steuerungsparameter pos[=66]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDL38
+#---------------------------------------#
+E2EDL38 {XML_NAME="E1EDL38"}:
+	E2EDL38_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDL38_MANDT			# Mandant pos[=30]
+	E2EDL38_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDL38_SEGNUM			# Segmentnummer pos[=49]
+	E2EDL38_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDL38_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDL38_VEGR1_BEZ			# Versandelementgruppe 1 Bezeichnung pos[=63]
+	E2EDL38_VEGR2_BEZ			# Versandelementgruppe 2 Bezeichnung pos[=83]
+	E2EDL38_VEGR3_BEZ			# Versandelementgruppe 3 Bezeichnung pos[=103]
+	E2EDL38_VEGR4_BEZ			# Versandelementgruppe 4 Bezeichnung pos[=123]
+	E2EDL38_VEGR5_BEZ			# Versandelementgruppe 5 Bezeichnung pos[=143]
+	E2EDL38_VHART_BEZ			# Versandhilfsmittelart Bezeichnung pos[=163]
+	E2EDL38_MAGRV_BEZ			# Materialgruppe Versandhilfsmittel Bezeichnung pos[=183]
+	E2EDL38_VEBEZ			# Packmittelbezeichung pos[=203]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDL44
+#---------------------------------------#
+E2EDL44 {XML_NAME="E1EDL44"}:
+	E2EDL44_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDL44_MANDT			# Mandant pos[=30]
+	E2EDL44_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDL44_SEGNUM			# Segmentnummer pos[=49]
+	E2EDL44_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDL44_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDL44_VELIN			# Art des Handling Unit Positionsinhaltes pos[=63]
+	E2EDL44_VBELN			# Vertriebsbelegnummer pos[=64]
+	E2EDL44_POSNR			# Positionsnummer des Vertriebsbeleges pos[=74]
+	E2EDL44_EXIDV			# Externe Handling Unit Identifikation pos[=80]
+	E2EDL44_VEMNG			# verpackte Basismenge in der Handling Unit Position pos[=100]
+	E2EDL44_VEMEH			# Basismengeneinheit der verpacken Menge (VEMNG) pos[=117]
+	E2EDL44_MATNR			# Materialnummer pos[=120]
+	E2EDL44_KDMAT			# Material des Kunden pos[=138]
+	E2EDL44_CHARG			# Chargennummer pos[=173]
+	E2EDL44_WERKS			# Werk pos[=183]
+	E2EDL44_LGORT			# Lagerort pos[=187]
+	E2EDL44_CUOBJ			# Konfiguration (interne Objektnummer) pos[=191]
+	E2EDL44_BESTQ			# Bestandsqualifikation im Lagerverwaltungssystem pos[=209]
+	E2EDL44_SOBKZ			# Sonderbestandskennzeichen pos[=210]
+	E2EDL44_SONUM			# Sonderbestandsnummer pos[=211]
+	E2EDL44_ANZSN			# Anzahl Serialnummern pos[=227]
+	E2EDL44_WDATU			# Datum des Wareneingangs pos[=238]
+	E2EDL44_PARID			# Externe Partnernummer pos[=246]
+	E2EDL44_MATNR_EXTERNAL			# Materialnummer pos[=281]
+	E2EDL44_MATNR_VERSION			# Versionsnummer zum Feld MATNR pos[=321]
+	E2EDL44_MATNR_GUID			# Externe GUID zum Feld MATNR pos[=331]
+	E2EDL44_KDMAT_EXTERNAL			# Material des Kunden pos[=363]
+	E2EDL44_KDMAT_VERSION			# Material des Kunden pos[=403]
+	E2EDL44_KDMAT_GUID			# Material des Kunden pos[=413]
+	gr_rest
+;
+
+#---------------------------------------#
+#	Segment E2EDS01
+#---------------------------------------#
+E2EDS01 {XML_NAME="E1EDS01"}:
+	E2EDS01_SEGNAM			# Segment (externer Name) pos[=0]
+	E2EDS01_MANDT			# Mandant pos[=30]
+	E2EDS01_DOCNUM			# Nummer des IDocs pos[=33]
+	E2EDS01_SEGNUM			# Segmentnummer pos[=49]
+	E2EDS01_PSGNUM			# Nummer des übergeordneten Elternsegments pos[=55]
+	E2EDS01_HLEVEL			# Hierarchieebene des SAP-Segmentes pos[=61]
+	E2EDS01_SUMID			# Qualifier Summensegment für Lieferavis pos[=63]
+	E2EDS01_SUMME			# Gesamtwert Summensegment pos[=66]
+	E2EDS01_SUNIT			# Einheit Gesamtwert Summensegment Lieferavis pos[=84]
+	E2EDS01_WAERQ			# Währung pos[=87]
+	gr_rest
+;
+
+#-------------------------------#
+# Terminale Symbole             #
+#-------------------------------#
+
+#-------------------------------#
+# Kontrollsatz-Felder           #
+#-------------------------------#
+EDI_DC40_TABNAM		:	STRINGA { LENGTH = 10, DEFAULT = "EDI_DC40  ", XML_NAME="TABNAM" };
+EDI_DC40_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+EDI_DC40_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+EDI_DC40_DOCREL		:	STRINGA { LENGTH = 4, XML_NAME="DOCREL" };
+EDI_DC40_STATUS		:	STRINGA { LENGTH = 2, XML_NAME="STATUS" };
+EDI_DC40_DIRECT		:	STRINGA { LENGTH = 1, XML_NAME="DIRECT" };
+EDI_DC40_OUTMOD		:	STRINGA { LENGTH = 1, XML_NAME="OUTMOD" };
+EDI_DC40_EXPRSS		:	STRINGA { LENGTH = 1, XML_NAME="EXPRSS" };
+EDI_DC40_TEST		:	STRINGA { LENGTH = 1, XML_NAME="TEST" };
+EDI_DC40_IDOCTYP		:	STRINGA { LENGTH = 30, XML_NAME="IDOCTYP" };
+EDI_DC40_CIMTYP		:	STRINGA { LENGTH = 30, XML_NAME="CIMTYP" };
+EDI_DC40_MESTYP		:	STRINGA { LENGTH = 30, XML_NAME="MESTYP" };
+EDI_DC40_MESCOD		:	STRINGA { LENGTH = 3, XML_NAME="MESCOD" };
+EDI_DC40_MESFCT		:	STRINGA { LENGTH = 3, XML_NAME="MESFCT" };
+EDI_DC40_STD		:	STRINGA { LENGTH = 1, XML_NAME="STD" };
+EDI_DC40_STDVRS		:	STRINGA { LENGTH = 6, XML_NAME="STDVRS" };
+EDI_DC40_STDMES		:	STRINGA { LENGTH = 6, XML_NAME="STDMES" };
+EDI_DC40_SNDPOR		:	STRINGA { LENGTH = 10, XML_NAME="SNDPOR" };
+EDI_DC40_SNDPRT		:	STRINGA { LENGTH = 2, XML_NAME="SNDPRT" };
+EDI_DC40_SNDPFC		:	STRINGA { LENGTH = 2, XML_NAME="SNDPFC" };
+EDI_DC40_SNDPRN		:	STRINGA { LENGTH = 10, XML_NAME="SNDPRN" };
+EDI_DC40_SNDSAD		:	STRINGA { LENGTH = 21, XML_NAME="SNDSAD" };
+EDI_DC40_SNDLAD		:	STRINGA { LENGTH = 70, XML_NAME="SNDLAD" };
+EDI_DC40_RCVPOR		:	STRINGA { LENGTH = 10, XML_NAME="RCVPOR" };
+EDI_DC40_RCVPRT		:	STRINGA { LENGTH = 2, XML_NAME="RCVPRT" };
+EDI_DC40_RCVPFC		:	STRINGA { LENGTH = 2, XML_NAME="RCVPFC" };
+EDI_DC40_RCVPRN		:	STRINGA { LENGTH = 10, XML_NAME="RCVPRN" };
+EDI_DC40_RCVSAD		:	STRINGA { LENGTH = 21, XML_NAME="RCVSAD" };
+EDI_DC40_RCVLAD		:	STRINGA { LENGTH = 70, XML_NAME="RCVLAD" };
+EDI_DC40_CREDAT		:	STRINGA { LENGTH = 8, XML_NAME="CREDAT" };
+EDI_DC40_CRETIM		:	STRINGA { LENGTH = 6, XML_NAME="CRETIM" };
+EDI_DC40_REFINT		:	STRINGA { LENGTH = 14, XML_NAME="REFINT" };
+EDI_DC40_REFGRP		:	STRINGA { LENGTH = 14, XML_NAME="REFGRP" };
+EDI_DC40_REFMES		:	STRINGA { LENGTH = 14, XML_NAME="REFMES" };
+EDI_DC40_ARCKEY		:	STRINGA { LENGTH = 70, XML_NAME="ARCKEY" };
+EDI_DC40_SERIAL		:	STRINGA { LENGTH = 20, XML_NAME="SERIAL" };
+
+#-------------------------------#
+# Segmente                      #
+#-------------------------------#
+
+#---------------------------------------#
+#	Segment E2EDK01
+#---------------------------------------#
+E2EDK01_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDK01                       ", XML_NAME="SEGNAM" };
+E2EDK01_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDK01_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDK01_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDK01_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDK01_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDK01_ACTION		:	STRINGA { LENGTH = 3, XML_NAME="ACTION" };
+E2EDK01_KZABS		:	STRINGA { LENGTH = 1, XML_NAME="KZABS" };
+E2EDK01_CURCY		:	STRINGA { LENGTH = 3, XML_NAME="CURCY" };
+E2EDK01_HWAER		:	STRINGA { LENGTH = 3, XML_NAME="HWAER" };
+E2EDK01_WKURS		:	STRINGA { LENGTH = 12, XML_NAME="WKURS" };
+E2EDK01_ZTERM		:	STRINGA { LENGTH = 17, XML_NAME="ZTERM" };
+E2EDK01_KUNDEUINR		:	STRINGA { LENGTH = 20, XML_NAME="KUNDEUINR" };
+E2EDK01_EIGENUINR		:	STRINGA { LENGTH = 20, XML_NAME="EIGENUINR" };
+E2EDK01_BSART		:	STRINGA { LENGTH = 4, XML_NAME="BSART" };
+E2EDK01_BELNR		:	STRINGA { LENGTH = 35, XML_NAME="BELNR" };
+E2EDK01_NTGEW		:	STRINGA { LENGTH = 18, XML_NAME="NTGEW" };
+E2EDK01_BRGEW		:	STRINGA { LENGTH = 18, XML_NAME="BRGEW" };
+E2EDK01_GEWEI		:	STRINGA { LENGTH = 3, XML_NAME="GEWEI" };
+E2EDK01_FKART_RL		:	STRINGA { LENGTH = 4, XML_NAME="FKART_RL" };
+E2EDK01_ABLAD		:	STRINGA { LENGTH = 25, XML_NAME="ABLAD" };
+E2EDK01_BSTZD		:	STRINGA { LENGTH = 4, XML_NAME="BSTZD" };
+E2EDK01_VSART		:	STRINGA { LENGTH = 2, XML_NAME="VSART" };
+E2EDK01_VSART_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="VSART_BEZ" };
+E2EDK01_RECIPNT_NO		:	STRINGA { LENGTH = 10, XML_NAME="RECIPNT_NO" };
+E2EDK01_KZAZU		:	STRINGA { LENGTH = 1, XML_NAME="KZAZU" };
+E2EDK01_AUTLF		:	STRINGA { LENGTH = 1, XML_NAME="AUTLF" };
+E2EDK01_AUGRU		:	STRINGA { LENGTH = 3, XML_NAME="AUGRU" };
+E2EDK01_AUGRU_BEZ		:	STRINGA { LENGTH = 40, XML_NAME="AUGRU_BEZ" };
+E2EDK01_ABRVW		:	STRINGA { LENGTH = 3, XML_NAME="ABRVW" };
+E2EDK01_ABRVW_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="ABRVW_BEZ" };
+E2EDK01_FKTYP		:	STRINGA { LENGTH = 1, XML_NAME="FKTYP" };
+E2EDK01_LIFSK		:	STRINGA { LENGTH = 2, XML_NAME="LIFSK" };
+E2EDK01_LIFSK_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="LIFSK_BEZ" };
+E2EDK01_EMPST		:	STRINGA { LENGTH = 25, XML_NAME="EMPST" };
+E2EDK01_ABTNR		:	STRINGA { LENGTH = 4, XML_NAME="ABTNR" };
+E2EDK01_DELCO		:	STRINGA { LENGTH = 3, XML_NAME="DELCO" };
+E2EDK01_WKURS_M		:	STRINGA { LENGTH = 12, XML_NAME="WKURS_M" };
+
+#---------------------------------------#
+#	Segment E2EDK14
+#---------------------------------------#
+E2EDK14_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDK14                       ", XML_NAME="SEGNAM" };
+E2EDK14_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDK14_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDK14_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDK14_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDK14_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDK14_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDK14_ORGID		:	STRINGA { LENGTH = 35, XML_NAME="ORGID" };
+
+#---------------------------------------#
+#	Segment E2EDK03
+#---------------------------------------#
+E2EDK03_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDK03                       ", XML_NAME="SEGNAM" };
+E2EDK03_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDK03_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDK03_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDK03_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDK03_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDK03_IDDAT		:	STRINGA { LENGTH = 3, XML_NAME="IDDAT" };
+E2EDK03_DATUM		:	STRINGA { LENGTH = 8, XML_NAME="DATUM" };
+E2EDK03_UZEIT		:	STRINGA { LENGTH = 6, XML_NAME="UZEIT" };
+
+#---------------------------------------#
+#	Segment E2EDK04
+#---------------------------------------#
+E2EDK04_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDK04                       ", XML_NAME="SEGNAM" };
+E2EDK04_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDK04_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDK04_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDK04_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDK04_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDK04_MWSKZ		:	STRINGA { LENGTH = 7, XML_NAME="MWSKZ" };
+E2EDK04_MSATZ		:	STRINGA { LENGTH = 17, XML_NAME="MSATZ" };
+E2EDK04_MWSBT		:	STRINGA { LENGTH = 18, XML_NAME="MWSBT" };
+E2EDK04_TXJCD		:	STRINGA { LENGTH = 15, XML_NAME="TXJCD" };
+E2EDK04_KTEXT		:	STRINGA { LENGTH = 50, XML_NAME="KTEXT" };
+
+#---------------------------------------#
+#	Segment E2EDK05
+#---------------------------------------#
+E2EDK05_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDK05                       ", XML_NAME="SEGNAM" };
+E2EDK05_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDK05_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDK05_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDK05_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDK05_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDK05_ALCKZ		:	STRINGA { LENGTH = 3, XML_NAME="ALCKZ" };
+E2EDK05_KSCHL		:	STRINGA { LENGTH = 4, XML_NAME="KSCHL" };
+E2EDK05_KOTXT		:	STRINGA { LENGTH = 80, XML_NAME="KOTXT" };
+E2EDK05_BETRG		:	STRINGA { LENGTH = 18, XML_NAME="BETRG" };
+E2EDK05_KPERC		:	STRINGA { LENGTH = 8, XML_NAME="KPERC" };
+E2EDK05_KRATE		:	STRINGA { LENGTH = 15, XML_NAME="KRATE" };
+E2EDK05_UPRBS		:	STRINGA { LENGTH = 9, XML_NAME="UPRBS" };
+E2EDK05_MEAUN		:	STRINGA { LENGTH = 3, XML_NAME="MEAUN" };
+E2EDK05_KOBTR		:	STRINGA { LENGTH = 18, XML_NAME="KOBTR" };
+E2EDK05_MWSKZ		:	STRINGA { LENGTH = 7, XML_NAME="MWSKZ" };
+E2EDK05_MSATZ		:	STRINGA { LENGTH = 17, XML_NAME="MSATZ" };
+E2EDK05_KOEIN		:	STRINGA { LENGTH = 3, XML_NAME="KOEIN" };
+
+#---------------------------------------#
+#	Segment E2EDKA1
+#---------------------------------------#
+E2EDKA1_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDKA1                       ", XML_NAME="SEGNAM" };
+E2EDKA1_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDKA1_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDKA1_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDKA1_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDKA1_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDKA1_PARVW		:	STRINGA { LENGTH = 3, XML_NAME="PARVW" };
+E2EDKA1_PARTN		:	STRINGA { LENGTH = 17, XML_NAME="PARTN" };
+E2EDKA1_LIFNR		:	STRINGA { LENGTH = 17, XML_NAME="LIFNR" };
+E2EDKA1_NAME1		:	STRINGA { LENGTH = 35, XML_NAME="NAME1" };
+E2EDKA1_NAME2		:	STRINGA { LENGTH = 35, XML_NAME="NAME2" };
+E2EDKA1_NAME3		:	STRINGA { LENGTH = 35, XML_NAME="NAME3" };
+E2EDKA1_NAME4		:	STRINGA { LENGTH = 35, XML_NAME="NAME4" };
+E2EDKA1_STRAS		:	STRINGA { LENGTH = 35, XML_NAME="STRAS" };
+E2EDKA1_STRS2		:	STRINGA { LENGTH = 35, XML_NAME="STRS2" };
+E2EDKA1_PFACH		:	STRINGA { LENGTH = 35, XML_NAME="PFACH" };
+E2EDKA1_ORT01		:	STRINGA { LENGTH = 35, XML_NAME="ORT01" };
+E2EDKA1_COUNC		:	STRINGA { LENGTH = 9, XML_NAME="COUNC" };
+E2EDKA1_PSTLZ		:	STRINGA { LENGTH = 9, XML_NAME="PSTLZ" };
+E2EDKA1_PSTL2		:	STRINGA { LENGTH = 9, XML_NAME="PSTL2" };
+E2EDKA1_LAND1		:	STRINGA { LENGTH = 3, XML_NAME="LAND1" };
+E2EDKA1_ABLAD		:	STRINGA { LENGTH = 35, XML_NAME="ABLAD" };
+E2EDKA1_PERNR		:	STRINGA { LENGTH = 30, XML_NAME="PERNR" };
+E2EDKA1_PARNR		:	STRINGA { LENGTH = 30, XML_NAME="PARNR" };
+E2EDKA1_TELF1		:	STRINGA { LENGTH = 25, XML_NAME="TELF1" };
+E2EDKA1_TELF2		:	STRINGA { LENGTH = 25, XML_NAME="TELF2" };
+E2EDKA1_TELBX		:	STRINGA { LENGTH = 25, XML_NAME="TELBX" };
+E2EDKA1_TELFX		:	STRINGA { LENGTH = 25, XML_NAME="TELFX" };
+E2EDKA1_TELTX		:	STRINGA { LENGTH = 25, XML_NAME="TELTX" };
+E2EDKA1_TELX1		:	STRINGA { LENGTH = 25, XML_NAME="TELX1" };
+E2EDKA1_SPRAS		:	STRINGA { LENGTH = 1, XML_NAME="SPRAS" };
+E2EDKA1_ANRED		:	STRINGA { LENGTH = 15, XML_NAME="ANRED" };
+E2EDKA1_ORT02		:	STRINGA { LENGTH = 35, XML_NAME="ORT02" };
+E2EDKA1_HAUSN		:	STRINGA { LENGTH = 6, XML_NAME="HAUSN" };
+E2EDKA1_STOCK		:	STRINGA { LENGTH = 6, XML_NAME="STOCK" };
+E2EDKA1_REGIO		:	STRINGA { LENGTH = 3, XML_NAME="REGIO" };
+E2EDKA1_PARGE		:	STRINGA { LENGTH = 1, XML_NAME="PARGE" };
+E2EDKA1_ISOAL		:	STRINGA { LENGTH = 2, XML_NAME="ISOAL" };
+E2EDKA1_ISONU		:	STRINGA { LENGTH = 2, XML_NAME="ISONU" };
+E2EDKA1_FCODE		:	STRINGA { LENGTH = 20, XML_NAME="FCODE" };
+E2EDKA1_IHREZ		:	STRINGA { LENGTH = 30, XML_NAME="IHREZ" };
+E2EDKA1_BNAME		:	STRINGA { LENGTH = 35, XML_NAME="BNAME" };
+E2EDKA1_PAORG		:	STRINGA { LENGTH = 30, XML_NAME="PAORG" };
+E2EDKA1_ORGTX		:	STRINGA { LENGTH = 35, XML_NAME="ORGTX" };
+E2EDKA1_PAGRU		:	STRINGA { LENGTH = 30, XML_NAME="PAGRU" };
+E2EDKA1_KNREF		:	STRINGA { LENGTH = 30, XML_NAME="KNREF" };
+E2EDKA1_ILNNR		:	STRINGA { LENGTH = 70, XML_NAME="ILNNR" };
+E2EDKA1_PFORT		:	STRINGA { LENGTH = 35, XML_NAME="PFORT" };
+E2EDKA1_SPRAS_ISO		:	STRINGA { LENGTH = 2, XML_NAME="SPRAS_ISO" };
+E2EDKA1_TITLE		:	STRINGA { LENGTH = 15, XML_NAME="TITLE" };
+
+#---------------------------------------#
+#	Segment E2EDKA3
+#---------------------------------------#
+E2EDKA3_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDKA3                       ", XML_NAME="SEGNAM" };
+E2EDKA3_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDKA3_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDKA3_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDKA3_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDKA3_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDKA3_QUALP		:	STRINGA { LENGTH = 3, XML_NAME="QUALP" };
+E2EDKA3_STDPN		:	STRINGA { LENGTH = 70, XML_NAME="STDPN" };
+
+#---------------------------------------#
+#	Segment E2EDK02
+#---------------------------------------#
+E2EDK02_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDK02                       ", XML_NAME="SEGNAM" };
+E2EDK02_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDK02_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDK02_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDK02_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDK02_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDK02_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDK02_BELNR		:	STRINGA { LENGTH = 35, XML_NAME="BELNR" };
+E2EDK02_POSNR		:	STRINGA { LENGTH = 6, XML_NAME="POSNR" };
+E2EDK02_DATUM		:	STRINGA { LENGTH = 8, XML_NAME="DATUM" };
+E2EDK02_UZEIT		:	STRINGA { LENGTH = 6, XML_NAME="UZEIT" };
+
+#---------------------------------------#
+#	Segment E2EDK17
+#---------------------------------------#
+E2EDK17_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDK17                       ", XML_NAME="SEGNAM" };
+E2EDK17_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDK17_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDK17_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDK17_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDK17_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDK17_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDK17_LKOND		:	STRINGA { LENGTH = 3, XML_NAME="LKOND" };
+E2EDK17_LKTEXT		:	STRINGA { LENGTH = 70, XML_NAME="LKTEXT" };
+
+#---------------------------------------#
+#	Segment E2EDK18
+#---------------------------------------#
+E2EDK18_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDK18                       ", XML_NAME="SEGNAM" };
+E2EDK18_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDK18_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDK18_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDK18_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDK18_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDK18_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDK18_TAGE		:	STRINGA { LENGTH = 8, XML_NAME="TAGE" };
+E2EDK18_PRZNT		:	STRINGA { LENGTH = 8, XML_NAME="PRZNT" };
+E2EDK18_ZTERM_TXT		:	STRINGA { LENGTH = 70, XML_NAME="ZTERM_TXT" };
+
+#---------------------------------------#
+#	Segment E2EDK35
+#---------------------------------------#
+E2EDK35_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDK35                       ", XML_NAME="SEGNAM" };
+E2EDK35_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDK35_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDK35_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDK35_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDK35_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDK35_QUALZ		:	STRINGA { LENGTH = 3, XML_NAME="QUALZ" };
+E2EDK35_CUSADD		:	STRINGA { LENGTH = 35, XML_NAME="CUSADD" };
+E2EDK35_CUSADD_BEZ		:	STRINGA { LENGTH = 40, XML_NAME="CUSADD_BEZ" };
+
+#---------------------------------------#
+#	Segment E2EDK36
+#---------------------------------------#
+E2EDK36_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDK36                       ", XML_NAME="SEGNAM" };
+E2EDK36_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDK36_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDK36_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDK36_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDK36_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDK36_CCINS		:	STRINGA { LENGTH = 4, XML_NAME="CCINS" };
+E2EDK36_CCINS_BEZEI		:	STRINGA { LENGTH = 20, XML_NAME="CCINS_BEZEI" };
+E2EDK36_CCNUM		:	STRINGA { LENGTH = 25, XML_NAME="CCNUM" };
+E2EDK36_EXDATBI		:	STRINGA { LENGTH = 8, XML_NAME="EXDATBI" };
+E2EDK36_CCNAME		:	STRINGA { LENGTH = 40, XML_NAME="CCNAME" };
+E2EDK36_FAKWR		:	STRINGA { LENGTH = 17, XML_NAME="FAKWR" };
+
+#---------------------------------------#
+#	Segment E2EDKT1
+#---------------------------------------#
+E2EDKT1_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDKT1                       ", XML_NAME="SEGNAM" };
+E2EDKT1_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDKT1_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDKT1_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDKT1_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDKT1_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDKT1_TDID		:	STRINGA { LENGTH = 4, XML_NAME="TDID" };
+E2EDKT1_TSSPRAS		:	STRINGA { LENGTH = 3, XML_NAME="TSSPRAS" };
+E2EDKT1_TSSPRAS_ISO		:	STRINGA { LENGTH = 2, XML_NAME="TSSPRAS_ISO" };
+E2EDKT1_TDOBJECT		:	STRINGA { LENGTH = 10, XML_NAME="TDOBJECT" };
+E2EDKT1_TDOBNAME		:	STRINGA { LENGTH = 70, XML_NAME="TDOBNAME" };
+
+#---------------------------------------#
+#	Segment E2EDKT2
+#---------------------------------------#
+E2EDKT2_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDKT2                       ", XML_NAME="SEGNAM" };
+E2EDKT2_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDKT2_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDKT2_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDKT2_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDKT2_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDKT2_TDLINE		:	STRINGA { LENGTH = 70, XML_NAME="TDLINE" };
+E2EDKT2_TDFORMAT		:	STRINGA { LENGTH = 2, XML_NAME="TDFORMAT" };
+
+#---------------------------------------#
+#	Segment E2EDP01
+#---------------------------------------#
+E2EDP01_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDP01                       ", XML_NAME="SEGNAM" };
+E2EDP01_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDP01_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDP01_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDP01_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDP01_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDP01_POSEX		:	STRINGA { LENGTH = 6, XML_NAME="POSEX" };
+E2EDP01_ACTION		:	STRINGA { LENGTH = 3, XML_NAME="ACTION" };
+E2EDP01_PSTYP		:	STRINGA { LENGTH = 1, XML_NAME="PSTYP" };
+E2EDP01_KZABS		:	STRINGA { LENGTH = 1, XML_NAME="KZABS" };
+E2EDP01_MENGE		:	STRINGA { LENGTH = 15, XML_NAME="MENGE" };
+E2EDP01_MENEE		:	STRINGA { LENGTH = 3, XML_NAME="MENEE" };
+E2EDP01_BMNG2		:	STRINGA { LENGTH = 15, XML_NAME="BMNG2" };
+E2EDP01_PMENE		:	STRINGA { LENGTH = 3, XML_NAME="PMENE" };
+E2EDP01_ABFTZ		:	STRINGA { LENGTH = 7, XML_NAME="ABFTZ" };
+E2EDP01_VPREI		:	STRINGA { LENGTH = 15, XML_NAME="VPREI" };
+E2EDP01_PEINH		:	STRINGA { LENGTH = 9, XML_NAME="PEINH" };
+E2EDP01_NETWR		:	STRINGA { LENGTH = 18, XML_NAME="NETWR" };
+E2EDP01_ANETW		:	STRINGA { LENGTH = 18, XML_NAME="ANETW" };
+E2EDP01_SKFBP		:	STRINGA { LENGTH = 18, XML_NAME="SKFBP" };
+E2EDP01_NTGEW		:	STRINGA { LENGTH = 18, XML_NAME="NTGEW" };
+E2EDP01_GEWEI		:	STRINGA { LENGTH = 3, XML_NAME="GEWEI" };
+E2EDP01_EINKZ		:	STRINGA { LENGTH = 1, XML_NAME="EINKZ" };
+E2EDP01_CURCY		:	STRINGA { LENGTH = 3, XML_NAME="CURCY" };
+E2EDP01_PREIS		:	STRINGA { LENGTH = 18, XML_NAME="PREIS" };
+E2EDP01_MATKL		:	STRINGA { LENGTH = 9, XML_NAME="MATKL" };
+E2EDP01_UEPOS		:	STRINGA { LENGTH = 6, XML_NAME="UEPOS" };
+E2EDP01_GRKOR		:	STRINGA { LENGTH = 3, XML_NAME="GRKOR" };
+E2EDP01_EVERS		:	STRINGA { LENGTH = 7, XML_NAME="EVERS" };
+E2EDP01_BPUMN		:	STRINGA { LENGTH = 6, XML_NAME="BPUMN" };
+E2EDP01_BPUMZ		:	STRINGA { LENGTH = 6, XML_NAME="BPUMZ" };
+E2EDP01_ABGRU		:	STRINGA { LENGTH = 2, XML_NAME="ABGRU" };
+E2EDP01_ABGRT		:	STRINGA { LENGTH = 40, XML_NAME="ABGRT" };
+E2EDP01_ANTLF		:	STRINGA { LENGTH = 1, XML_NAME="ANTLF" };
+E2EDP01_FIXMG		:	STRINGA { LENGTH = 1, XML_NAME="FIXMG" };
+E2EDP01_KZAZU		:	STRINGA { LENGTH = 1, XML_NAME="KZAZU" };
+E2EDP01_BRGEW		:	STRINGA { LENGTH = 18, XML_NAME="BRGEW" };
+E2EDP01_PSTYV		:	STRINGA { LENGTH = 4, XML_NAME="PSTYV" };
+E2EDP01_EMPST		:	STRINGA { LENGTH = 25, XML_NAME="EMPST" };
+E2EDP01_ABTNR		:	STRINGA { LENGTH = 4, XML_NAME="ABTNR" };
+E2EDP01_ABRVW		:	STRINGA { LENGTH = 3, XML_NAME="ABRVW" };
+E2EDP01_WERKS		:	STRINGA { LENGTH = 4, XML_NAME="WERKS" };
+E2EDP01_LPRIO		:	STRINGA { LENGTH = 2, XML_NAME="LPRIO" };
+E2EDP01_LPRIO_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="LPRIO_BEZ" };
+E2EDP01_ROUTE		:	STRINGA { LENGTH = 6, XML_NAME="ROUTE" };
+E2EDP01_ROUTE_BEZ		:	STRINGA { LENGTH = 40, XML_NAME="ROUTE_BEZ" };
+E2EDP01_LGORT		:	STRINGA { LENGTH = 4, XML_NAME="LGORT" };
+E2EDP01_VSTEL		:	STRINGA { LENGTH = 4, XML_NAME="VSTEL" };
+E2EDP01_DELCO		:	STRINGA { LENGTH = 3, XML_NAME="DELCO" };
+E2EDP01_MATNR		:	STRINGA { LENGTH = 35, XML_NAME="MATNR" };
+E2EDP01_VALTG		:	STRINGA { LENGTH = 2, XML_NAME="VALTG" };
+E2EDP01_HIPOS		:	STRINGA { LENGTH = 6, XML_NAME="HIPOS" };
+E2EDP01_HIEVW		:	STRINGA { LENGTH = 1, XML_NAME="HIEVW" };
+E2EDP01_POSGUID		:	STRINGA { LENGTH = 22, XML_NAME="POSGUID" };
+E2EDP01_MATNR_EXTERNAL		:	STRINGA { LENGTH = 40, XML_NAME="MATNR_EXTERNAL" };
+E2EDP01_MATNR_VERSION		:	STRINGA { LENGTH = 10, XML_NAME="MATNR_VERSION" };
+E2EDP01_MATNR_GUID		:	STRINGA { LENGTH = 32, XML_NAME="MATNR_GUID" };
+
+#---------------------------------------#
+#	Segment E2EDP02
+#---------------------------------------#
+E2EDP02_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDP02                       ", XML_NAME="SEGNAM" };
+E2EDP02_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDP02_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDP02_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDP02_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDP02_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDP02_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDP02_BELNR		:	STRINGA { LENGTH = 35, XML_NAME="BELNR" };
+E2EDP02_ZEILE		:	STRINGA { LENGTH = 6, XML_NAME="ZEILE" };
+E2EDP02_DATUM		:	STRINGA { LENGTH = 8, XML_NAME="DATUM" };
+E2EDP02_UZEIT		:	STRINGA { LENGTH = 6, XML_NAME="UZEIT" };
+E2EDP02_BSARK		:	STRINGA { LENGTH = 35, XML_NAME="BSARK" };
+E2EDP02_IHREZ		:	STRINGA { LENGTH = 30, XML_NAME="IHREZ" };
+
+#---------------------------------------#
+#	Segment E2CUREF
+#---------------------------------------#
+E2CUREF_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2CUREF                       ", XML_NAME="SEGNAM" };
+E2CUREF_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2CUREF_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2CUREF_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2CUREF_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2CUREF_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2CUREF_POSEX		:	STRINGA { LENGTH = 6, XML_NAME="POSEX" };
+E2CUREF_CONFIG_ID		:	STRINGA { LENGTH = 6, XML_NAME="CONFIG_ID" };
+E2CUREF_INST_ID		:	STRINGA { LENGTH = 8, XML_NAME="INST_ID" };
+
+#---------------------------------------#
+#	Segment E2ADDI1
+#---------------------------------------#
+E2ADDI1_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2ADDI1                       ", XML_NAME="SEGNAM" };
+E2ADDI1_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2ADDI1_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2ADDI1_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2ADDI1_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2ADDI1_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2ADDI1_ADDIMATNR		:	STRINGA { LENGTH = 18, XML_NAME="ADDIMATNR" };
+E2ADDI1_ADDINUMBER		:	STRINGA { LENGTH = 17, XML_NAME="ADDINUMBER" };
+E2ADDI1_ADDIVKME		:	STRINGA { LENGTH = 3, XML_NAME="ADDIVKME" };
+E2ADDI1_ADDIFM		:	STRINGA { LENGTH = 4, XML_NAME="ADDIFM" };
+E2ADDI1_ADDIFM_TXT		:	STRINGA { LENGTH = 40, XML_NAME="ADDIFM_TXT" };
+E2ADDI1_ADDIKLART		:	STRINGA { LENGTH = 3, XML_NAME="ADDIKLART" };
+E2ADDI1_ADDIKLART_TXT		:	STRINGA { LENGTH = 40, XML_NAME="ADDIKLART_TXT" };
+E2ADDI1_ADDICLASS		:	STRINGA { LENGTH = 18, XML_NAME="ADDICLASS" };
+E2ADDI1_ADDICLASS_TXT		:	STRINGA { LENGTH = 40, XML_NAME="ADDICLASS_TXT" };
+E2ADDI1_ADDIIDOC		:	STRINGA { LENGTH = 1, XML_NAME="ADDIIDOC" };
+E2ADDI1_ADDIMATNR_EXTERNAL		:	STRINGA { LENGTH = 40, XML_NAME="ADDIMATNR_EXTERNAL" };
+E2ADDI1_ADDIMATNR_VERSION		:	STRINGA { LENGTH = 10, XML_NAME="ADDIMATNR_VERSION" };
+E2ADDI1_ADDIMATNR_GUID		:	STRINGA { LENGTH = 32, XML_NAME="ADDIMATNR_GUID" };
+
+#---------------------------------------#
+#	Segment E2EDP03
+#---------------------------------------#
+E2EDP03_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDP03                       ", XML_NAME="SEGNAM" };
+E2EDP03_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDP03_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDP03_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDP03_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDP03_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDP03_IDDAT		:	STRINGA { LENGTH = 3, XML_NAME="IDDAT" };
+E2EDP03_DATUM		:	STRINGA { LENGTH = 8, XML_NAME="DATUM" };
+E2EDP03_UZEIT		:	STRINGA { LENGTH = 6, XML_NAME="UZEIT" };
+
+#---------------------------------------#
+#	Segment E2EDP04
+#---------------------------------------#
+E2EDP04_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDP04                       ", XML_NAME="SEGNAM" };
+E2EDP04_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDP04_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDP04_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDP04_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDP04_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDP04_MWSKZ		:	STRINGA { LENGTH = 7, XML_NAME="MWSKZ" };
+E2EDP04_MSATZ		:	STRINGA { LENGTH = 17, XML_NAME="MSATZ" };
+E2EDP04_MWSBT		:	STRINGA { LENGTH = 18, XML_NAME="MWSBT" };
+E2EDP04_TXJCD		:	STRINGA { LENGTH = 15, XML_NAME="TXJCD" };
+E2EDP04_KTEXT		:	STRINGA { LENGTH = 50, XML_NAME="KTEXT" };
+
+#---------------------------------------#
+#	Segment E2EDP05
+#---------------------------------------#
+E2EDP05_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDP05                       ", XML_NAME="SEGNAM" };
+E2EDP05_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDP05_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDP05_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDP05_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDP05_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDP05_ALCKZ		:	STRINGA { LENGTH = 3, XML_NAME="ALCKZ" };
+E2EDP05_KSCHL		:	STRINGA { LENGTH = 4, XML_NAME="KSCHL" };
+E2EDP05_KOTXT		:	STRINGA { LENGTH = 80, XML_NAME="KOTXT" };
+E2EDP05_BETRG		:	STRINGA { LENGTH = 18, XML_NAME="BETRG" };
+E2EDP05_KPERC		:	STRINGA { LENGTH = 8, XML_NAME="KPERC" };
+E2EDP05_KRATE		:	STRINGA { LENGTH = 15, XML_NAME="KRATE" };
+E2EDP05_UPRBS		:	STRINGA { LENGTH = 9, XML_NAME="UPRBS" };
+E2EDP05_MEAUN		:	STRINGA { LENGTH = 3, XML_NAME="MEAUN" };
+E2EDP05_KOBTR		:	STRINGA { LENGTH = 18, XML_NAME="KOBTR" };
+E2EDP05_MENGE		:	STRINGA { LENGTH = 15, XML_NAME="MENGE" };
+E2EDP05_PREIS		:	STRINGA { LENGTH = 15, XML_NAME="PREIS" };
+E2EDP05_MWSKZ		:	STRINGA { LENGTH = 7, XML_NAME="MWSKZ" };
+E2EDP05_MSATZ		:	STRINGA { LENGTH = 17, XML_NAME="MSATZ" };
+E2EDP05_KOEIN		:	STRINGA { LENGTH = 3, XML_NAME="KOEIN" };
+E2EDP05_CURTP		:	STRINGA { LENGTH = 2, XML_NAME="CURTP" };
+E2EDP05_KOBAS		:	STRINGA { LENGTH = 18, XML_NAME="KOBAS" };
+
+#---------------------------------------#
+#	Segment E2EDPS5
+#---------------------------------------#
+E2EDPS5_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDPS5                       ", XML_NAME="SEGNAM" };
+E2EDPS5_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDPS5_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDPS5_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDPS5_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDPS5_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDPS5_KSTBM		:	STRINGA { LENGTH = 17, XML_NAME="KSTBM" };
+E2EDPS5_KBETR		:	STRINGA { LENGTH = 13, XML_NAME="KBETR" };
+
+#---------------------------------------#
+#	Segment E2EDP20
+#---------------------------------------#
+E2EDP20_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDP20                       ", XML_NAME="SEGNAM" };
+E2EDP20_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDP20_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDP20_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDP20_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDP20_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDP20_WMENG		:	STRINGA { LENGTH = 15, XML_NAME="WMENG" };
+E2EDP20_AMENG		:	STRINGA { LENGTH = 15, XML_NAME="AMENG" };
+E2EDP20_EDATU		:	STRINGA { LENGTH = 8, XML_NAME="EDATU" };
+E2EDP20_EZEIT		:	STRINGA { LENGTH = 6, XML_NAME="EZEIT" };
+E2EDP20_EDATU_OLD		:	STRINGA { LENGTH = 8, XML_NAME="EDATU_OLD" };
+E2EDP20_EZEIT_OLD		:	STRINGA { LENGTH = 6, XML_NAME="EZEIT_OLD" };
+E2EDP20_ACTION		:	STRINGA { LENGTH = 3, XML_NAME="ACTION" };
+
+#---------------------------------------#
+#	Segment E2EDPA1
+#---------------------------------------#
+E2EDPA1_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDPA1                       ", XML_NAME="SEGNAM" };
+E2EDPA1_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDPA1_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDPA1_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDPA1_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDPA1_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDPA1_PARVW		:	STRINGA { LENGTH = 3, XML_NAME="PARVW" };
+E2EDPA1_PARTN		:	STRINGA { LENGTH = 17, XML_NAME="PARTN" };
+E2EDPA1_LIFNR		:	STRINGA { LENGTH = 17, XML_NAME="LIFNR" };
+E2EDPA1_NAME1		:	STRINGA { LENGTH = 35, XML_NAME="NAME1" };
+E2EDPA1_NAME2		:	STRINGA { LENGTH = 35, XML_NAME="NAME2" };
+E2EDPA1_NAME3		:	STRINGA { LENGTH = 35, XML_NAME="NAME3" };
+E2EDPA1_NAME4		:	STRINGA { LENGTH = 35, XML_NAME="NAME4" };
+E2EDPA1_STRAS		:	STRINGA { LENGTH = 35, XML_NAME="STRAS" };
+E2EDPA1_STRS2		:	STRINGA { LENGTH = 35, XML_NAME="STRS2" };
+E2EDPA1_PFACH		:	STRINGA { LENGTH = 35, XML_NAME="PFACH" };
+E2EDPA1_ORT01		:	STRINGA { LENGTH = 35, XML_NAME="ORT01" };
+E2EDPA1_COUNC		:	STRINGA { LENGTH = 9, XML_NAME="COUNC" };
+E2EDPA1_PSTLZ		:	STRINGA { LENGTH = 9, XML_NAME="PSTLZ" };
+E2EDPA1_PSTL2		:	STRINGA { LENGTH = 9, XML_NAME="PSTL2" };
+E2EDPA1_LAND1		:	STRINGA { LENGTH = 3, XML_NAME="LAND1" };
+E2EDPA1_ABLAD		:	STRINGA { LENGTH = 35, XML_NAME="ABLAD" };
+E2EDPA1_PERNR		:	STRINGA { LENGTH = 30, XML_NAME="PERNR" };
+E2EDPA1_PARNR		:	STRINGA { LENGTH = 30, XML_NAME="PARNR" };
+E2EDPA1_TELF1		:	STRINGA { LENGTH = 25, XML_NAME="TELF1" };
+E2EDPA1_TELF2		:	STRINGA { LENGTH = 25, XML_NAME="TELF2" };
+E2EDPA1_TELBX		:	STRINGA { LENGTH = 25, XML_NAME="TELBX" };
+E2EDPA1_TELFX		:	STRINGA { LENGTH = 25, XML_NAME="TELFX" };
+E2EDPA1_TELTX		:	STRINGA { LENGTH = 25, XML_NAME="TELTX" };
+E2EDPA1_TELX1		:	STRINGA { LENGTH = 25, XML_NAME="TELX1" };
+E2EDPA1_SPRAS		:	STRINGA { LENGTH = 1, XML_NAME="SPRAS" };
+E2EDPA1_ANRED		:	STRINGA { LENGTH = 15, XML_NAME="ANRED" };
+E2EDPA1_ORT02		:	STRINGA { LENGTH = 35, XML_NAME="ORT02" };
+E2EDPA1_HAUSN		:	STRINGA { LENGTH = 6, XML_NAME="HAUSN" };
+E2EDPA1_STOCK		:	STRINGA { LENGTH = 6, XML_NAME="STOCK" };
+E2EDPA1_REGIO		:	STRINGA { LENGTH = 3, XML_NAME="REGIO" };
+E2EDPA1_PARGE		:	STRINGA { LENGTH = 1, XML_NAME="PARGE" };
+E2EDPA1_ISOAL		:	STRINGA { LENGTH = 2, XML_NAME="ISOAL" };
+E2EDPA1_ISONU		:	STRINGA { LENGTH = 2, XML_NAME="ISONU" };
+E2EDPA1_FCODE		:	STRINGA { LENGTH = 20, XML_NAME="FCODE" };
+E2EDPA1_IHREZ		:	STRINGA { LENGTH = 30, XML_NAME="IHREZ" };
+E2EDPA1_BNAME		:	STRINGA { LENGTH = 35, XML_NAME="BNAME" };
+E2EDPA1_PAORG		:	STRINGA { LENGTH = 30, XML_NAME="PAORG" };
+E2EDPA1_ORGTX		:	STRINGA { LENGTH = 35, XML_NAME="ORGTX" };
+E2EDPA1_PAGRU		:	STRINGA { LENGTH = 30, XML_NAME="PAGRU" };
+E2EDPA1_KNREF		:	STRINGA { LENGTH = 30, XML_NAME="KNREF" };
+E2EDPA1_ILNNR		:	STRINGA { LENGTH = 70, XML_NAME="ILNNR" };
+E2EDPA1_PFORT		:	STRINGA { LENGTH = 35, XML_NAME="PFORT" };
+E2EDPA1_SPRAS_ISO		:	STRINGA { LENGTH = 2, XML_NAME="SPRAS_ISO" };
+E2EDPA1_TITLE		:	STRINGA { LENGTH = 15, XML_NAME="TITLE" };
+
+#---------------------------------------#
+#	Segment E2EDPA3
+#---------------------------------------#
+E2EDPA3_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDPA3                       ", XML_NAME="SEGNAM" };
+E2EDPA3_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDPA3_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDPA3_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDPA3_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDPA3_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDPA3_QUALP		:	STRINGA { LENGTH = 3, XML_NAME="QUALP" };
+E2EDPA3_STDPN		:	STRINGA { LENGTH = 70, XML_NAME="STDPN" };
+
+#---------------------------------------#
+#	Segment E2EDP19
+#---------------------------------------#
+E2EDP19_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDP19                       ", XML_NAME="SEGNAM" };
+E2EDP19_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDP19_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDP19_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDP19_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDP19_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDP19_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDP19_IDTNR		:	STRINGA { LENGTH = 35, XML_NAME="IDTNR" };
+E2EDP19_KTEXT		:	STRINGA { LENGTH = 70, XML_NAME="KTEXT" };
+E2EDP19_MFRPN		:	STRINGA { LENGTH = 42, XML_NAME="MFRPN" };
+E2EDP19_MFRNR		:	STRINGA { LENGTH = 10, XML_NAME="MFRNR" };
+E2EDP19_IDTNR_EXTERNAL		:	STRINGA { LENGTH = 40, XML_NAME="IDTNR_EXTERNAL" };
+E2EDP19_IDTNR_VERSION		:	STRINGA { LENGTH = 10, XML_NAME="IDTNR_VERSION" };
+E2EDP19_IDTNR_GUID		:	STRINGA { LENGTH = 32, XML_NAME="IDTNR_GUID" };
+
+#---------------------------------------#
+#	Segment E2EDPAD
+#---------------------------------------#
+E2EDPAD_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDPAD                       ", XML_NAME="SEGNAM" };
+E2EDPAD_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDPAD_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDPAD_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDPAD_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDPAD_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDPAD_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDPAD_ICC		:	STRINGA { LENGTH = 2, XML_NAME="ICC" };
+E2EDPAD_MOI		:	STRINGA { LENGTH = 4, XML_NAME="MOI" };
+E2EDPAD_PRI		:	STRINGA { LENGTH = 3, XML_NAME="PRI" };
+E2EDPAD_ACN		:	STRINGA { LENGTH = 5, XML_NAME="ACN" };
+
+#---------------------------------------#
+#	Segment E2TXTH1
+#---------------------------------------#
+E2TXTH1_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2TXTH1                       ", XML_NAME="SEGNAM" };
+E2TXTH1_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2TXTH1_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2TXTH1_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2TXTH1_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2TXTH1_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2TXTH1_FUNCTION		:	STRINGA { LENGTH = 3, XML_NAME="FUNCTION" };
+E2TXTH1_TDOBJECT		:	STRINGA { LENGTH = 10, XML_NAME="TDOBJECT" };
+E2TXTH1_TDOBNAME		:	STRINGA { LENGTH = 70, XML_NAME="TDOBNAME" };
+E2TXTH1_TDID		:	STRINGA { LENGTH = 4, XML_NAME="TDID" };
+E2TXTH1_TDSPRAS		:	STRINGA { LENGTH = 1, XML_NAME="TDSPRAS" };
+E2TXTH1_TDTEXTTYPE		:	STRINGA { LENGTH = 6, XML_NAME="TDTEXTTYPE" };
+E2TXTH1_LANGUA_ISO		:	STRINGA { LENGTH = 2, XML_NAME="LANGUA_ISO" };
+
+#---------------------------------------#
+#	Segment E2TXTP1
+#---------------------------------------#
+E2TXTP1_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2TXTP1                       ", XML_NAME="SEGNAM" };
+E2TXTP1_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2TXTP1_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2TXTP1_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2TXTP1_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2TXTP1_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2TXTP1_TDFORMAT		:	STRINGA { LENGTH = 2, XML_NAME="TDFORMAT" };
+E2TXTP1_TDLINE		:	STRINGA { LENGTH = 132, XML_NAME="TDLINE" };
+
+#---------------------------------------#
+#	Segment E2EDP17
+#---------------------------------------#
+E2EDP17_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDP17                       ", XML_NAME="SEGNAM" };
+E2EDP17_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDP17_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDP17_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDP17_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDP17_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDP17_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDP17_LKOND		:	STRINGA { LENGTH = 3, XML_NAME="LKOND" };
+E2EDP17_LKTEXT		:	STRINGA { LENGTH = 70, XML_NAME="LKTEXT" };
+E2EDP17_LPRIO		:	STRINGA { LENGTH = 2, XML_NAME="LPRIO" };
+
+#---------------------------------------#
+#	Segment E2EDP18
+#---------------------------------------#
+E2EDP18_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDP18                       ", XML_NAME="SEGNAM" };
+E2EDP18_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDP18_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDP18_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDP18_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDP18_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDP18_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDP18_TAGE		:	STRINGA { LENGTH = 8, XML_NAME="TAGE" };
+E2EDP18_PRZNT		:	STRINGA { LENGTH = 8, XML_NAME="PRZNT" };
+E2EDP18_ZTERM_TXT		:	STRINGA { LENGTH = 70, XML_NAME="ZTERM_TXT" };
+
+#---------------------------------------#
+#	Segment E2EDP35
+#---------------------------------------#
+E2EDP35_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDP35                       ", XML_NAME="SEGNAM" };
+E2EDP35_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDP35_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDP35_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDP35_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDP35_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDP35_QUALZ		:	STRINGA { LENGTH = 3, XML_NAME="QUALZ" };
+E2EDP35_CUSADD		:	STRINGA { LENGTH = 35, XML_NAME="CUSADD" };
+E2EDP35_CUSADD_BEZ		:	STRINGA { LENGTH = 40, XML_NAME="CUSADD_BEZ" };
+
+#---------------------------------------#
+#	Segment E2EDPT1
+#---------------------------------------#
+E2EDPT1_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDPT1                       ", XML_NAME="SEGNAM" };
+E2EDPT1_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDPT1_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDPT1_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDPT1_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDPT1_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDPT1_TDID		:	STRINGA { LENGTH = 4, XML_NAME="TDID" };
+E2EDPT1_TSSPRAS		:	STRINGA { LENGTH = 3, XML_NAME="TSSPRAS" };
+E2EDPT1_TSSPRAS_ISO		:	STRINGA { LENGTH = 2, XML_NAME="TSSPRAS_ISO" };
+
+#---------------------------------------#
+#	Segment E2EDPT2
+#---------------------------------------#
+E2EDPT2_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDPT2                       ", XML_NAME="SEGNAM" };
+E2EDPT2_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDPT2_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDPT2_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDPT2_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDPT2_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDPT2_TDLINE		:	STRINGA { LENGTH = 70, XML_NAME="TDLINE" };
+E2EDPT2_TDFORMAT		:	STRINGA { LENGTH = 2, XML_NAME="TDFORMAT" };
+
+#---------------------------------------#
+#	Segment E2EDC01
+#---------------------------------------#
+E2EDC01_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDC01                       ", XML_NAME="SEGNAM" };
+E2EDC01_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDC01_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDC01_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDC01_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDC01_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDC01_SGTYP		:	STRINGA { LENGTH = 3, XML_NAME="SGTYP" };
+E2EDC01_ZLTYP		:	STRINGA { LENGTH = 3, XML_NAME="ZLTYP" };
+E2EDC01_LVALT		:	STRINGA { LENGTH = 3, XML_NAME="LVALT" };
+E2EDC01_ALTNO		:	STRINGA { LENGTH = 2, XML_NAME="ALTNO" };
+E2EDC01_ALREF		:	STRINGA { LENGTH = 5, XML_NAME="ALREF" };
+E2EDC01_ZLART		:	STRINGA { LENGTH = 3, XML_NAME="ZLART" };
+E2EDC01_POSEX		:	STRINGA { LENGTH = 10, XML_NAME="POSEX" };
+E2EDC01_RANG		:	STRINGA { LENGTH = 2, XML_NAME="RANG" };
+E2EDC01_EXGRP		:	STRINGA { LENGTH = 8, XML_NAME="EXGRP" };
+E2EDC01_UEPOS		:	STRINGA { LENGTH = 6, XML_NAME="UEPOS" };
+E2EDC01_MATKL		:	STRINGA { LENGTH = 9, XML_NAME="MATKL" };
+E2EDC01_MENGE		:	STRINGA { LENGTH = 15, XML_NAME="MENGE" };
+E2EDC01_MENEE		:	STRINGA { LENGTH = 3, XML_NAME="MENEE" };
+E2EDC01_BMNG2		:	STRINGA { LENGTH = 15, XML_NAME="BMNG2" };
+E2EDC01_PMENE		:	STRINGA { LENGTH = 3, XML_NAME="PMENE" };
+E2EDC01_BPUMN		:	STRINGA { LENGTH = 6, XML_NAME="BPUMN" };
+E2EDC01_BPUMZ		:	STRINGA { LENGTH = 6, XML_NAME="BPUMZ" };
+E2EDC01_VPREI		:	STRINGA { LENGTH = 15, XML_NAME="VPREI" };
+E2EDC01_PEINH		:	STRINGA { LENGTH = 9, XML_NAME="PEINH" };
+E2EDC01_NETWR		:	STRINGA { LENGTH = 18, XML_NAME="NETWR" };
+E2EDC01_ANETW		:	STRINGA { LENGTH = 18, XML_NAME="ANETW" };
+E2EDC01_SKFBP		:	STRINGA { LENGTH = 18, XML_NAME="SKFBP" };
+E2EDC01_CURCY		:	STRINGA { LENGTH = 3, XML_NAME="CURCY" };
+E2EDC01_PREIS		:	STRINGA { LENGTH = 18, XML_NAME="PREIS" };
+E2EDC01_ACTION		:	STRINGA { LENGTH = 3, XML_NAME="ACTION" };
+E2EDC01_KZABS		:	STRINGA { LENGTH = 1, XML_NAME="KZABS" };
+E2EDC01_UEBTO		:	STRINGA { LENGTH = 4, XML_NAME="UEBTO" };
+E2EDC01_UEBTK		:	STRINGA { LENGTH = 1, XML_NAME="UEBTK" };
+E2EDC01_LBNUM		:	STRINGA { LENGTH = 3, XML_NAME="LBNUM" };
+E2EDC01_AUSGB		:	STRINGA { LENGTH = 4, XML_NAME="AUSGB" };
+E2EDC01_FRPOS		:	STRINGA { LENGTH = 6, XML_NAME="FRPOS" };
+E2EDC01_TOPOS		:	STRINGA { LENGTH = 6, XML_NAME="TOPOS" };
+E2EDC01_KTXT1		:	STRINGA { LENGTH = 40, XML_NAME="KTXT1" };
+E2EDC01_KTXT2		:	STRINGA { LENGTH = 40, XML_NAME="KTXT2" };
+E2EDC01_PERNR		:	STRINGA { LENGTH = 8, XML_NAME="PERNR" };
+E2EDC01_LGART		:	STRINGA { LENGTH = 4, XML_NAME="LGART" };
+E2EDC01_STELL		:	STRINGA { LENGTH = 8, XML_NAME="STELL" };
+E2EDC01_ZWERT		:	STRINGA { LENGTH = 18, XML_NAME="ZWERT" };
+
+#---------------------------------------#
+#	Segment E2EDC02
+#---------------------------------------#
+E2EDC02_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDC02                       ", XML_NAME="SEGNAM" };
+E2EDC02_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDC02_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDC02_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDC02_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDC02_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDC02_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDC02_BELNR		:	STRINGA { LENGTH = 35, XML_NAME="BELNR" };
+E2EDC02_XLINE		:	STRINGA { LENGTH = 10, XML_NAME="XLINE" };
+E2EDC02_DATUM		:	STRINGA { LENGTH = 8, XML_NAME="DATUM" };
+E2EDC02_UZEIT		:	STRINGA { LENGTH = 6, XML_NAME="UZEIT" };
+
+#---------------------------------------#
+#	Segment E2EDC03
+#---------------------------------------#
+E2EDC03_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDC03                       ", XML_NAME="SEGNAM" };
+E2EDC03_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDC03_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDC03_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDC03_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDC03_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDC03_IDDAT		:	STRINGA { LENGTH = 3, XML_NAME="IDDAT" };
+E2EDC03_DATUM		:	STRINGA { LENGTH = 8, XML_NAME="DATUM" };
+E2EDC03_UZEIT		:	STRINGA { LENGTH = 6, XML_NAME="UZEIT" };
+
+#---------------------------------------#
+#	Segment E2EDC04
+#---------------------------------------#
+E2EDC04_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDC04                       ", XML_NAME="SEGNAM" };
+E2EDC04_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDC04_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDC04_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDC04_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDC04_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDC04_MWSKZ		:	STRINGA { LENGTH = 7, XML_NAME="MWSKZ" };
+E2EDC04_MSATZ		:	STRINGA { LENGTH = 17, XML_NAME="MSATZ" };
+E2EDC04_MWSBT		:	STRINGA { LENGTH = 18, XML_NAME="MWSBT" };
+E2EDC04_TXJCD		:	STRINGA { LENGTH = 15, XML_NAME="TXJCD" };
+
+#---------------------------------------#
+#	Segment E2EDC05
+#---------------------------------------#
+E2EDC05_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDC05                       ", XML_NAME="SEGNAM" };
+E2EDC05_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDC05_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDC05_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDC05_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDC05_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDC05_ALCKZ		:	STRINGA { LENGTH = 3, XML_NAME="ALCKZ" };
+E2EDC05_KSCHL		:	STRINGA { LENGTH = 4, XML_NAME="KSCHL" };
+E2EDC05_KOTXT		:	STRINGA { LENGTH = 80, XML_NAME="KOTXT" };
+E2EDC05_BETRG		:	STRINGA { LENGTH = 18, XML_NAME="BETRG" };
+E2EDC05_KPERC		:	STRINGA { LENGTH = 8, XML_NAME="KPERC" };
+E2EDC05_KRATE		:	STRINGA { LENGTH = 15, XML_NAME="KRATE" };
+E2EDC05_UPRBS		:	STRINGA { LENGTH = 9, XML_NAME="UPRBS" };
+E2EDC05_MEAUN		:	STRINGA { LENGTH = 3, XML_NAME="MEAUN" };
+E2EDC05_KOBTR		:	STRINGA { LENGTH = 18, XML_NAME="KOBTR" };
+E2EDC05_MENGE		:	STRINGA { LENGTH = 15, XML_NAME="MENGE" };
+E2EDC05_PREIS		:	STRINGA { LENGTH = 15, XML_NAME="PREIS" };
+E2EDC05_MWSKZ		:	STRINGA { LENGTH = 7, XML_NAME="MWSKZ" };
+E2EDC05_MSATZ		:	STRINGA { LENGTH = 17, XML_NAME="MSATZ" };
+
+#---------------------------------------#
+#	Segment E2EDC06
+#---------------------------------------#
+E2EDC06_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDC06                       ", XML_NAME="SEGNAM" };
+E2EDC06_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDC06_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDC06_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDC06_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDC06_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDC06_FORMELNR		:	STRINGA { LENGTH = 10, XML_NAME="FORMELNR" };
+E2EDC06_FRMVAL1		:	STRINGA { LENGTH = 15, XML_NAME="FRMVAL1" };
+E2EDC06_FRMVAL2		:	STRINGA { LENGTH = 15, XML_NAME="FRMVAL2" };
+E2EDC06_FRMVAL3		:	STRINGA { LENGTH = 15, XML_NAME="FRMVAL3" };
+E2EDC06_FRMVAL4		:	STRINGA { LENGTH = 15, XML_NAME="FRMVAL4" };
+E2EDC06_FRMVAL5		:	STRINGA { LENGTH = 15, XML_NAME="FRMVAL5" };
+
+#---------------------------------------#
+#	Segment E2EDC07
+#---------------------------------------#
+E2EDC07_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDC07                       ", XML_NAME="SEGNAM" };
+E2EDC07_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDC07_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDC07_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDC07_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDC07_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDC07_USERF1_NUM		:	STRINGA { LENGTH = 10, XML_NAME="USERF1_NUM" };
+E2EDC07_USERF2_NUM		:	STRINGA { LENGTH = 15, XML_NAME="USERF2_NUM" };
+E2EDC07_USERF1_TXT		:	STRINGA { LENGTH = 40, XML_NAME="USERF1_TXT" };
+E2EDC07_USERF2_TXT		:	STRINGA { LENGTH = 10, XML_NAME="USERF2_TXT" };
+
+#---------------------------------------#
+#	Segment E2EDCA1
+#---------------------------------------#
+E2EDCA1_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDCA1                       ", XML_NAME="SEGNAM" };
+E2EDCA1_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDCA1_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDCA1_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDCA1_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDCA1_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDCA1_PARVW		:	STRINGA { LENGTH = 3, XML_NAME="PARVW" };
+E2EDCA1_PARTN		:	STRINGA { LENGTH = 17, XML_NAME="PARTN" };
+E2EDCA1_LIFNR		:	STRINGA { LENGTH = 17, XML_NAME="LIFNR" };
+E2EDCA1_NAME1		:	STRINGA { LENGTH = 35, XML_NAME="NAME1" };
+E2EDCA1_NAME2		:	STRINGA { LENGTH = 35, XML_NAME="NAME2" };
+E2EDCA1_NAME3		:	STRINGA { LENGTH = 35, XML_NAME="NAME3" };
+E2EDCA1_NAME4		:	STRINGA { LENGTH = 35, XML_NAME="NAME4" };
+E2EDCA1_STRAS		:	STRINGA { LENGTH = 35, XML_NAME="STRAS" };
+E2EDCA1_STRS2		:	STRINGA { LENGTH = 35, XML_NAME="STRS2" };
+E2EDCA1_PFACH		:	STRINGA { LENGTH = 35, XML_NAME="PFACH" };
+E2EDCA1_ORT01		:	STRINGA { LENGTH = 35, XML_NAME="ORT01" };
+E2EDCA1_COUNC		:	STRINGA { LENGTH = 9, XML_NAME="COUNC" };
+E2EDCA1_PSTLZ		:	STRINGA { LENGTH = 9, XML_NAME="PSTLZ" };
+E2EDCA1_PSTL2		:	STRINGA { LENGTH = 9, XML_NAME="PSTL2" };
+E2EDCA1_LAND1		:	STRINGA { LENGTH = 3, XML_NAME="LAND1" };
+E2EDCA1_ABLAD		:	STRINGA { LENGTH = 35, XML_NAME="ABLAD" };
+E2EDCA1_PERNR		:	STRINGA { LENGTH = 30, XML_NAME="PERNR" };
+E2EDCA1_PARNR		:	STRINGA { LENGTH = 30, XML_NAME="PARNR" };
+E2EDCA1_TELF1		:	STRINGA { LENGTH = 25, XML_NAME="TELF1" };
+E2EDCA1_TELF2		:	STRINGA { LENGTH = 25, XML_NAME="TELF2" };
+E2EDCA1_TELBX		:	STRINGA { LENGTH = 25, XML_NAME="TELBX" };
+E2EDCA1_TELFX		:	STRINGA { LENGTH = 25, XML_NAME="TELFX" };
+E2EDCA1_TELTX		:	STRINGA { LENGTH = 25, XML_NAME="TELTX" };
+E2EDCA1_TELX1		:	STRINGA { LENGTH = 25, XML_NAME="TELX1" };
+E2EDCA1_SPRAS		:	STRINGA { LENGTH = 1, XML_NAME="SPRAS" };
+E2EDCA1_ANRED		:	STRINGA { LENGTH = 15, XML_NAME="ANRED" };
+E2EDCA1_ORT02		:	STRINGA { LENGTH = 35, XML_NAME="ORT02" };
+E2EDCA1_HAUSN		:	STRINGA { LENGTH = 6, XML_NAME="HAUSN" };
+E2EDCA1_STOCK		:	STRINGA { LENGTH = 6, XML_NAME="STOCK" };
+E2EDCA1_REGIO		:	STRINGA { LENGTH = 3, XML_NAME="REGIO" };
+E2EDCA1_PARGE		:	STRINGA { LENGTH = 1, XML_NAME="PARGE" };
+E2EDCA1_ISOAL		:	STRINGA { LENGTH = 2, XML_NAME="ISOAL" };
+E2EDCA1_ISONU		:	STRINGA { LENGTH = 2, XML_NAME="ISONU" };
+E2EDCA1_FCODE		:	STRINGA { LENGTH = 20, XML_NAME="FCODE" };
+E2EDCA1_IHREZ		:	STRINGA { LENGTH = 30, XML_NAME="IHREZ" };
+E2EDCA1_BNAME		:	STRINGA { LENGTH = 35, XML_NAME="BNAME" };
+E2EDCA1_PAORG		:	STRINGA { LENGTH = 30, XML_NAME="PAORG" };
+E2EDCA1_ORGTX		:	STRINGA { LENGTH = 35, XML_NAME="ORGTX" };
+E2EDCA1_PAGRU		:	STRINGA { LENGTH = 30, XML_NAME="PAGRU" };
+
+#---------------------------------------#
+#	Segment E2EDC19
+#---------------------------------------#
+E2EDC19_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDC19                       ", XML_NAME="SEGNAM" };
+E2EDC19_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDC19_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDC19_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDC19_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDC19_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDC19_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDC19_IDTNR		:	STRINGA { LENGTH = 35, XML_NAME="IDTNR" };
+E2EDC19_KTEXT		:	STRINGA { LENGTH = 70, XML_NAME="KTEXT" };
+
+#---------------------------------------#
+#	Segment E2EDC17
+#---------------------------------------#
+E2EDC17_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDC17                       ", XML_NAME="SEGNAM" };
+E2EDC17_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDC17_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDC17_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDC17_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDC17_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDC17_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDC17_LKOND		:	STRINGA { LENGTH = 3, XML_NAME="LKOND" };
+E2EDC17_LKTEXT		:	STRINGA { LENGTH = 70, XML_NAME="LKTEXT" };
+
+#---------------------------------------#
+#	Segment E2EDC18
+#---------------------------------------#
+E2EDC18_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDC18                       ", XML_NAME="SEGNAM" };
+E2EDC18_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDC18_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDC18_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDC18_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDC18_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDC18_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDC18_TAGE		:	STRINGA { LENGTH = 8, XML_NAME="TAGE" };
+E2EDC18_PRZNT		:	STRINGA { LENGTH = 8, XML_NAME="PRZNT" };
+
+#---------------------------------------#
+#	Segment E2EDCT1
+#---------------------------------------#
+E2EDCT1_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDCT1                       ", XML_NAME="SEGNAM" };
+E2EDCT1_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDCT1_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDCT1_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDCT1_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDCT1_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDCT1_TDID		:	STRINGA { LENGTH = 4, XML_NAME="TDID" };
+E2EDCT1_TSSPRAS		:	STRINGA { LENGTH = 3, XML_NAME="TSSPRAS" };
+
+#---------------------------------------#
+#	Segment E2EDCT2
+#---------------------------------------#
+E2EDCT2_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDCT2                       ", XML_NAME="SEGNAM" };
+E2EDCT2_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDCT2_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDCT2_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDCT2_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDCT2_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDCT2_TDLINE		:	STRINGA { LENGTH = 70, XML_NAME="TDLINE" };
+
+#---------------------------------------#
+#	Segment E2CUCFG
+#---------------------------------------#
+E2CUCFG_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2CUCFG                       ", XML_NAME="SEGNAM" };
+E2CUCFG_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2CUCFG_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2CUCFG_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2CUCFG_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2CUCFG_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2CUCFG_POSEX		:	STRINGA { LENGTH = 6, XML_NAME="POSEX" };
+E2CUCFG_CONFIG_ID		:	STRINGA { LENGTH = 6, XML_NAME="CONFIG_ID" };
+E2CUCFG_ROOT_ID		:	STRINGA { LENGTH = 8, XML_NAME="ROOT_ID" };
+E2CUCFG_SCE		:	STRINGA { LENGTH = 1, XML_NAME="SCE" };
+E2CUCFG_KBNAME		:	STRINGA { LENGTH = 30, XML_NAME="KBNAME" };
+E2CUCFG_KBVERSION		:	STRINGA { LENGTH = 30, XML_NAME="KBVERSION" };
+E2CUCFG_COMPLETE		:	STRINGA { LENGTH = 1, XML_NAME="COMPLETE" };
+E2CUCFG_CONSISTENT		:	STRINGA { LENGTH = 1, XML_NAME="CONSISTENT" };
+E2CUCFG_CFGINFO		:	STRINGA { LENGTH = 250, XML_NAME="CFGINFO" };
+E2CUCFG_KBPROFILE		:	STRINGA { LENGTH = 30, XML_NAME="KBPROFILE" };
+E2CUCFG_KBLANGUAGE		:	STRINGA { LENGTH = 1, XML_NAME="KBLANGUAGE" };
+E2CUCFG_CBASE_ID		:	STRINGA { LENGTH = 32, XML_NAME="CBASE_ID" };
+E2CUCFG_CBASE_ID_TYPE		:	STRINGA { LENGTH = 1, XML_NAME="CBASE_ID_TYPE" };
+
+#---------------------------------------#
+#	Segment E2CUINS
+#---------------------------------------#
+E2CUINS_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2CUINS                       ", XML_NAME="SEGNAM" };
+E2CUINS_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2CUINS_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2CUINS_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2CUINS_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2CUINS_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2CUINS_INST_ID		:	STRINGA { LENGTH = 8, XML_NAME="INST_ID" };
+E2CUINS_OBJ_TYPE		:	STRINGA { LENGTH = 10, XML_NAME="OBJ_TYPE" };
+E2CUINS_CLASS_TYPE		:	STRINGA { LENGTH = 3, XML_NAME="CLASS_TYPE" };
+E2CUINS_OBJ_KEY		:	STRINGA { LENGTH = 50, XML_NAME="OBJ_KEY" };
+E2CUINS_OBJ_TXT		:	STRINGA { LENGTH = 70, XML_NAME="OBJ_TXT" };
+E2CUINS_QUANTITY		:	STRINGA { LENGTH = 15, XML_NAME="QUANTITY" };
+E2CUINS_AUTHOR		:	STRINGA { LENGTH = 1, XML_NAME="AUTHOR" };
+E2CUINS_QUANTITY_UNIT		:	STRINGA { LENGTH = 3, XML_NAME="QUANTITY_UNIT" };
+E2CUINS_COMPLETE		:	STRINGA { LENGTH = 1, XML_NAME="COMPLETE" };
+E2CUINS_CONSISTENT		:	STRINGA { LENGTH = 1, XML_NAME="CONSISTENT" };
+E2CUINS_OBJECT_GUID		:	STRINGA { LENGTH = 32, XML_NAME="OBJECT_GUID" };
+E2CUINS_PERSIST_ID		:	STRINGA { LENGTH = 32, XML_NAME="PERSIST_ID" };
+E2CUINS_PERSIST_ID_TYPE		:	STRINGA { LENGTH = 1, XML_NAME="PERSIST_ID_TYPE" };
+
+#---------------------------------------#
+#	Segment E2CUPRT
+#---------------------------------------#
+E2CUPRT_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2CUPRT                       ", XML_NAME="SEGNAM" };
+E2CUPRT_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2CUPRT_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2CUPRT_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2CUPRT_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2CUPRT_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2CUPRT_PARENT_ID		:	STRINGA { LENGTH = 8, XML_NAME="PARENT_ID" };
+E2CUPRT_INST_ID		:	STRINGA { LENGTH = 8, XML_NAME="INST_ID" };
+E2CUPRT_PART_OF_NO		:	STRINGA { LENGTH = 4, XML_NAME="PART_OF_NO" };
+E2CUPRT_OBJ_TYPE		:	STRINGA { LENGTH = 10, XML_NAME="OBJ_TYPE" };
+E2CUPRT_CLASS_TYPE		:	STRINGA { LENGTH = 3, XML_NAME="CLASS_TYPE" };
+E2CUPRT_OBJ_KEY		:	STRINGA { LENGTH = 50, XML_NAME="OBJ_KEY" };
+E2CUPRT_AUTHOR		:	STRINGA { LENGTH = 1, XML_NAME="AUTHOR" };
+E2CUPRT_SALES_RELEVANT		:	STRINGA { LENGTH = 1, XML_NAME="SALES_RELEVANT" };
+E2CUPRT_PART_OF_GUID		:	STRINGA { LENGTH = 32, XML_NAME="PART_OF_GUID" };
+
+#---------------------------------------#
+#	Segment E2CUVAL
+#---------------------------------------#
+E2CUVAL_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2CUVAL                       ", XML_NAME="SEGNAM" };
+E2CUVAL_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2CUVAL_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2CUVAL_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2CUVAL_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2CUVAL_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2CUVAL_INST_ID		:	STRINGA { LENGTH = 8, XML_NAME="INST_ID" };
+E2CUVAL_CHARC		:	STRINGA { LENGTH = 40, XML_NAME="CHARC" };
+E2CUVAL_CHARC_TXT		:	STRINGA { LENGTH = 70, XML_NAME="CHARC_TXT" };
+E2CUVAL_VALUE		:	STRINGA { LENGTH = 40, XML_NAME="VALUE" };
+E2CUVAL_VALUE_TXT		:	STRINGA { LENGTH = 70, XML_NAME="VALUE_TXT" };
+E2CUVAL_AUTHOR		:	STRINGA { LENGTH = 1, XML_NAME="AUTHOR" };
+E2CUVAL_VALUE_TO		:	STRINGA { LENGTH = 40, XML_NAME="VALUE_TO" };
+E2CUVAL_VALCODE		:	STRINGA { LENGTH = 1, XML_NAME="VALCODE" };
+
+#---------------------------------------#
+#	Segment E2CUBLB
+#---------------------------------------#
+E2CUBLB_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2CUBLB                       ", XML_NAME="SEGNAM" };
+E2CUBLB_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2CUBLB_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2CUBLB_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2CUBLB_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2CUBLB_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2CUBLB_CONTENT		:	STRINGA { LENGTH = 250, XML_NAME="CONTENT" };
+
+#---------------------------------------#
+#	Segment E2EDL37
+#---------------------------------------#
+E2EDL37_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDL37                       ", XML_NAME="SEGNAM" };
+E2EDL37_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDL37_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDL37_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDL37_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDL37_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDL37_EXIDV		:	STRINGA { LENGTH = 20, XML_NAME="EXIDV" };
+E2EDL37_TARAG		:	STRINGA { LENGTH = 17, XML_NAME="TARAG" };
+E2EDL37_GWEIT		:	STRINGA { LENGTH = 3, XML_NAME="GWEIT" };
+E2EDL37_BRGEW		:	STRINGA { LENGTH = 17, XML_NAME="BRGEW" };
+E2EDL37_NTGEW		:	STRINGA { LENGTH = 17, XML_NAME="NTGEW" };
+E2EDL37_MAGEW		:	STRINGA { LENGTH = 17, XML_NAME="MAGEW" };
+E2EDL37_GWEIM		:	STRINGA { LENGTH = 3, XML_NAME="GWEIM" };
+E2EDL37_BTVOL		:	STRINGA { LENGTH = 17, XML_NAME="BTVOL" };
+E2EDL37_NTVOL		:	STRINGA { LENGTH = 17, XML_NAME="NTVOL" };
+E2EDL37_MAVOL		:	STRINGA { LENGTH = 17, XML_NAME="MAVOL" };
+E2EDL37_VOLEM		:	STRINGA { LENGTH = 3, XML_NAME="VOLEM" };
+E2EDL37_TAVOL		:	STRINGA { LENGTH = 17, XML_NAME="TAVOL" };
+E2EDL37_VOLET		:	STRINGA { LENGTH = 3, XML_NAME="VOLET" };
+E2EDL37_VEGR2		:	STRINGA { LENGTH = 5, XML_NAME="VEGR2" };
+E2EDL37_VEGR1		:	STRINGA { LENGTH = 5, XML_NAME="VEGR1" };
+E2EDL37_VEGR3		:	STRINGA { LENGTH = 5, XML_NAME="VEGR3" };
+E2EDL37_VHILM		:	STRINGA { LENGTH = 18, XML_NAME="VHILM" };
+E2EDL37_VEGR4		:	STRINGA { LENGTH = 5, XML_NAME="VEGR4" };
+E2EDL37_LAENG		:	STRINGA { LENGTH = 15, XML_NAME="LAENG" };
+E2EDL37_VEGR5		:	STRINGA { LENGTH = 5, XML_NAME="VEGR5" };
+E2EDL37_BREIT		:	STRINGA { LENGTH = 15, XML_NAME="BREIT" };
+E2EDL37_HOEHE		:	STRINGA { LENGTH = 15, XML_NAME="HOEHE" };
+E2EDL37_MEABM		:	STRINGA { LENGTH = 3, XML_NAME="MEABM" };
+E2EDL37_INHALT		:	STRINGA { LENGTH = 40, XML_NAME="INHALT" };
+E2EDL37_VHART		:	STRINGA { LENGTH = 4, XML_NAME="VHART" };
+E2EDL37_MAGRV		:	STRINGA { LENGTH = 4, XML_NAME="MAGRV" };
+E2EDL37_LADLG		:	STRINGA { LENGTH = 8, XML_NAME="LADLG" };
+E2EDL37_LADEH		:	STRINGA { LENGTH = 3, XML_NAME="LADEH" };
+E2EDL37_FARZT		:	STRINGA { LENGTH = 4, XML_NAME="FARZT" };
+E2EDL37_FAREH		:	STRINGA { LENGTH = 3, XML_NAME="FAREH" };
+E2EDL37_ENTFE		:	STRINGA { LENGTH = 8, XML_NAME="ENTFE" };
+E2EDL37_EHENT		:	STRINGA { LENGTH = 3, XML_NAME="EHENT" };
+E2EDL37_VELTP		:	STRINGA { LENGTH = 1, XML_NAME="VELTP" };
+E2EDL37_EXIDV2		:	STRINGA { LENGTH = 20, XML_NAME="EXIDV2" };
+E2EDL37_LANDT		:	STRINGA { LENGTH = 3, XML_NAME="LANDT" };
+E2EDL37_LANDF		:	STRINGA { LENGTH = 3, XML_NAME="LANDF" };
+E2EDL37_NAMEF		:	STRINGA { LENGTH = 35, XML_NAME="NAMEF" };
+E2EDL37_NAMBE		:	STRINGA { LENGTH = 35, XML_NAME="NAMBE" };
+E2EDL37_VHILM_KU		:	STRINGA { LENGTH = 22, XML_NAME="VHILM_KU" };
+E2EDL37_VEBEZ		:	STRINGA { LENGTH = 40, XML_NAME="VEBEZ" };
+E2EDL37_SMGKN		:	STRINGA { LENGTH = 1, XML_NAME="SMGKN" };
+E2EDL37_KDMAT35		:	STRINGA { LENGTH = 35, XML_NAME="KDMAT35" };
+E2EDL37_SORTL		:	STRINGA { LENGTH = 10, XML_NAME="SORTL" };
+E2EDL37_ERNAM		:	STRINGA { LENGTH = 12, XML_NAME="ERNAM" };
+E2EDL37_GEWFX		:	STRINGA { LENGTH = 1, XML_NAME="GEWFX" };
+E2EDL37_ERLKZ		:	STRINGA { LENGTH = 1, XML_NAME="ERLKZ" };
+E2EDL37_EXIDA		:	STRINGA { LENGTH = 1, XML_NAME="EXIDA" };
+E2EDL37_MOVE_STATUS		:	STRINGA { LENGTH = 4, XML_NAME="MOVE_STATUS" };
+E2EDL37_PACKVORSCHR		:	STRINGA { LENGTH = 22, XML_NAME="PACKVORSCHR" };
+E2EDL37_PACKVORSCHR_ST		:	STRINGA { LENGTH = 1, XML_NAME="PACKVORSCHR_ST" };
+E2EDL37_LABELTYP		:	STRINGA { LENGTH = 1, XML_NAME="LABELTYP" };
+E2EDL37_ZUL_AUFL		:	STRINGA { LENGTH = 17, XML_NAME="ZUL_AUFL" };
+E2EDL37_VHILM_EXTERNAL		:	STRINGA { LENGTH = 40, XML_NAME="VHILM_EXTERNAL" };
+E2EDL37_VHILM_VERSION		:	STRINGA { LENGTH = 10, XML_NAME="VHILM_VERSION" };
+E2EDL37_VHILM_GUID		:	STRINGA { LENGTH = 32, XML_NAME="VHILM_GUID" };
+E2EDL37_KDMAT35_EXTERNAL		:	STRINGA { LENGTH = 40, XML_NAME="KDMAT35_EXTERNAL" };
+E2EDL37_KDMAT35_VERSION		:	STRINGA { LENGTH = 10, XML_NAME="KDMAT35_VERSION" };
+E2EDL37_KDMAT35_GUID		:	STRINGA { LENGTH = 32, XML_NAME="KDMAT35_GUID" };
+E2EDL37_VHILM_KU_EXTERNAL		:	STRINGA { LENGTH = 40, XML_NAME="VHILM_KU_EXTERNAL" };
+E2EDL37_VHILM_KU_VERSION		:	STRINGA { LENGTH = 10, XML_NAME="VHILM_KU_VERSION" };
+E2EDL37_VHILM_KU_GUID		:	STRINGA { LENGTH = 32, XML_NAME="VHILM_KU_GUID" };
+
+#---------------------------------------#
+#	Segment E2EDL39
+#---------------------------------------#
+E2EDL39_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDL39                       ", XML_NAME="SEGNAM" };
+E2EDL39_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDL39_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDL39_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDL39_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDL39_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDL39_QUALF		:	STRINGA { LENGTH = 3, XML_NAME="QUALF" };
+E2EDL39_PARAM		:	STRINGA { LENGTH = 20, XML_NAME="PARAM" };
+
+#---------------------------------------#
+#	Segment E2EDL38
+#---------------------------------------#
+E2EDL38_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDL38                       ", XML_NAME="SEGNAM" };
+E2EDL38_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDL38_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDL38_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDL38_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDL38_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDL38_VEGR1_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="VEGR1_BEZ" };
+E2EDL38_VEGR2_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="VEGR2_BEZ" };
+E2EDL38_VEGR3_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="VEGR3_BEZ" };
+E2EDL38_VEGR4_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="VEGR4_BEZ" };
+E2EDL38_VEGR5_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="VEGR5_BEZ" };
+E2EDL38_VHART_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="VHART_BEZ" };
+E2EDL38_MAGRV_BEZ		:	STRINGA { LENGTH = 20, XML_NAME="MAGRV_BEZ" };
+E2EDL38_VEBEZ		:	STRINGA { LENGTH = 40, XML_NAME="VEBEZ" };
+
+#---------------------------------------#
+#	Segment E2EDL44
+#---------------------------------------#
+E2EDL44_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDL44                       ", XML_NAME="SEGNAM" };
+E2EDL44_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDL44_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDL44_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDL44_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDL44_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDL44_VELIN		:	STRINGA { LENGTH = 1, XML_NAME="VELIN" };
+E2EDL44_VBELN		:	STRINGA { LENGTH = 10, XML_NAME="VBELN" };
+E2EDL44_POSNR		:	STRINGA { LENGTH = 6, XML_NAME="POSNR" };
+E2EDL44_EXIDV		:	STRINGA { LENGTH = 20, XML_NAME="EXIDV" };
+E2EDL44_VEMNG		:	STRINGA { LENGTH = 17, XML_NAME="VEMNG" };
+E2EDL44_VEMEH		:	STRINGA { LENGTH = 3, XML_NAME="VEMEH" };
+E2EDL44_MATNR		:	STRINGA { LENGTH = 18, XML_NAME="MATNR" };
+E2EDL44_KDMAT		:	STRINGA { LENGTH = 35, XML_NAME="KDMAT" };
+E2EDL44_CHARG		:	STRINGA { LENGTH = 10, XML_NAME="CHARG" };
+E2EDL44_WERKS		:	STRINGA { LENGTH = 4, XML_NAME="WERKS" };
+E2EDL44_LGORT		:	STRINGA { LENGTH = 4, XML_NAME="LGORT" };
+E2EDL44_CUOBJ		:	STRINGA { LENGTH = 18, XML_NAME="CUOBJ" };
+E2EDL44_BESTQ		:	STRINGA { LENGTH = 1, XML_NAME="BESTQ" };
+E2EDL44_SOBKZ		:	STRINGA { LENGTH = 1, XML_NAME="SOBKZ" };
+E2EDL44_SONUM		:	STRINGA { LENGTH = 16, XML_NAME="SONUM" };
+E2EDL44_ANZSN		:	STRINGA { LENGTH = 11, XML_NAME="ANZSN" };
+E2EDL44_WDATU		:	STRINGA { LENGTH = 8, XML_NAME="WDATU" };
+E2EDL44_PARID		:	STRINGA { LENGTH = 35, XML_NAME="PARID" };
+E2EDL44_MATNR_EXTERNAL		:	STRINGA { LENGTH = 40, XML_NAME="MATNR_EXTERNAL" };
+E2EDL44_MATNR_VERSION		:	STRINGA { LENGTH = 10, XML_NAME="MATNR_VERSION" };
+E2EDL44_MATNR_GUID		:	STRINGA { LENGTH = 32, XML_NAME="MATNR_GUID" };
+E2EDL44_KDMAT_EXTERNAL		:	STRINGA { LENGTH = 40, XML_NAME="KDMAT_EXTERNAL" };
+E2EDL44_KDMAT_VERSION		:	STRINGA { LENGTH = 10, XML_NAME="KDMAT_VERSION" };
+E2EDL44_KDMAT_GUID		:	STRINGA { LENGTH = 32, XML_NAME="KDMAT_GUID" };
+
+#---------------------------------------#
+#	Segment E2EDS01
+#---------------------------------------#
+E2EDS01_SEGNAM		:	STRINGA { LENGTH = 30, DEFAULT = "E2EDS01                       ", XML_NAME="SEGNAM" };
+E2EDS01_MANDT		:	NSTRINGA { LENGTH = 3, XML_NAME="MANDT" };
+E2EDS01_DOCNUM		:	STRINGA { LENGTH = 16, XML_NAME="DOCNUM" };
+E2EDS01_SEGNUM		:	STRINGA { LENGTH = 6, XML_NAME="SEGNUM" };
+E2EDS01_PSGNUM		:	STRINGA { LENGTH = 6, XML_NAME="PSGNUM" };
+E2EDS01_HLEVEL		:	STRINGA { LENGTH = 2, XML_NAME="HLEVEL" };
+E2EDS01_SUMID		:	STRINGA { LENGTH = 3, XML_NAME="SUMID" };
+E2EDS01_SUMME		:	STRINGA { LENGTH = 18, XML_NAME="SUMME" };
+E2EDS01_SUNIT		:	STRINGA { LENGTH = 3, XML_NAME="SUNIT" };
+E2EDS01_WAERQ		:	STRINGA { LENGTH = 3, XML_NAME="WAERQ" };
+
+rest	 :		STRINGA { MAXLENGTH = 250 };

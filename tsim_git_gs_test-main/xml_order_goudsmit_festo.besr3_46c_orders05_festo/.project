@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>xml_order_goudsmit_festo.besr3_46c_orders05_festo</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>de.actis.bom.core.nature</nature>
+	</natures>
+</projectDescription>

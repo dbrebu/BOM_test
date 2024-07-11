@@ -1,0 +1,11 @@
+#.TFFILE
+#.VERSION 4.0
+
+#.PPATH=$ACTISEDI/lib/convert/project/xml_order_goudsmit_festo.besr3_46c_orders05_festo
+
+TFSTEP=1
+PROGRAM=JAVA:$(TFXSLT2) mode=xml2xml "mapping=$(PPATH)/xsl/Y25VSI_B2B_PO_CXML_11_06.xsl" in=%s out=%s tfFactory=net.sf.saxon.TransformerFactoryImpl lifnr=$(LIFNR) PPATH=$(PPATH) tftab_table=$(tftab_table) tftab_dir=$(tftab_dir) tftab_extension=$(tftab_extension) trace=0 customer_code=$(customer_code) SNDPRN=$(SNDPRN) SNDPOR=$(SNDPOR) MESCOD=$(MESCOD) protfile=$(PROTFILE)
+
+TFSTEP=2
+PROGRAM=JAVA:$(TFX) mode=xml2edi "fd=$(PPATH)/forms/orders05__3_tfx.fde" in=%s out=%s encoding=ISO-8859-1 SNDPRN=$(SNDPRN) SNDPOR=$(SNDPOR) protfile=$(PROTFILE)
+##################manu kumar@@@@@@#####################

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launchConfiguration type="de.actis.bom.ui.ACTISTransformationLaunchConfigurationType">
+<booleanAttribute key="LAUNCH_ATTR_DB_CONNECTOR" value="true"/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_SOURCE_HOSTNAME" value=""/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_SOURCE_NAME" value=""/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_SOURCE_PORT" value=""/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_SOURCE_PWD" value=""/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_SOURCE_USER" value=""/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_SQL_COMMAND" value=""/>
+<booleanAttribute key="de.actis.bom.ui.ATTR_DB_SQL_DYNAMIC_CURSOR" value="false"/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_TARGET_HOSTNAME" value=""/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_TARGET_NAME" value=""/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_TARGET_PORT" value=""/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_TARGET_PWD" value=""/>
+<stringAttribute key="de.actis.bom.ui.ATTR_DB_TARGET_USER" value=""/>
+<booleanAttribute key="de.actis.bom.ui.ATTR_DB_USE_CHAR" value="false"/>
+<booleanAttribute key="de.actis.bom.ui.ATTR_DB_USE_PARAM_TF" value="true"/>
+<mapAttribute key="de.actis.bom.ui.ATTR_PARAMETERS_ENABLED"/>
+<stringAttribute key="de.actis.bom.ui.ATTR_SOURCE_OUTPUT" value="testdata/out.tst"/>
+<stringAttribute key="de.actis.bom.ui.ATTR_SOURCE_PROJECT" value="webedi_automotive_delfor99b_proof"/>
+<mapAttribute key="de.actis.bom.ui.ATTR_STEPS">
+<mapEntry key="2" value="true"/>
+<mapEntry key="1" value="true"/>
+<mapEntry key="0" value="true"/>
+</mapAttribute>
+<intAttribute key="de.actis.bom.ui.ATTR_TF_ENGINE" value="1"/>
+<booleanAttribute key="de.actis.bom.ui.ATTR_TRACE_ABBILDER" value="false"/>
+<booleanAttribute key="de.actis.bom.ui.ATTR_TRACE_COMPLETE" value="false"/>
+<stringAttribute key="de.actis.bom.ui.ATTR_TRACE_FILE" value="/formdb/trace.txt"/>
+<booleanAttribute key="de.actis.bom.ui.ATTR_TRACE_SCANNER" value="false"/>
+<booleanAttribute key="de.actis.bom.ui.ATTR_TRACE_SORTER" value="false"/>
+<booleanAttribute key="de.actis.bom.ui.ATTR_TRACE_USE_FILE" value="false"/>
+<intAttribute key="de.actis.bom.ui.DEL_TEMPTFFILE" value="2"/>
+<mapAttribute key="org.eclipse.debug.core.environmentVariables"/>
+</launchConfiguration>

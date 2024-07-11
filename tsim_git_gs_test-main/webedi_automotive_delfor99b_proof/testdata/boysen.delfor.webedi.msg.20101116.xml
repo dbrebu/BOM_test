@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl" title="DELFOR OBP" schemaVersion="" phase="Struktur" xmlns:schold="http://www.ascc.net/xml/schematron" xmlns:iso="http://purl.oclc.org/dsdl/schematron" xmlns:saxon="http://saxon.sf.net/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!--   
+		   
+		   
+		 -->
+<svrl:active-pattern id="Structure" name="Structure"/>
+   <svrl:active-pattern id="write-input-to-output" name="write-input-to-output"/>
+   <write-input-to-output xmlns:XmlTransform="java:de.axway.converter.xml.xsltextensions.XsltExtensions">
+<!-- Based on format description: delfore99b_tfx -->
+<M_DELFOR_D99B>
+         <S_UNA segcnt="1" segvalue="UNA:+.? '">
+            <idUNA position="0" id="1" TYPE="STRINGA" LENGTH="3">UNA</idUNA>
+            <Comp_Sep position="3" id="2" TYPE="STRINGA" LENGTH="1">:</Comp_Sep>
+            <Data_Sep position="4" id="3" TYPE="STRINGA" LENGTH="1">+</Data_Sep>
+            <Decimal_Notation position="5" id="4" TYPE="STRINGA" LENGTH="1">.</Decimal_Notation>
+            <Release_Ind position="6" id="5" TYPE="STRINGA" LENGTH="1">?</Release_Ind>
+            <Seg_Terminator position="8" id="7" TYPE="STRINGA" LENGTH="1">'</Seg_Terminator>
+         </S_UNA>
+         <S_UNB segcnt="2" segvalue="UNB+UNOC:3+7199700+Empfaengernummer+151110:1507+0">
+            <idUNB position="9" id="1" TYPE="STRINGA" LENGTH="3">UNB</idUNB>
+            <C_S001 id="2">
+               <D_0001 position="13" TYPE="STRINGA" LENGTH="4">UNOC</D_0001>
+               <D_0002 position="18" TYPE="NSTRINGA" LENGTH="1">3</D_0002>
+            </C_S001>
+            <C_S002 id="3">
+               <D_0004 position="20" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">7199700</D_0004>
+            </C_S002>
+            <C_S003 id="4">
+               <D_0010 position="28" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Empfaengernummer</D_0010>
+            </C_S003>
+            <C_S004 id="5">
+               <D_0017 position="45" TYPE="NSTRINGA" LENGTH="6">151110</D_0017>
+               <D_0019 position="52" TYPE="NSTRINGA" LENGTH="4">1507</D_0019>
+            </C_S004>
+            <D_0020 position="57" id="6" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="14">0</D_0020>
+         </S_UNB>
+         <G_SG0>
+            <S_UNH segcnt="3" segvalue="UNH+1+DELFOR:D:99B:UN">
+               <idUNH position="59" id="1" TYPE="STRINGA" LENGTH="3">UNH</idUNH>
+               <D_0062 position="63" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="14">1</D_0062>
+               <C_S009 id="3">
+                  <D_0065 position="65" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="6">DELFOR</D_0065>
+                  <D_0052 position="72" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">D</D_0052>
+                  <D_0054 position="74" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">99B</D_0054>
+                  <D_0051 position="78" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="2">UN</D_0051>
+               </C_S009>
+            </S_UNH>
+            <S_BGM segcnt="4" segvalue="BGM+241:::DELFOR+4711">
+               <idBGM position="81" id="1" TYPE="STRINGA" LENGTH="3">BGM</idBGM>
+               <C_C002 id="2">
+                  <D_1001 position="85" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">241</D_1001>
+                  <D_1000 position="91" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">DELFOR</D_1000>
+               </C_C002>
+               <C_C106 id="3">
+                  <D_1004 position="98" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">4711</D_1004>
+               </C_C106>
+            </S_BGM>
+            <S_DTM segcnt="5" segvalue="DTM+137:20101115:102">
+               <idDTM position="103" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+               <C_C507 id="2">
+                  <D_2005 position="107" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">137</D_2005>
+                  <D_2380 position="111" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101115</D_2380>
+                  <D_2379 position="120" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+               </C_C507>
+            </S_DTM>
+            <G_SG2>
+               <S_NAD segcnt="6" segvalue="NAD+BY+446::91+:+Friedrich Boysen GmbH &amp; CO KG+Friedrich-Boysen-Str. 14-17+Altensteig++72213+DE">
+                  <idNAD position="124" id="1" TYPE="STRINGA" LENGTH="3">NAD</idNAD>
+                  <D_3035 position="128" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">BY</D_3035>
+                  <C_C082 id="3">
+                     <D_3039 position="131" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">446</D_3039>
+                     <D_3055 position="136" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">91</D_3055>
+                  </C_C082>
+                  <C_C080 id="5">
+                     <D_3036 position="141" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Friedrich Boysen GmbH &amp; CO KG</D_3036>
+                  </C_C080>
+                  <C_C059 id="6">
+                     <D_3042 position="171" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Friedrich-Boysen-Str. 14-17</D_3042>
+                  </C_C059>
+                  <D_3164 position="199" id="7" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Altensteig</D_3164>
+                  <D_3251 position="211" id="9" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">72213</D_3251>
+                  <D_3207 position="217" id="10" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">DE</D_3207>
+               </S_NAD>
+               <G_SG3>
+                  <S_RFF segcnt="7" segvalue="RFF+VA:DE144424365">
+                     <idRFF position="220" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                     <C_C506 id="2">
+                        <D_1153 position="224" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">VA</D_1153>
+                        <D_1154 position="227" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">DE144424365</D_1154>
+                     </C_C506>
+                  </S_RFF>
+               </G_SG3>
+               <G_SG4>
+                  <S_CTA segcnt="8" segvalue="CTA+DL+tme-boh:Matthias Bohnet">
+                     <idCTA position="239" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                     <D_3139 position="243" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">DL</D_3139>
+                     <C_C056 id="3">
+                        <D_3413 position="246" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">tme-boh</D_3413>
+                        <D_3412 position="254" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Matthias Bohnet</D_3412>
+                     </C_C056>
+                  </S_CTA>
+                  <S_COM segcnt="9" segvalue="COM+matthias.bohnet@boysen-online.de:EM">
+                     <idCOM position="270" id="1" TYPE="STRINGA" LENGTH="3">COM</idCOM>
+                     <C_C076 id="2">
+                        <D_3148 position="274" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="512">matthias.bohnet@boysen-online.de</D_3148>
+                        <D_3155 position="307" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EM</D_3155>
+                     </C_C076>
+                  </S_COM>
+               </G_SG4>
+               <G_SG4>
+                  <S_CTA segcnt="10" segvalue="CTA+PD+TM:Einkauf">
+                     <idCTA position="310" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                     <D_3139 position="314" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">PD</D_3139>
+                     <C_C056 id="3">
+                        <D_3413 position="317" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">TM</D_3413>
+                        <D_3412 position="320" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Einkauf</D_3412>
+                     </C_C056>
+                  </S_CTA>
+               </G_SG4>
+            </G_SG2>
+            <G_SG2>
+               <S_NAD segcnt="11" segvalue="NAD+SU+7199700::92+:+HGGS LaserCUT GmbH &amp; Co.KG*+Im Gereut10 - 14+Hatzenbuehl++76770+D">
+                  <idNAD position="328" id="1" TYPE="STRINGA" LENGTH="3">NAD</idNAD>
+                  <D_3035 position="332" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">SU</D_3035>
+                  <C_C082 id="3">
+                     <D_3039 position="335" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">7199700</D_3039>
+                     <D_3055 position="344" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">92</D_3055>
+                  </C_C082>
+                  <C_C080 id="5">
+                     <D_3036 position="349" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">HGGS LaserCUT GmbH &amp; Co.KG*</D_3036>
+                  </C_C080>
+                  <C_C059 id="6">
+                     <D_3042 position="377" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Im Gereut10 - 14</D_3042>
+                  </C_C059>
+                  <D_3164 position="394" id="7" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Hatzenbuehl</D_3164>
+                  <D_3251 position="407" id="9" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">76770</D_3251>
+                  <D_3207 position="413" id="10" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">D</D_3207>
+               </S_NAD>
+            </G_SG2>
+            <G_SG2>
+               <S_NAD segcnt="12" segvalue="NAD+IV+446::92+:+Friedrich Boysen GmbH &amp; CO KG+Friedrich-Boysen-Str. 14-17+Altensteig++72213+DE">
+                  <idNAD position="415" id="1" TYPE="STRINGA" LENGTH="3">NAD</idNAD>
+                  <D_3035 position="419" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">IV</D_3035>
+                  <C_C082 id="3">
+                     <D_3039 position="422" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">446</D_3039>
+                     <D_3055 position="427" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">92</D_3055>
+                  </C_C082>
+                  <C_C080 id="5">
+                     <D_3036 position="432" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Friedrich Boysen GmbH &amp; CO KG</D_3036>
+                  </C_C080>
+                  <C_C059 id="6">
+                     <D_3042 position="462" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Friedrich-Boysen-Str. 14-17</D_3042>
+                  </C_C059>
+                  <D_3164 position="490" id="7" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Altensteig</D_3164>
+                  <D_3251 position="502" id="9" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">72213</D_3251>
+                  <D_3207 position="508" id="10" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">DE</D_3207>
+               </S_NAD>
+               <G_SG3>
+                  <S_RFF segcnt="13" segvalue="RFF+VA:DE144424365">
+                     <idRFF position="511" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                     <C_C506 id="2">
+                        <D_1153 position="515" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">VA</D_1153>
+                        <D_1154 position="518" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">DE144424365</D_1154>
+                     </C_C506>
+                  </S_RFF>
+               </G_SG3>
+               <G_SG4>
+                  <S_CTA segcnt="14" segvalue="CTA+DL+tme-boh:Matthias Bohnet">
+                     <idCTA position="530" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                     <D_3139 position="534" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">DL</D_3139>
+                     <C_C056 id="3">
+                        <D_3413 position="537" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">tme-boh</D_3413>
+                        <D_3412 position="545" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Matthias Bohnet</D_3412>
+                     </C_C056>
+                  </S_CTA>
+                  <S_COM segcnt="15" segvalue="COM+matthias.bohnet@boysen-online.de:EM">
+                     <idCOM position="561" id="1" TYPE="STRINGA" LENGTH="3">COM</idCOM>
+                     <C_C076 id="2">
+                        <D_3148 position="565" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="512">matthias.bohnet@boysen-online.de</D_3148>
+                        <D_3155 position="598" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EM</D_3155>
+                     </C_C076>
+                  </S_COM>
+               </G_SG4>
+               <G_SG4>
+                  <S_CTA segcnt="16" segvalue="CTA+PD+tme-boh:Matthias Bohnet">
+                     <idCTA position="601" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                     <D_3139 position="605" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">PD</D_3139>
+                     <C_C056 id="3">
+                        <D_3413 position="608" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">tme-boh</D_3413>
+                        <D_3412 position="616" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Matthias Bohnet</D_3412>
+                     </C_C056>
+                  </S_CTA>
+               </G_SG4>
+            </G_SG2>
+            <G_SG6>
+               <S_GIS segcnt="17" segvalue="GIS+37">
+                  <idGIS position="632" id="1" TYPE="STRINGA" LENGTH="3">GIS</idGIS>
+                  <C_C529 id="2">
+                     <D_7365 position="636" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">37</D_7365>
+                  </C_C529>
+               </S_GIS>
+               <G_SG7>
+                  <S_NAD segcnt="18" segvalue="NAD+CN+040::92+TFD:TFD+Boysen Werk Turmfeld+Dieselstr. 1+D-72213 Altensteig++72213+">
+                     <idNAD position="639" id="1" TYPE="STRINGA" LENGTH="3">NAD</idNAD>
+                     <D_3035 position="643" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">CN</D_3035>
+                     <C_C082 id="3">
+                        <D_3039 position="646" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">040</D_3039>
+                        <D_3055 position="651" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">92</D_3055>
+                     </C_C082>
+                     <C_C058 id="4">
+                        <D_3124 position="654" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">TFD</D_3124>
+                        <D_3124 position="658" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">TFD</D_3124>
+                     </C_C058>
+                     <C_C080 id="5">
+                        <D_3036 position="662" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Boysen Werk Turmfeld</D_3036>
+                     </C_C080>
+                     <C_C059 id="6">
+                        <D_3042 position="683" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Dieselstr. 1</D_3042>
+                     </C_C059>
+                     <D_3164 position="696" id="7" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">D-72213 Altensteig</D_3164>
+                     <D_3251 position="716" id="9" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">72213</D_3251>
+                  </S_NAD>
+                  <S_LOC segcnt="19" segvalue="LOC+11+40">
+                     <idLOC position="723" id="1" TYPE="STRINGA" LENGTH="3">LOC</idLOC>
+                     <D_3227 position="727" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">11</D_3227>
+                     <C_C517 id="3">
+                        <D_3225 position="730" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="25">40</D_3225>
+                     </C_C517>
+                  </S_LOC>
+                  <S_LOC segcnt="20" segvalue="LOC+18+400">
+                     <idLOC position="733" id="1" TYPE="STRINGA" LENGTH="3">LOC</idLOC>
+                     <D_3227 position="737" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">18</D_3227>
+                     <C_C517 id="3">
+                        <D_3225 position="740" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="25">400</D_3225>
+                     </C_C517>
+                  </S_LOC>
+                  <S_LOC segcnt="21" segvalue="LOC+159+Wareneingang">
+                     <idLOC position="744" id="1" TYPE="STRINGA" LENGTH="3">LOC</idLOC>
+                     <D_3227 position="748" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">159</D_3227>
+                     <C_C517 id="3">
+                        <D_3225 position="752" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="25">Wareneingang</D_3225>
+                     </C_C517>
+                  </S_LOC>
+                  <G_SG8>
+                     <S_RFF segcnt="22" segvalue="RFF+VA:Steuernummer vom Emfpaengerwerk">
+                        <idRFF position="765" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                        <C_C506 id="2">
+                           <D_1153 position="769" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">VA</D_1153>
+                           <D_1154 position="772" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Steuernummer vom Emfpaengerwerk</D_1154>
+                        </C_C506>
+                     </S_RFF>
+                  </G_SG8>
+                  <G_SG10>
+                     <S_CTA segcnt="23" segvalue="CTA+DL+4711:Kontaktperson Emfaengerwerk">
+                        <idCTA position="804" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                        <D_3139 position="808" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">DL</D_3139>
+                        <C_C056 id="3">
+                           <D_3413 position="811" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">4711</D_3413>
+                           <D_3412 position="816" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Kontaktperson Emfaengerwerk</D_3412>
+                        </C_C056>
+                     </S_CTA>
+                     <S_COM segcnt="24" segvalue="COM+telefon:TE">
+                        <idCOM position="844" id="1" TYPE="STRINGA" LENGTH="3">COM</idCOM>
+                        <C_C076 id="2">
+                           <D_3148 position="848" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="512">telefon</D_3148>
+                           <D_3155 position="856" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">TE</D_3155>
+                        </C_C076>
+                     </S_COM>
+                     <S_COM segcnt="25" segvalue="COM+fax:FX">
+                        <idCOM position="859" id="1" TYPE="STRINGA" LENGTH="3">COM</idCOM>
+                        <C_C076 id="2">
+                           <D_3148 position="863" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="512">fax</D_3148>
+                           <D_3155 position="867" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">FX</D_3155>
+                        </C_C076>
+                     </S_COM>
+                     <S_COM segcnt="26" segvalue="COM+mail:EM">
+                        <idCOM position="870" id="1" TYPE="STRINGA" LENGTH="3">COM</idCOM>
+                        <C_C076 id="2">
+                           <D_3148 position="874" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="512">mail</D_3148>
+                           <D_3155 position="879" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EM</D_3155>
+                        </C_C076>
+                     </S_COM>
+                  </G_SG10>
+                  <G_SG10>
+                     <S_CTA segcnt="27" segvalue="CTA+PD+kuerzel:Kontaktperson im Einkauf ">
+                        <idCTA position="882" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                        <D_3139 position="886" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">PD</D_3139>
+                        <C_C056 id="3">
+                           <D_3413 position="889" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">kuerzel</D_3413>
+                           <D_3412 position="897" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Kontaktperson im Einkauf </D_3412>
+                        </C_C056>
+                     </S_CTA>
+                  </G_SG10>
+               </G_SG7>
+               <G_SG12>
+                  <S_LIN segcnt="28" segvalue="LIN+1+3+35.5-05626.14B:IN">
+                     <idLIN position="923" id="1" TYPE="STRINGA" LENGTH="3">LIN</idLIN>
+                     <D_1082 position="927" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="6">1</D_1082>
+                     <D_1229 position="929" id="3" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">3</D_1229>
+                     <C_C212 id="4">
+                        <D_7140 position="931" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">35.5-05626.14B</D_7140>
+                        <D_7143 position="946" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">IN</D_7143>
+                     </C_C212>
+                  </S_LIN>
+                  <S_PIA segcnt="29" segvalue="PIA+1+B:EC+35.5-05626.14B:SA">
+                     <idPIA position="949" id="1" TYPE="STRINGA" LENGTH="3">PIA</idPIA>
+                     <D_4347 position="953" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">1</D_4347>
+                     <C_C212 id="3">
+                        <D_7140 position="955" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">B</D_7140>
+                        <D_7143 position="957" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EC</D_7143>
+                     </C_C212>
+                     <C_C212 id="4">
+                        <D_7140 position="960" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">35.5-05626.14B</D_7140>
+                        <D_7143 position="975" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">SA</D_7143>
+                     </C_C212>
+                  </S_PIA>
+                  <S_IMD segcnt="30" segvalue="IMD+F++:::Holzschraube gross">
+                     <idIMD position="978" id="1" TYPE="STRINGA" LENGTH="3">IMD</idIMD>
+                     <D_7077 position="982" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">F</D_7077>
+                     <C_C273 id="4">
+                        <D_7008 position="988" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="256">Holzschraube gross</D_7008>
+                     </C_C273>
+                  </S_IMD>
+                  <S_MEA segcnt="31" segvalue="MEA+AAX+AAF+KGM:408">
+                     <idMEA position="1007" id="1" TYPE="STRINGA" LENGTH="3">MEA</idMEA>
+                     <D_6311 position="1011" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAX</D_6311>
+                     <C_C502 id="3">
+                        <D_6313 position="1015" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAF</D_6313>
+                     </C_C502>
+                     <C_C174 id="4">
+                        <D_6411 position="1019" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">KGM</D_6411>
+                        <D_6314 position="1023" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="18">408</D_6314>
+                     </C_C174>
+                  </S_MEA>
+                  <S_ALI segcnt="32" segvalue="ALI+++U">
+                     <idALI position="1027" id="1" TYPE="STRINGA" LENGTH="3">ALI</idALI>
+                     <D_4183 position="1033" id="4" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">U</D_4183>
+                  </S_ALI>
+                  <G_SG13>
+                     <S_RFF segcnt="33" segvalue="RFF+AAN:233">
+                        <idRFF position="1035" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                        <C_C506 id="2">
+                           <D_1153 position="1039" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAN</D_1153>
+                           <D_1154 position="1043" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">233</D_1154>
+                        </C_C506>
+                     </S_RFF>
+                     <S_DTM segcnt="34" segvalue="DTM+137:20101115:102">
+                        <idDTM position="1047" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                        <C_C507 id="2">
+                           <D_2005 position="1051" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">137</D_2005>
+                           <D_2380 position="1055" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101115</D_2380>
+                           <D_2379 position="1064" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                        </C_C507>
+                     </S_DTM>
+                  </G_SG13>
+                  <G_SG13>
+                     <S_RFF segcnt="35" segvalue="RFF+AIF:232">
+                        <idRFF position="1068" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                        <C_C506 id="2">
+                           <D_1153 position="1072" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AIF</D_1153>
+                           <D_1154 position="1076" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">232</D_1154>
+                        </C_C506>
+                     </S_RFF>
+                     <S_DTM segcnt="36" segvalue="DTM+137:20101112:102">
+                        <idDTM position="1080" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                        <C_C507 id="2">
+                           <D_2005 position="1084" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">137</D_2005>
+                           <D_2380 position="1088" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101112</D_2380>
+                           <D_2379 position="1097" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                        </C_C507>
+                     </S_DTM>
+                  </G_SG13>
+                  <G_SG13>
+                     <S_RFF segcnt="37" segvalue="RFF+ON:1292:1">
+                        <idRFF position="1101" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                        <C_C506 id="2">
+                           <D_1153 position="1105" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">ON</D_1153>
+                           <D_1154 position="1108" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">1292</D_1154>
+                           <D_1156 position="1113" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="6">1</D_1156>
+                        </C_C506>
+                     </S_RFF>
+                  </G_SG13>
+                  <G_SG15>
+                     <S_QTY segcnt="38" segvalue="QTY+48:10:EA">
+                        <idQTY position="1115" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                        <C_C186 id="2">
+                           <D_6063 position="1119" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">48</D_6063>
+                           <D_6060 position="1122" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">10</D_6060>
+                           <D_6411 position="1125" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                        </C_C186>
+                     </S_QTY>
+                     <G_SG16>
+                        <S_RFF segcnt="39" segvalue="RFF+AAU:20103615">
+                           <idRFF position="1128" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                           <C_C506 id="2">
+                              <D_1153 position="1132" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAU</D_1153>
+                              <D_1154 position="1136" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20103615</D_1154>
+                           </C_C506>
+                        </S_RFF>
+                        <S_DTM segcnt="40" segvalue="DTM+137:20100910:102">
+                           <idDTM position="1145" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                           <C_C507 id="2">
+                              <D_2005 position="1149" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">137</D_2005>
+                              <D_2380 position="1153" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20100910</D_2380>
+                              <D_2379 position="1162" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                           </C_C507>
+                        </S_DTM>
+                     </G_SG16>
+                  </G_SG15>
+                  <G_SG15>
+                     <S_QTY segcnt="41" segvalue="QTY+70:13020:EA">
+                        <idQTY position="1166" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                        <C_C186 id="2">
+                           <D_6063 position="1170" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">70</D_6063>
+                           <D_6060 position="1173" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">13020</D_6060>
+                           <D_6411 position="1179" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                        </C_C186>
+                     </S_QTY>
+                     <S_DTM segcnt="42" segvalue="DTM+51:20000101:102">
+                        <idDTM position="1182" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                        <C_C507 id="2">
+                           <D_2005 position="1186" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">51</D_2005>
+                           <D_2380 position="1189" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20000101</D_2380>
+                           <D_2379 position="1198" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                        </C_C507>
+                     </S_DTM>
+                  </G_SG15>
+                  <G_SG15>
+                     <S_QTY segcnt="43" segvalue="QTY+4:0:EA">
+                        <idQTY position="1202" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                        <C_C186 id="2">
+                           <D_6063 position="1206" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">4</D_6063>
+                           <D_6060 position="1208" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">0</D_6060>
+                           <D_6411 position="1210" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                        </C_C186>
+                     </S_QTY>
+                  </G_SG15>
+                  <G_SG17>
+                     <S_SCC segcnt="44" segvalue="SCC+1">
+                        <idSCC position="1213" id="1" TYPE="STRINGA" LENGTH="3">SCC</idSCC>
+                        <D_4017 position="1217" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">1</D_4017>
+                     </S_SCC>
+                     <G_SG18>
+                        <S_QTY segcnt="45" segvalue="QTY+113:0:EA">
+                           <idQTY position="1219" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                           <C_C186 id="2">
+                              <D_6063 position="1223" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">113</D_6063>
+                              <D_6060 position="1227" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">0</D_6060>
+                              <D_6411 position="1229" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                           </C_C186>
+                        </S_QTY>
+                        <S_DTM segcnt="46" segvalue="DTM+64:20101111:102">
+                           <idDTM position="1232" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                           <C_C507 id="2">
+                              <D_2005 position="1236" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">64</D_2005>
+                              <D_2380 position="1239" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101111</D_2380>
+                              <D_2379 position="1248" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                           </C_C507>
+                        </S_DTM>
+                     </G_SG18>
+                  </G_SG17>
+                  <G_SG17>
+                     <S_SCC segcnt="47" segvalue="SCC+1">
+                        <idSCC position="1252" id="1" TYPE="STRINGA" LENGTH="3">SCC</idSCC>
+                        <D_4017 position="1256" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">1</D_4017>
+                     </S_SCC>
+                     <G_SG18>
+                        <S_QTY segcnt="48" segvalue="QTY+113:4:EA">
+                           <idQTY position="1258" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                           <C_C186 id="2">
+                              <D_6063 position="1262" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">113</D_6063>
+                              <D_6060 position="1266" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">4</D_6060>
+                              <D_6411 position="1268" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                           </C_C186>
+                        </S_QTY>
+                        <S_DTM segcnt="49" segvalue="DTM+64:20101112:102">
+                           <idDTM position="1271" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                           <C_C507 id="2">
+                              <D_2005 position="1275" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">64</D_2005>
+                              <D_2380 position="1278" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101112</D_2380>
+                              <D_2379 position="1287" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                           </C_C507>
+                        </S_DTM>
+                     </G_SG18>
+                  </G_SG17>
+                  <G_SG17>
+                     <S_SCC segcnt="50" segvalue="SCC+2">
+                        <idSCC position="1291" id="1" TYPE="STRINGA" LENGTH="3">SCC</idSCC>
+                        <D_4017 position="1295" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">2</D_4017>
+                     </S_SCC>
+                     <G_SG18>
+                        <S_QTY segcnt="51" segvalue="QTY+66:0:EA">
+                           <idQTY position="1297" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                           <C_C186 id="2">
+                              <D_6063 position="1301" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">66</D_6063>
+                              <D_6060 position="1304" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">0</D_6060>
+                              <D_6411 position="1306" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                           </C_C186>
+                        </S_QTY>
+                        <S_DTM segcnt="52" segvalue="DTM+161:20101215:102">
+                           <idDTM position="1309" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                           <C_C507 id="2">
+                              <D_2005 position="1313" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">161</D_2005>
+                              <D_2380 position="1317" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101215</D_2380>
+                              <D_2379 position="1326" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                           </C_C507>
+                        </S_DTM>
+                     </G_SG18>
+                  </G_SG17>
+                  <G_SG17>
+                     <S_SCC segcnt="53" segvalue="SCC+3">
+                        <idSCC position="1330" id="1" TYPE="STRINGA" LENGTH="3">SCC</idSCC>
+                        <D_4017 position="1334" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">3</D_4017>
+                     </S_SCC>
+                     <G_SG18>
+                        <S_QTY segcnt="54" segvalue="QTY+66:0:EA">
+                           <idQTY position="1336" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                           <C_C186 id="2">
+                              <D_6063 position="1340" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">66</D_6063>
+                              <D_6060 position="1343" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">0</D_6060>
+                              <D_6411 position="1345" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                           </C_C186>
+                        </S_QTY>
+                        <S_DTM segcnt="55" segvalue="DTM+161:20110114:102">
+                           <idDTM position="1348" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                           <C_C507 id="2">
+                              <D_2005 position="1352" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">161</D_2005>
+                              <D_2380 position="1356" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20110114</D_2380>
+                              <D_2379 position="1365" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                           </C_C507>
+                        </S_DTM>
+                     </G_SG18>
+                  </G_SG17>
+                  <G_SG17>
+                     <S_SCC segcnt="56" segvalue="SCC+10">
+                        <idSCC position="1369" id="1" TYPE="STRINGA" LENGTH="3">SCC</idSCC>
+                        <D_4017 position="1373" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">10</D_4017>
+                     </S_SCC>
+                     <G_SG18>
+                        <S_QTY segcnt="57" segvalue="QTY+113:0:EA">
+                           <idQTY position="1376" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                           <C_C186 id="2">
+                              <D_6063 position="1380" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">113</D_6063>
+                              <D_6060 position="1384" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">0</D_6060>
+                              <D_6411 position="1386" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                           </C_C186>
+                        </S_QTY>
+                     </G_SG18>
+                  </G_SG17>
+                  <G_SG20>
+                     <S_PAC segcnt="58" segvalue="PAC+1+1+:::3100419">
+                        <idPAC position="1389" id="1" TYPE="STRINGA" LENGTH="3">PAC</idPAC>
+                        <D_7224 position="1393" id="2" TYPE="NSTRINGA" MINLENGTH="0" MAXLENGTH="8">1</D_7224>
+                        <C_C531 id="3">
+                           <D_7075 position="1395" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">1</D_7075>
+                        </C_C531>
+                        <C_C202 id="4">
+                           <D_7064 position="1400" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">3100419</D_7064>
+                        </C_C202>
+                     </S_PAC>
+                     <S_MEA segcnt="59" segvalue="MEA+AAY+AAD+KGM:85">
+                        <idMEA position="1408" id="1" TYPE="STRINGA" LENGTH="3">MEA</idMEA>
+                        <D_6311 position="1412" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAY</D_6311>
+                        <C_C502 id="3">
+                           <D_6313 position="1416" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAD</D_6313>
+                        </C_C502>
+                        <C_C174 id="4">
+                           <D_6411 position="1420" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">KGM</D_6411>
+                           <D_6314 position="1424" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="18">85</D_6314>
+                        </C_C174>
+                     </S_MEA>
+                     <S_QTY segcnt="60" segvalue="QTY+52:1:EA">
+                        <idQTY position="1427" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                        <C_C186 id="2">
+                           <D_6063 position="1431" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">52</D_6063>
+                           <D_6060 position="1434" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">1</D_6060>
+                           <D_6411 position="1436" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                        </C_C186>
+                     </S_QTY>
+                     <S_QTY segcnt="61" segvalue="QTY+189:9999">
+                        <idQTY position="1439" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                        <C_C186 id="2">
+                           <D_6063 position="1443" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">189</D_6063>
+                           <D_6060 position="1447" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">9999</D_6060>
+                        </C_C186>
+                     </S_QTY>
+                  </G_SG20>
+               </G_SG12>
+            </G_SG6>
+            <S_UNT segcnt="62" segvalue="UNT+60+1">
+               <idUNT position="1452" id="1" TYPE="STRINGA" LENGTH="3">UNT</idUNT>
+               <D_0074 position="1456" id="2" TYPE="NSTRINGA" MINLENGTH="0" MAXLENGTH="6">60</D_0074>
+               <D_0062 position="1459" id="3" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="14">1</D_0062>
+            </S_UNT>
+         </G_SG0>
+         <G_SG0>
+            <S_UNH segcnt="63" segvalue="UNH+1+DELFOR:D:99B:UN">
+               <idUNH position="1461" id="1" TYPE="STRINGA" LENGTH="3">UNH</idUNH>
+               <D_0062 position="1465" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="14">1</D_0062>
+               <C_S009 id="3">
+                  <D_0065 position="1467" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="6">DELFOR</D_0065>
+                  <D_0052 position="1474" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">D</D_0052>
+                  <D_0054 position="1476" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">99B</D_0054>
+                  <D_0051 position="1480" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="2">UN</D_0051>
+               </C_S009>
+            </S_UNH>
+            <S_BGM segcnt="64" segvalue="BGM+241:::DELFOR+4711">
+               <idBGM position="1483" id="1" TYPE="STRINGA" LENGTH="3">BGM</idBGM>
+               <C_C002 id="2">
+                  <D_1001 position="1487" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">241</D_1001>
+                  <D_1000 position="1493" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">DELFOR</D_1000>
+               </C_C002>
+               <C_C106 id="3">
+                  <D_1004 position="1500" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">4711</D_1004>
+               </C_C106>
+            </S_BGM>
+            <S_DTM segcnt="65" segvalue="DTM+137:20101115:102">
+               <idDTM position="1505" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+               <C_C507 id="2">
+                  <D_2005 position="1509" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">137</D_2005>
+                  <D_2380 position="1513" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101115</D_2380>
+                  <D_2379 position="1522" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+               </C_C507>
+            </S_DTM>
+            <G_SG2>
+               <S_NAD segcnt="66" segvalue="NAD+BY+446::91+:+Friedrich Boysen GmbH &amp; CO KG+Friedrich-Boysen-Str. 14-17+Altensteig++72213+DE">
+                  <idNAD position="1526" id="1" TYPE="STRINGA" LENGTH="3">NAD</idNAD>
+                  <D_3035 position="1530" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">BY</D_3035>
+                  <C_C082 id="3">
+                     <D_3039 position="1533" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">446</D_3039>
+                     <D_3055 position="1538" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">91</D_3055>
+                  </C_C082>
+                  <C_C080 id="5">
+                     <D_3036 position="1543" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Friedrich Boysen GmbH &amp; CO KG</D_3036>
+                  </C_C080>
+                  <C_C059 id="6">
+                     <D_3042 position="1573" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Friedrich-Boysen-Str. 14-17</D_3042>
+                  </C_C059>
+                  <D_3164 position="1601" id="7" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Altensteig</D_3164>
+                  <D_3251 position="1613" id="9" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">72213</D_3251>
+                  <D_3207 position="1619" id="10" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">DE</D_3207>
+               </S_NAD>
+               <G_SG3>
+                  <S_RFF segcnt="67" segvalue="RFF+VA:DE144424365">
+                     <idRFF position="1622" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                     <C_C506 id="2">
+                        <D_1153 position="1626" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">VA</D_1153>
+                        <D_1154 position="1629" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">DE144424365</D_1154>
+                     </C_C506>
+                  </S_RFF>
+               </G_SG3>
+               <G_SG4>
+                  <S_CTA segcnt="68" segvalue="CTA+DL+tme-boh:Matthias Bohnet">
+                     <idCTA position="1641" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                     <D_3139 position="1645" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">DL</D_3139>
+                     <C_C056 id="3">
+                        <D_3413 position="1648" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">tme-boh</D_3413>
+                        <D_3412 position="1656" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Matthias Bohnet</D_3412>
+                     </C_C056>
+                  </S_CTA>
+                  <S_COM segcnt="69" segvalue="COM+matthias.bohnet@boysen-online.de:EM">
+                     <idCOM position="1672" id="1" TYPE="STRINGA" LENGTH="3">COM</idCOM>
+                     <C_C076 id="2">
+                        <D_3148 position="1676" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="512">matthias.bohnet@boysen-online.de</D_3148>
+                        <D_3155 position="1709" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EM</D_3155>
+                     </C_C076>
+                  </S_COM>
+               </G_SG4>
+               <G_SG4>
+                  <S_CTA segcnt="70" segvalue="CTA+PD+TM:Einkauf">
+                     <idCTA position="1712" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                     <D_3139 position="1716" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">PD</D_3139>
+                     <C_C056 id="3">
+                        <D_3413 position="1719" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">TM</D_3413>
+                        <D_3412 position="1722" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Einkauf</D_3412>
+                     </C_C056>
+                  </S_CTA>
+               </G_SG4>
+            </G_SG2>
+            <G_SG2>
+               <S_NAD segcnt="71" segvalue="NAD+SU+7199700::92+:+HGGS LaserCUT GmbH &amp; Co.KG*+Im Gereut10 - 14+Hatzenbuehl++76770+D">
+                  <idNAD position="1730" id="1" TYPE="STRINGA" LENGTH="3">NAD</idNAD>
+                  <D_3035 position="1734" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">SU</D_3035>
+                  <C_C082 id="3">
+                     <D_3039 position="1737" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">7199700</D_3039>
+                     <D_3055 position="1746" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">92</D_3055>
+                  </C_C082>
+                  <C_C080 id="5">
+                     <D_3036 position="1751" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">HGGS LaserCUT GmbH &amp; Co.KG*</D_3036>
+                  </C_C080>
+                  <C_C059 id="6">
+                     <D_3042 position="1779" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Im Gereut10 - 14</D_3042>
+                  </C_C059>
+                  <D_3164 position="1796" id="7" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Hatzenbuehl</D_3164>
+                  <D_3251 position="1809" id="9" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">76770</D_3251>
+                  <D_3207 position="1815" id="10" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">D</D_3207>
+               </S_NAD>
+            </G_SG2>
+            <G_SG2>
+               <S_NAD segcnt="72" segvalue="NAD+IV+446::92+:+Friedrich Boysen GmbH &amp; CO KG+Friedrich-Boysen-Str. 14-17+Altensteig++72213+DE">
+                  <idNAD position="1817" id="1" TYPE="STRINGA" LENGTH="3">NAD</idNAD>
+                  <D_3035 position="1821" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">IV</D_3035>
+                  <C_C082 id="3">
+                     <D_3039 position="1824" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">446</D_3039>
+                     <D_3055 position="1829" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">92</D_3055>
+                  </C_C082>
+                  <C_C080 id="5">
+                     <D_3036 position="1834" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Friedrich Boysen GmbH &amp; CO KG</D_3036>
+                  </C_C080>
+                  <C_C059 id="6">
+                     <D_3042 position="1864" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Friedrich-Boysen-Str. 14-17</D_3042>
+                  </C_C059>
+                  <D_3164 position="1892" id="7" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Altensteig</D_3164>
+                  <D_3251 position="1904" id="9" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">72213</D_3251>
+                  <D_3207 position="1910" id="10" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">DE</D_3207>
+               </S_NAD>
+               <G_SG3>
+                  <S_RFF segcnt="73" segvalue="RFF+VA:DE144424365">
+                     <idRFF position="1913" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                     <C_C506 id="2">
+                        <D_1153 position="1917" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">VA</D_1153>
+                        <D_1154 position="1920" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">DE144424365</D_1154>
+                     </C_C506>
+                  </S_RFF>
+               </G_SG3>
+               <G_SG4>
+                  <S_CTA segcnt="74" segvalue="CTA+DL+tme-boh:Matthias Bohnet">
+                     <idCTA position="1932" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                     <D_3139 position="1936" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">DL</D_3139>
+                     <C_C056 id="3">
+                        <D_3413 position="1939" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">tme-boh</D_3413>
+                        <D_3412 position="1947" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Matthias Bohnet</D_3412>
+                     </C_C056>
+                  </S_CTA>
+                  <S_COM segcnt="75" segvalue="COM+matthias.bohnet@boysen-online.de:EM">
+                     <idCOM position="1963" id="1" TYPE="STRINGA" LENGTH="3">COM</idCOM>
+                     <C_C076 id="2">
+                        <D_3148 position="1967" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="512">matthias.bohnet@boysen-online.de</D_3148>
+                        <D_3155 position="2000" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EM</D_3155>
+                     </C_C076>
+                  </S_COM>
+               </G_SG4>
+               <G_SG4>
+                  <S_CTA segcnt="76" segvalue="CTA+PD+tme-boh:Matthias Bohnet">
+                     <idCTA position="2003" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                     <D_3139 position="2007" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">PD</D_3139>
+                     <C_C056 id="3">
+                        <D_3413 position="2010" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">tme-boh</D_3413>
+                        <D_3412 position="2018" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Matthias Bohnet</D_3412>
+                     </C_C056>
+                  </S_CTA>
+               </G_SG4>
+            </G_SG2>
+            <G_SG6>
+               <S_GIS segcnt="77" segvalue="GIS+37">
+                  <idGIS position="2034" id="1" TYPE="STRINGA" LENGTH="3">GIS</idGIS>
+                  <C_C529 id="2">
+                     <D_7365 position="2038" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">37</D_7365>
+                  </C_C529>
+               </S_GIS>
+               <G_SG7>
+                  <S_NAD segcnt="78" segvalue="NAD+CN+040::92+TFD:TFD+Boysen Werk Turmfeld+Dieselstr. 1+D-72213 Altensteig++72213+">
+                     <idNAD position="2041" id="1" TYPE="STRINGA" LENGTH="3">NAD</idNAD>
+                     <D_3035 position="2045" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">CN</D_3035>
+                     <C_C082 id="3">
+                        <D_3039 position="2048" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">040</D_3039>
+                        <D_3055 position="2053" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">92</D_3055>
+                     </C_C082>
+                     <C_C058 id="4">
+                        <D_3124 position="2056" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">TFD</D_3124>
+                        <D_3124 position="2060" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">TFD</D_3124>
+                     </C_C058>
+                     <C_C080 id="5">
+                        <D_3036 position="2064" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Boysen Werk Turmfeld</D_3036>
+                     </C_C080>
+                     <C_C059 id="6">
+                        <D_3042 position="2085" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Dieselstr. 1</D_3042>
+                     </C_C059>
+                     <D_3164 position="2098" id="7" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">D-72213 Altensteig</D_3164>
+                     <D_3251 position="2118" id="9" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">72213</D_3251>
+                  </S_NAD>
+                  <S_LOC segcnt="79" segvalue="LOC+11+40">
+                     <idLOC position="2125" id="1" TYPE="STRINGA" LENGTH="3">LOC</idLOC>
+                     <D_3227 position="2129" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">11</D_3227>
+                     <C_C517 id="3">
+                        <D_3225 position="2132" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="25">40</D_3225>
+                     </C_C517>
+                  </S_LOC>
+                  <S_LOC segcnt="80" segvalue="LOC+18+400">
+                     <idLOC position="2135" id="1" TYPE="STRINGA" LENGTH="3">LOC</idLOC>
+                     <D_3227 position="2139" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">18</D_3227>
+                     <C_C517 id="3">
+                        <D_3225 position="2142" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="25">400</D_3225>
+                     </C_C517>
+                  </S_LOC>
+                  <S_LOC segcnt="81" segvalue="LOC+159+Wareneingang">
+                     <idLOC position="2146" id="1" TYPE="STRINGA" LENGTH="3">LOC</idLOC>
+                     <D_3227 position="2150" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">159</D_3227>
+                     <C_C517 id="3">
+                        <D_3225 position="2154" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="25">Wareneingang</D_3225>
+                     </C_C517>
+                  </S_LOC>
+                  <G_SG8>
+                     <S_RFF segcnt="82" segvalue="RFF+VA:Steuernummer vom Emfpaengerwerk">
+                        <idRFF position="2167" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                        <C_C506 id="2">
+                           <D_1153 position="2171" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">VA</D_1153>
+                           <D_1154 position="2174" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Steuernummer vom Emfpaengerwerk</D_1154>
+                        </C_C506>
+                     </S_RFF>
+                  </G_SG8>
+                  <G_SG10>
+                     <S_CTA segcnt="83" segvalue="CTA+DL+4711:Kontaktperson Emfaengerwerk">
+                        <idCTA position="2206" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                        <D_3139 position="2210" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">DL</D_3139>
+                        <C_C056 id="3">
+                           <D_3413 position="2213" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">4711</D_3413>
+                           <D_3412 position="2218" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Kontaktperson Emfaengerwerk</D_3412>
+                        </C_C056>
+                     </S_CTA>
+                     <S_COM segcnt="84" segvalue="COM+telefon:TE">
+                        <idCOM position="2246" id="1" TYPE="STRINGA" LENGTH="3">COM</idCOM>
+                        <C_C076 id="2">
+                           <D_3148 position="2250" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="512">telefon</D_3148>
+                           <D_3155 position="2258" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">TE</D_3155>
+                        </C_C076>
+                     </S_COM>
+                     <S_COM segcnt="85" segvalue="COM+fax:FX">
+                        <idCOM position="2261" id="1" TYPE="STRINGA" LENGTH="3">COM</idCOM>
+                        <C_C076 id="2">
+                           <D_3148 position="2265" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="512">fax</D_3148>
+                           <D_3155 position="2269" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">FX</D_3155>
+                        </C_C076>
+                     </S_COM>
+                     <S_COM segcnt="86" segvalue="COM+mail:EM">
+                        <idCOM position="2272" id="1" TYPE="STRINGA" LENGTH="3">COM</idCOM>
+                        <C_C076 id="2">
+                           <D_3148 position="2276" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="512">mail</D_3148>
+                           <D_3155 position="2281" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EM</D_3155>
+                        </C_C076>
+                     </S_COM>
+                  </G_SG10>
+                  <G_SG10>
+                     <S_CTA segcnt="87" segvalue="CTA+PD+kuerzel:Kontaktperson im Einkauf ">
+                        <idCTA position="2284" id="1" TYPE="STRINGA" LENGTH="3">CTA</idCTA>
+                        <D_3139 position="2288" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">PD</D_3139>
+                        <C_C056 id="3">
+                           <D_3413 position="2291" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="17">kuerzel</D_3413>
+                           <D_3412 position="2299" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">Kontaktperson im Einkauf </D_3412>
+                        </C_C056>
+                     </S_CTA>
+                  </G_SG10>
+               </G_SG7>
+               <G_SG12>
+                  <S_LIN segcnt="88" segvalue="LIN+1+3+35.5-05626.15B:IN">
+                     <idLIN position="2325" id="1" TYPE="STRINGA" LENGTH="3">LIN</idLIN>
+                     <D_1082 position="2329" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="6">1</D_1082>
+                     <D_1229 position="2331" id="3" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">3</D_1229>
+                     <C_C212 id="4">
+                        <D_7140 position="2333" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">35.5-05626.15B</D_7140>
+                        <D_7143 position="2348" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">IN</D_7143>
+                     </C_C212>
+                  </S_LIN>
+                  <S_PIA segcnt="89" segvalue="PIA+1+B:EC+35.5-05626.15B:SA">
+                     <idPIA position="2351" id="1" TYPE="STRINGA" LENGTH="3">PIA</idPIA>
+                     <D_4347 position="2355" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">1</D_4347>
+                     <C_C212 id="3">
+                        <D_7140 position="2357" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">B</D_7140>
+                        <D_7143 position="2359" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EC</D_7143>
+                     </C_C212>
+                     <C_C212 id="4">
+                        <D_7140 position="2362" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">35.5-05626.15B</D_7140>
+                        <D_7143 position="2377" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">SA</D_7143>
+                     </C_C212>
+                  </S_PIA>
+                  <S_IMD segcnt="90" segvalue="IMD+F++:::Holzschreibe klein">
+                     <idIMD position="2380" id="1" TYPE="STRINGA" LENGTH="3">IMD</idIMD>
+                     <D_7077 position="2384" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">F</D_7077>
+                     <C_C273 id="4">
+                        <D_7008 position="2390" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="256">Holzschreibe klein</D_7008>
+                     </C_C273>
+                  </S_IMD>
+                  <S_MEA segcnt="91" segvalue="MEA+AAX+AAF+KGM:408">
+                     <idMEA position="2409" id="1" TYPE="STRINGA" LENGTH="3">MEA</idMEA>
+                     <D_6311 position="2413" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAX</D_6311>
+                     <C_C502 id="3">
+                        <D_6313 position="2417" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAF</D_6313>
+                     </C_C502>
+                     <C_C174 id="4">
+                        <D_6411 position="2421" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">KGM</D_6411>
+                        <D_6314 position="2425" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="18">408</D_6314>
+                     </C_C174>
+                  </S_MEA>
+                  <S_ALI segcnt="92" segvalue="ALI+++U">
+                     <idALI position="2429" id="1" TYPE="STRINGA" LENGTH="3">ALI</idALI>
+                     <D_4183 position="2435" id="4" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">U</D_4183>
+                  </S_ALI>
+                  <G_SG13>
+                     <S_RFF segcnt="93" segvalue="RFF+AAN:206">
+                        <idRFF position="2437" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                        <C_C506 id="2">
+                           <D_1153 position="2441" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAN</D_1153>
+                           <D_1154 position="2445" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">206</D_1154>
+                        </C_C506>
+                     </S_RFF>
+                     <S_DTM segcnt="94" segvalue="DTM+137:20101115:102">
+                        <idDTM position="2449" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                        <C_C507 id="2">
+                           <D_2005 position="2453" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">137</D_2005>
+                           <D_2380 position="2457" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101115</D_2380>
+                           <D_2379 position="2466" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                        </C_C507>
+                     </S_DTM>
+                  </G_SG13>
+                  <G_SG13>
+                     <S_RFF segcnt="95" segvalue="RFF+AIF:205">
+                        <idRFF position="2470" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                        <C_C506 id="2">
+                           <D_1153 position="2474" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AIF</D_1153>
+                           <D_1154 position="2478" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">205</D_1154>
+                        </C_C506>
+                     </S_RFF>
+                     <S_DTM segcnt="96" segvalue="DTM+137:20101112:102">
+                        <idDTM position="2482" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                        <C_C507 id="2">
+                           <D_2005 position="2486" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">137</D_2005>
+                           <D_2380 position="2490" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101112</D_2380>
+                           <D_2379 position="2499" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                        </C_C507>
+                     </S_DTM>
+                  </G_SG13>
+                  <G_SG13>
+                     <S_RFF segcnt="97" segvalue="RFF+ON:1293:1">
+                        <idRFF position="2503" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                        <C_C506 id="2">
+                           <D_1153 position="2507" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">ON</D_1153>
+                           <D_1154 position="2510" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">1293</D_1154>
+                           <D_1156 position="2515" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="6">1</D_1156>
+                        </C_C506>
+                     </S_RFF>
+                  </G_SG13>
+                  <G_SG15>
+                     <S_QTY segcnt="98" segvalue="QTY+48:10:EA">
+                        <idQTY position="2517" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                        <C_C186 id="2">
+                           <D_6063 position="2521" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">48</D_6063>
+                           <D_6060 position="2524" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">10</D_6060>
+                           <D_6411 position="2527" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                        </C_C186>
+                     </S_QTY>
+                     <G_SG16>
+                        <S_RFF segcnt="99" segvalue="RFF+AAU:20103615">
+                           <idRFF position="2530" id="1" TYPE="STRINGA" LENGTH="3">RFF</idRFF>
+                           <C_C506 id="2">
+                              <D_1153 position="2534" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAU</D_1153>
+                              <D_1154 position="2538" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20103615</D_1154>
+                           </C_C506>
+                        </S_RFF>
+                        <S_DTM segcnt="100" segvalue="DTM+137:20100910:102">
+                           <idDTM position="2547" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                           <C_C507 id="2">
+                              <D_2005 position="2551" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">137</D_2005>
+                              <D_2380 position="2555" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20100910</D_2380>
+                              <D_2379 position="2564" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                           </C_C507>
+                        </S_DTM>
+                     </G_SG16>
+                  </G_SG15>
+                  <G_SG15>
+                     <S_QTY segcnt="101" segvalue="QTY+70:13104:EA">
+                        <idQTY position="2568" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                        <C_C186 id="2">
+                           <D_6063 position="2572" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">70</D_6063>
+                           <D_6060 position="2575" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">13104</D_6060>
+                           <D_6411 position="2581" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                        </C_C186>
+                     </S_QTY>
+                     <S_DTM segcnt="102" segvalue="DTM+51:20000101:102">
+                        <idDTM position="2584" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                        <C_C507 id="2">
+                           <D_2005 position="2588" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">51</D_2005>
+                           <D_2380 position="2591" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20000101</D_2380>
+                           <D_2379 position="2600" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                        </C_C507>
+                     </S_DTM>
+                  </G_SG15>
+                  <G_SG15>
+                     <S_QTY segcnt="103" segvalue="QTY+4:0:EA">
+                        <idQTY position="2604" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                        <C_C186 id="2">
+                           <D_6063 position="2608" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">4</D_6063>
+                           <D_6060 position="2610" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">0</D_6060>
+                           <D_6411 position="2612" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                        </C_C186>
+                     </S_QTY>
+                  </G_SG15>
+                  <G_SG17>
+                     <S_SCC segcnt="104" segvalue="SCC+1">
+                        <idSCC position="2615" id="1" TYPE="STRINGA" LENGTH="3">SCC</idSCC>
+                        <D_4017 position="2619" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">1</D_4017>
+                     </S_SCC>
+                     <G_SG18>
+                        <S_QTY segcnt="105" segvalue="QTY+113:0:EA">
+                           <idQTY position="2621" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                           <C_C186 id="2">
+                              <D_6063 position="2625" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">113</D_6063>
+                              <D_6060 position="2629" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">0</D_6060>
+                              <D_6411 position="2631" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                           </C_C186>
+                        </S_QTY>
+                        <S_DTM segcnt="106" segvalue="DTM+64:20101111:102">
+                           <idDTM position="2634" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                           <C_C507 id="2">
+                              <D_2005 position="2638" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">64</D_2005>
+                              <D_2380 position="2641" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101111</D_2380>
+                              <D_2379 position="2650" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                           </C_C507>
+                        </S_DTM>
+                     </G_SG18>
+                  </G_SG17>
+                  <G_SG17>
+                     <S_SCC segcnt="107" segvalue="SCC+1">
+                        <idSCC position="2654" id="1" TYPE="STRINGA" LENGTH="3">SCC</idSCC>
+                        <D_4017 position="2658" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">1</D_4017>
+                     </S_SCC>
+                     <G_SG18>
+                        <S_QTY segcnt="108" segvalue="QTY+113:4:EA">
+                           <idQTY position="2660" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                           <C_C186 id="2">
+                              <D_6063 position="2664" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">113</D_6063>
+                              <D_6060 position="2668" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">4</D_6060>
+                              <D_6411 position="2670" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                           </C_C186>
+                        </S_QTY>
+                        <S_DTM segcnt="109" segvalue="DTM+64:20101112:102">
+                           <idDTM position="2673" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                           <C_C507 id="2">
+                              <D_2005 position="2677" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">64</D_2005>
+                              <D_2380 position="2680" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101112</D_2380>
+                              <D_2379 position="2689" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                           </C_C507>
+                        </S_DTM>
+                     </G_SG18>
+                  </G_SG17>
+                  <G_SG17>
+                     <S_SCC segcnt="110" segvalue="SCC+2">
+                        <idSCC position="2693" id="1" TYPE="STRINGA" LENGTH="3">SCC</idSCC>
+                        <D_4017 position="2697" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">2</D_4017>
+                     </S_SCC>
+                     <G_SG18>
+                        <S_QTY segcnt="111" segvalue="QTY+66:0:EA">
+                           <idQTY position="2699" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                           <C_C186 id="2">
+                              <D_6063 position="2703" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">66</D_6063>
+                              <D_6060 position="2706" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">0</D_6060>
+                              <D_6411 position="2708" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                           </C_C186>
+                        </S_QTY>
+                        <S_DTM segcnt="112" segvalue="DTM+161:20101215:102">
+                           <idDTM position="2711" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                           <C_C507 id="2">
+                              <D_2005 position="2715" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">161</D_2005>
+                              <D_2380 position="2719" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20101215</D_2380>
+                              <D_2379 position="2728" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                           </C_C507>
+                        </S_DTM>
+                     </G_SG18>
+                  </G_SG17>
+                  <G_SG17>
+                     <S_SCC segcnt="113" segvalue="SCC+3">
+                        <idSCC position="2732" id="1" TYPE="STRINGA" LENGTH="3">SCC</idSCC>
+                        <D_4017 position="2736" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">3</D_4017>
+                     </S_SCC>
+                     <G_SG18>
+                        <S_QTY segcnt="114" segvalue="QTY+66:0:EA">
+                           <idQTY position="2738" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                           <C_C186 id="2">
+                              <D_6063 position="2742" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">66</D_6063>
+                              <D_6060 position="2745" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">0</D_6060>
+                              <D_6411 position="2747" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                           </C_C186>
+                        </S_QTY>
+                        <S_DTM segcnt="115" segvalue="DTM+161:20110114:102">
+                           <idDTM position="2750" id="1" TYPE="STRINGA" LENGTH="3">DTM</idDTM>
+                           <C_C507 id="2">
+                              <D_2005 position="2754" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">161</D_2005>
+                              <D_2380 position="2758" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">20110114</D_2380>
+                              <D_2379 position="2767" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">102</D_2379>
+                           </C_C507>
+                        </S_DTM>
+                     </G_SG18>
+                  </G_SG17>
+                  <G_SG17>
+                     <S_SCC segcnt="116" segvalue="SCC+10">
+                        <idSCC position="2771" id="1" TYPE="STRINGA" LENGTH="3">SCC</idSCC>
+                        <D_4017 position="2775" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">10</D_4017>
+                     </S_SCC>
+                     <G_SG18>
+                        <S_QTY segcnt="117" segvalue="QTY+113:0:EA">
+                           <idQTY position="2778" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                           <C_C186 id="2">
+                              <D_6063 position="2782" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">113</D_6063>
+                              <D_6060 position="2786" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">0</D_6060>
+                              <D_6411 position="2788" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                           </C_C186>
+                        </S_QTY>
+                     </G_SG18>
+                  </G_SG17>
+                  <G_SG20>
+                     <S_PAC segcnt="118" segvalue="PAC+1+1+:::3100419">
+                        <idPAC position="2791" id="1" TYPE="STRINGA" LENGTH="3">PAC</idPAC>
+                        <D_7224 position="2795" id="2" TYPE="NSTRINGA" MINLENGTH="0" MAXLENGTH="8">1</D_7224>
+                        <C_C531 id="3">
+                           <D_7075 position="2797" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">1</D_7075>
+                        </C_C531>
+                        <C_C202 id="4">
+                           <D_7064 position="2802" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">3100419</D_7064>
+                        </C_C202>
+                     </S_PAC>
+                     <S_MEA segcnt="119" segvalue="MEA+AAY+AAD+KGM:85">
+                        <idMEA position="2810" id="1" TYPE="STRINGA" LENGTH="3">MEA</idMEA>
+                        <D_6311 position="2814" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAY</D_6311>
+                        <C_C502 id="3">
+                           <D_6313 position="2818" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">AAD</D_6313>
+                        </C_C502>
+                        <C_C174 id="4">
+                           <D_6411 position="2822" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">KGM</D_6411>
+                           <D_6314 position="2826" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="18">85</D_6314>
+                        </C_C174>
+                     </S_MEA>
+                     <S_QTY segcnt="120" segvalue="QTY+52:1:EA">
+                        <idQTY position="2829" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                        <C_C186 id="2">
+                           <D_6063 position="2833" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">52</D_6063>
+                           <D_6060 position="2836" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">1</D_6060>
+                           <D_6411 position="2838" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">EA</D_6411>
+                        </C_C186>
+                     </S_QTY>
+                     <S_QTY segcnt="121" segvalue="QTY+189:9999">
+                        <idQTY position="2841" id="1" TYPE="STRINGA" LENGTH="3">QTY</idQTY>
+                        <C_C186 id="2">
+                           <D_6063 position="2845" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="3">189</D_6063>
+                           <D_6060 position="2849" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="35">9999</D_6060>
+                        </C_C186>
+                     </S_QTY>
+                  </G_SG20>
+               </G_SG12>
+            </G_SG6>
+            <S_UNT segcnt="122" segvalue="UNT+60+1">
+               <idUNT position="2854" id="1" TYPE="STRINGA" LENGTH="3">UNT</idUNT>
+               <D_0074 position="2858" id="2" TYPE="NSTRINGA" MINLENGTH="0" MAXLENGTH="6">60</D_0074>
+               <D_0062 position="2861" id="3" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="14">1</D_0062>
+            </S_UNT>
+         </G_SG0>
+         <S_UNZ segcnt="123" segvalue="UNZ+2+0">
+            <idUNZ position="2863" id="1" TYPE="STRINGA" LENGTH="3">UNZ</idUNZ>
+            <D_0036 position="2867" id="2" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="6">2</D_0036>
+            <D_0020 position="2869" id="3" TYPE="STRINGA" MINLENGTH="0" MAXLENGTH="14">0</D_0020>
+         </S_UNZ>
+      </M_DELFOR_D99B>
+   </write-input-to-output>
+   <svrl:active-pattern id="validateDate" name="validateDate"/>
+   <svrl:active-pattern id="LengthError" name="LengthError"/>
+   <svrl:active-pattern id="HeadAndFoot" name="HeadAndFoot"/>
+   <svrl:failed-assert test="not(.)" location="/M_DELFOR_D99B[1]/G_SG0[2]">
+      <svrl:text>Fehler bei UNH: Zu viele Wiederholungen</svrl:text>
+   </svrl:failed-assert>
+   <svrl:active-pattern id="NameAndAddressContent" name="NameAndAddressContent"/>
+   <svrl:active-pattern id="NameAndAddressExist" name="NameAndAddressExist"/>
+   <svrl:active-pattern id="S_GIS" name="S_GIS"/>
+   <svrl:active-pattern id="S_LIN" name="S_LIN"/>
+   <svrl:active-pattern id="S_PIA" name="S_PIA"/>
+   <svrl:active-pattern id="S_IMD" name="S_IMD"/>
+   <svrl:active-pattern id="S_MEA" name="S_MEA"/>
+   <svrl:active-pattern id="S_ALI" name="S_ALI"/>
+   <svrl:active-pattern id="S_FTX" name="S_FTX"/>
+   <svrl:active-pattern id="S_DTM" name="S_DTM"/>
+   <iso:extends xmlns:XmlTransform="java:de.actis.converter.xml.xsltextensions.XsltExtensions" rule="S_DTM_Proof"/>
+   <iso:extends xmlns:XmlTransform="java:de.actis.converter.xml.xsltextensions.XsltExtensions" rule="S_DTM_Proof"/>
+   <svrl:active-pattern id="S_RFF" name="S_RFF"/>
+   <svrl:active-pattern id="S_QTY" name="S_QTY"/>
+   <svrl:active-pattern id="S_SCC" name="S_SCC"/>
+   <svrl:active-pattern id="S_PAC" name="S_PAC"/>
+</svrl:schematron-output>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simulationSuiteModel project="lae99b_proof">
+    <simulationSuiteElement simulationName="Test existenz" project="lae99b_proof" output="testdata/test_existenz.out.tst" input="testdata/test_existenz.tst" engine="0" isCompareFile="false">
+        <status>-1</status>
+        <topIndexOfOutputLog>0</topIndexOfOutputLog>
+        <topIndexOfTraceOutput>0</topIndexOfTraceOutput>
+    </simulationSuiteElement>
+    <simulationSuiteElement simulationName="Test_falsch" project="lae99b_proof" output="testdata/test_falscherwert.out.tst" input="testdata/test_falscherwert.tst" engine="0" isCompareFile="false">
+        <status>-1</status>
+        <topIndexOfOutputLog>0</topIndexOfOutputLog>
+        <topIndexOfTraceOutput>0</topIndexOfTraceOutput>
+    </simulationSuiteElement>
+    <simulationSuiteElement simulationName="Test repetition" project="lae99b_proof" output="testdata/test_repetition.out.tst" input="testdata/test_repetition.tst" engine="0" isCompareFile="false">
+        <status>-1</status>
+        <topIndexOfOutputLog>0</topIndexOfOutputLog>
+        <topIndexOfTraceOutput>0</topIndexOfTraceOutput>
+    </simulationSuiteElement>
+    <simulationSuiteElement simulationName="Test3" project="lae99b_proof" output="testdata/test_ok.out.tst" input="testdata/test_ok.tst" engine="0" isCompareFile="false">
+        <status>-1</status>
+        <topIndexOfOutputLog>0</topIndexOfOutputLog>
+        <topIndexOfTraceOutput>0</topIndexOfTraceOutput>
+    </simulationSuiteElement>
+    <simulationSuiteElement simulationName="Test4" project="lae99b_proof" output="testdata/test2_ok.out.tst" input="testdata/test2_ok.tst" engine="0" isCompareFile="false">
+        <status>-1</status>
+        <topIndexOfOutputLog>0</topIndexOfOutputLog>
+        <topIndexOfTraceOutput>0</topIndexOfTraceOutput>
+    </simulationSuiteElement>
+    <simulationSuiteElement simulationName="Test5" project="lae99b_proof" output="testdata/test3_ok.out.tst" input="testdata/test3_ok.tst" engine="0" isCompareFile="false">
+        <status>-1</status>
+        <topIndexOfOutputLog>0</topIndexOfOutputLog>
+        <topIndexOfTraceOutput>0</topIndexOfTraceOutput>
+    </simulationSuiteElement>
+</simulationSuiteModel>

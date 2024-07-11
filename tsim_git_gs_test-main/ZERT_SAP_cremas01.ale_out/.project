@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>ZERT_SAP_cremas01.ale_out</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>de.actis.bom.core.nature</nature>
+	</natures>
+</projectDescription>
